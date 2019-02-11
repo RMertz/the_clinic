@@ -1,6 +1,6 @@
 <?php
 include('php/session.php');
-$sql = "SELECT DoctorID FROM Doctor Information WHERE username = '$myusername' and password = '$mypassword'";
+$docID = mysqli_query($db,"SELECT DoctorID FROM `Doctor Information` WHERE username = '$user_check'");
 ?>
 <html">
 
@@ -14,17 +14,14 @@ $sql = "SELECT DoctorID FROM Doctor Information WHERE username = '$myusername' a
 <div id="header">
     <h1>
         <br>
-        <img src="images/hospitalLogo.jpg" alt="Hospital Logo" >
-        Help
+        Welcome <?php echo $login_session; ?>
     </h1>
 
     <div id="navBar">
-        <a href="index.html">HOME PAGE</a>
-        <a href="profile.html">PROFILE</a>
-        <a href="patientPage.html">PATIENTS</a>
-        <a href="help.html">HELP</a>
+        <a href="patientList.php">Your Patients</a>
+        <a href = "php/logout.php">Sign Out</a>
     </div>
-<h1>Welcome <?php echo $login_session; ?></h1>
+
 <h2><a href = "php/logout.php">Sign Out</a></h2>
 </body>
 

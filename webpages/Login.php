@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $mypassword = mysqli_real_escape_string($db,$_POST['password']);
 
 
-    $sql = "SELECT id FROM admin WHERE username = '$myusername' and password = '$mypassword'";
+    $sql = "SELECT `doctorID`, `patientID`, `username`, `password`, `lastname`, `firstname` FROM `Doctor Information` WHERE  username = '$myusername' and password = '$mypassword'";
     $result = mysqli_query($db,$sql);
     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
     $active = $row['active'];
@@ -54,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="profile.html">PROFILE</a>
             <a href="patientPage.html">PATIENTS</a>
             <a href="help.html">HELP</a>
-            <a href="Login.php">Login</a>
+            <a href="Login.php"></a>
         </div>
     <div/>
 
