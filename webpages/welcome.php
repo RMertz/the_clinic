@@ -1,5 +1,5 @@
 <?php
-include('session.php');
+include('php/session.php');
 ?>
 <html">
 
@@ -9,7 +9,7 @@ include('session.php');
 
 <body>
 <h1>Welcome <?php echo $login_session; ?></h1>
-<h2><a href = "logout.php">Sign Out</a></h2>
+<h2><a href = "php/logout.php">Sign Out</a></h2>
 </body>
 
 </html>
