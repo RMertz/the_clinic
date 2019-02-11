@@ -1,5 +1,2 @@
 language: php
 
-rvm: 
-        -7.2
-        
