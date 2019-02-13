@@ -3,5 +3,4 @@ language: php
 php:
         - 7.2.10
 
-script: vendor/bin/phpunit 
-
+script: phpunit "/webpages/phpTests/loginTest.php"
