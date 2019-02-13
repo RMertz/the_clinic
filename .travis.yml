@@ -2,5 +2,8 @@ language: php
 
 php:
         - 7.2.10
+before_script:
+        - curl -s http://getcomposer.org/installer | php
+        - php composer.phar install
 
-script: phpunit "/webpages/phpTests/loginTest.php"
+script: vendor/bin/phpunit --debug
