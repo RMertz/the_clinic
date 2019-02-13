@@ -3,3 +3,5 @@ language: php
 php:
         - 7.2.10
 
+script: /webpages/php_tests/.login_test.php
+
