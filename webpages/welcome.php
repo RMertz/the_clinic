@@ -1,8 +1,12 @@
 <?php
 include('php/session.php');
-$docID = mysqli_query($db,"SELECT DoctorID FROM `Doctor Information` WHERE username = '$user_check'");
+$docID = $db->prepare("SELECT firstname FROM `Doctor Information` WHERE username = :user_check");
+$docID->bindParam(":user_check", $user_check);
+$docID->execute();
+$row = $docID->fetch();
+$login_session = $row['firstname'];
 ?>
-<html">
+<html>
 
 <head>
     <title>Welcome </title>
@@ -21,8 +25,6 @@ $docID = mysqli_query($db,"SELECT DoctorID FROM `Doctor Information` WHERE usern
         <a href="patientList.php">Your Patients</a>
         <a href = "php/logout.php">Sign Out</a>
     </div>
-
-<h2><a href = "php/logout.php">Sign Out</a></h2>
 </body>
 
 </html>
