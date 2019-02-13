@@ -3,6 +3,9 @@ language: php
 php:
         - 7.2.10
 
+install: php vendor/vendors.php
+
 before_script:
         - composer install
+       
 script: phpunit --debug loginTest /webpages/phpTests/loginTest.php
