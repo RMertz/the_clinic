@@ -1,10 +1,9 @@
 <?php
 use PHPUnit\Framework\TestCase;
-
-class LoginTest extends TestCase{
-
-	public function test_travis(){
-		
-		return 0;
-	}
-}
+class OutputTest extends TestCase
+{
+ public function testExpectFooActualFoo()
+ {
+ $this->expectOutputString('foo');
+ print 'foo';
+ }
