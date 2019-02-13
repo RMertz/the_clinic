@@ -3,4 +3,7 @@ language: php
 php:
         - 7.2.10
 
+before_script:
+        - composer install
+
 script: ./vendor/bin/phpunit 
