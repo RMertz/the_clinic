@@ -1,0 +1,5 @@
+{
+	"require": {
+		"php/php": "PHP 7.2.10"
+	}
+}
