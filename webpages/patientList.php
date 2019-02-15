@@ -11,9 +11,9 @@ $patients->bindParam(":doc_ID", $docID);
 $patients->execute();
 $patientLi = $patients->fetchAll();
 //echo $patientLi['LastName'];
-foreach ($patientLi as $val){
+/*foreach ($patientLi as $val){
     echo $val['FirstName'] . " " . $val['LastName'] . "\n";
-}
+}*/
 
 ?>
 
@@ -38,13 +38,10 @@ foreach ($patientLi as $val){
     </div>
 
     <div class="content">
-        <h2>
-            About This App
-        </h2>
         <li>
             <?php
                 foreach ($patientLi as $val){
-                    echo "<a href = 'genericPage.php?id=".$val['PatientID']."'>".$val['FirstName']." ".$val['LastName'] . "</a>";
+                    echo "<a href = 'patientHome.php?id=".$val['PatientID']."'>".$val['FirstName']." ".$val['LastName'] . "</a>";
                 }
             ?>
         </li>
@@ -53,5 +50,10 @@ foreach ($patientLi as $val){
         </ul>
     </div>
 </body>
+<footer>
+    <h4>
+        About This App
+    </h4>
+</footer>
 
 </html>
