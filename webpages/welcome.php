@@ -25,6 +25,14 @@ $login_session = $row['firstname'];
         <a href="patientList.php">Your Patients</a>
         <a href = "php/logout.php">Sign Out</a>
     </div>
+    <h2>
+        Welcome <?php echo $login_session; ?>
+    </h2>
+    <p textalign="center">
+        Click "Your Patients to begin"
+    </p>
+
+</div>
 </body>
 
 </html>

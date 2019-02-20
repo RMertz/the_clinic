@@ -30,7 +30,8 @@ include('../php/session.php');
         <a href="depDiag.php">Depression PHQ</a>
         <a href = "../php/logout.php">Sign Out</a>
     </div>
-    <div class="">
+
+    <div class="row">
         <div class="content">
             <h2 >
                 Initial Step:
@@ -50,7 +51,7 @@ include('../php/session.php');
 
 <footer>
     <h4>
-        About This App
+        <a href="https://github.com/RMertz/the_clinic">About This App</a>
     </h4>
 </footer>
 

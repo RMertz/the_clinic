@@ -32,9 +32,8 @@ $patientInfo = $patients->fetch();
         <a href = "php/logout.php">Sign Out</a>
     </div>
 <div class="">
-    <div class="content" align="left">
-        <h2 style="text-align: left;
-    padding: 0;">
+    <div class="content" >
+        <h2 >
             Patient Info:
         </h2>
         <h3>
@@ -60,17 +59,13 @@ $patientInfo = $patients->fetch();
 
         </ul>
     </div>
-    <div class="right" align="">
-        <p>
-            test
-        </p>
-    </div>
+
 </div>
 </body>
 
 <footer>
     <h4>
-        About This App
+        <a href="https://github.com/RMertz/the_clinic">About This App</a>
     </h4>
 </footer>
 

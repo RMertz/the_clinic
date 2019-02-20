@@ -38,6 +38,9 @@ $patientLi = $patients->fetchAll();
     </div>
 
     <div class="content">
+        <h2>
+            Select a patient to View Info
+        </h2>
         <li>
             <?php
                 foreach ($patientLi as $val){
@@ -52,7 +55,7 @@ $patientLi = $patients->fetchAll();
 </body>
 <footer>
     <h4>
-        About This App
+        <a href="https://github.com/RMertz/the_clinic">About This App</a>
     </h4>
 </footer>
 
