@@ -68,9 +68,15 @@ a {
 	padding-right: 14.5%;
 	width: 10%;
 }
-.column {
+.column3 {
 	float: left;
 	width: 33.33%;
+	text-align: center;
+}
+
+.column2 {
+	float: left;
+	width: 50%;
 	text-align: center;
 }
 
@@ -79,4 +85,9 @@ a {
 	content: "";
 	display: table;
 	clear: both;
+}
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
 }

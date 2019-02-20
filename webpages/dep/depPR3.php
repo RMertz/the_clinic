@@ -32,7 +32,7 @@ include('../php/session.php');
     </div>
 </div>
 <div class="row" >
-    <div class="column">
+    <div class="column3">
         <h2 >
             If Non-response:
         </h2>
@@ -46,7 +46,7 @@ include('../php/session.php');
             Stub
         </p>
     </div>
-    <div class="column">
+    <div class="column3">
         <h2 >
             If Partial Response:
         </h2>
@@ -61,7 +61,7 @@ include('../php/session.php');
         </p>
 
     </div>
-    <div class="column">
+    <div class="column3">
         <h2 >
             If Full response:
         </h2>
