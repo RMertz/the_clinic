@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1>
         <br>
         <?php
-        echo "Depression Treatment for 'Insert Name Here'";
+        echo "Depression PHQ for 'Insert Name Here'";
         ?>
     </h1>
 
