@@ -8,14 +8,21 @@ $myusername = " ";
 $myGender = " ";
 $mypassword = " ";
 $q1 = " ";
+$q2 = " ";
+$total = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form
-
-    $myusername = $_POST['username'];
-    $mypassword = $_POST['password'];
-    $myGender = $_POST['gender'];
     $q1 = $_POST['q1'];
+    $q2 = $_POST['q2'];
+    $q3 = $_POST['q3'];
+    $q4 = $_POST['q4'];
+    $q5 = $_POST['q5'];
+    $q6 = $_POST['q6'];
+    $q7 = $_POST['q7'];
+    $q8 = $_POST['q8'];
+    $q9 = $_POST['q9'];
     $error = "Your Login Name or Password is invalid";
+    $total = $q1 + $q2 + $q3 + $q4 + $q5 + $q6 + $q7 + $q8 + $q9;
 
     /*$count = $db->query("SELECT doctorID, username FROM `Doctor Information` WHERE username = '$myusername' and password = '$mypassword'");
 
@@ -75,11 +82,88 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                             <th>3</th>
                         </tr>
                         <tr>
-                            <td>Little interest or plesure in doing things.</td>
-                            <td><input type="radio" name="gender" value="male" checked></td>
-                            <td><input type="radio" name="gender" value="female"></td>
-                            <td><input type="radio" name="gender" value="other"></td>
-                            <td><input type="radio" name="gender" value="other"></td>
+                            <td>1. Little interest or plesure in doing things.</td>
+                            <td><input type="radio" name="q1" value="0" checked></td>
+                            <td><input type="radio" name="q1" value="1"></td>
+                            <td><input type="radio" name="q1" value="2"></td>
+                            <td><input type="radio" name="q1" value="3"></td>
+                        </tr>
+                        <tr>
+                            <td>2. Feeling down, depressed or hopeless.</td>
+                            <td><input type="radio" name="q2" value="0" checked></td>
+                            <td><input type="radio" name="q2" value="1"></td>
+                            <td><input type="radio" name="q2" value="2"></td>
+                            <td><input type="radio" name="q2" value="3"></td>
+                        </tr>
+                        <tr>
+                            <td>3. Trouble falling asleep, staying asleep or sleeping too much.</td>
+                            <td><input type="radio" name="q3" value="0" checked></td>
+                            <td><input type="radio" name="q3" value="1"></td>
+                            <td><input type="radio" name="q3" value="2"></td>
+                            <td><input type="radio" name="q3" value="3"></td>
+                        </tr>
+                        <tr>
+                            <td>4. Feeling tired or	having little energy</td>
+                            <td><input type="radio" name="q4" value="0" checked></td>
+                            <td><input type="radio" name="q4" value="1"></td>
+                            <td><input type="radio" name="q4" value="2"></td>
+                            <td><input type="radio" name="q4" value="3"></td>
+                        </tr>
+                        <tr>
+                            <td>5. Poor appetite or overeating</td>
+                            <td><input type="radio" name="q5" value="0" checked></td>
+                            <td><input type="radio" name="q5" value="1"></td>
+                            <td><input type="radio" name="q5" value="2"></td>
+                            <td><input type="radio" name="q5" value="3"></td>
+                        </tr>
+                        <tr>
+                            <td>6. Feeling bad about yourself - or that you are a failure - or have let yourself or your family down.</td>
+                            <td><input type="radio" name="q6" value="0" checked></td>
+                            <td><input type="radio" name="q6" value="1"></td>
+                            <td><input type="radio" name="q6" value="2"></td>
+                            <td><input type="radio" name="q6" value="3"></td>
+                        </tr>
+                        <tr>
+                            <td>7. Trouble concentrating on things such as reading the newspaper or watching TV.</td>
+                            <td><input type="radio" name="q7" value="0" checked></td>
+                            <td><input type="radio" name="q7" value="1"></td>
+                            <td><input type="radio" name="q7" value="2"></td>
+                            <td><input type="radio" name="q7" value="3"></td>
+                        </tr>
+                        <tr>
+                            <td>8. Moving or speaking so slowly that other people could not have noticed. Or, the opposite - being so fidgety or restless that you have been moving around a lot more than usual.</td>
+                            <td><input type="radio" name="q8" value="0" checked></td>
+                            <td><input type="radio" name="q8" value="1"></td>
+                            <td><input type="radio" name="q8" value="2"></td>
+                            <td><input type="radio" name="q8" value="3"></td>
+                        </tr>
+                        <tr>
+                            <td>9. Thought that you would be better off being dead or hurting yourself in some way.</td>
+                            <td><input type="radio" name="q9" value="0" checked></td>
+                            <td><input type="radio" name="q9" value="1"></td>
+                            <td><input type="radio" name="q9" value="2"></td>
+                            <td><input type="radio" name="q9" value="3"></td>
+                        </tr>
+                        <tr>
+                            <td><br/></td>
+                            <td><br/></td>
+                            <td><br/></td>
+                            <td><br/></td>
+                            <td><br/></td>
+                        </tr>
+                        <tr>
+                            <td><br/></td>
+                            <td>Not difficult at all</td>
+                            <td>Somewhat difficult</td>
+                            <td>Very difficult</td>
+                            <td>Extremely difficult</td>
+                        </tr>
+                        <tr>
+                            <td>10. If you checked off any problems, how difficult have those problems made it for you to do your work, take car of things at home, or get along with other people?</td>
+                            <td><input type="radio" name="q10" value="0" checked></td>
+                            <td><input type="radio" name="q10" value="1"></td>
+                            <td><input type="radio" name="q10" value="2"></td>
+                            <td><input type="radio" name="q10" value="3"></td>
                         </tr>
                     </table><br/><br/>
 
@@ -87,10 +171,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type = "submit" value = " Submit PHQ "/><br />
                 </form>
 
-                <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-
-                <div><?php echo $q1;
-                    echo $myGender;
+                <div><?php
+                    echo $total;
                     ?></div>
             </div>
         </div>
