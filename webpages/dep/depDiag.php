@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <title><?php
-        echo "Depression Treatment";
+        echo "Depression PHQ";
         ?></title>
     <link rel="stylesheet" href="../css/global.css" type="text/css">
     <link rel="stylesheet" href="../css/indexHome.css" type="text/css">
