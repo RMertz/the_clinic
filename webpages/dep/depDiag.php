@@ -10,6 +10,7 @@ $mypassword = " ";
 $q1 = " ";
 $q2 = " ";
 $total = " ";
+$q10 = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form
     $q1 = $_POST['q1'];
@@ -21,6 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $q7 = $_POST['q7'];
     $q8 = $_POST['q8'];
     $q9 = $_POST['q9'];
+    $q10 = $_POST['q10'];
     $error = "Your Login Name or Password is invalid";
     $total = $q1 + $q2 + $q3 + $q4 + $q5 + $q6 + $q7 + $q8 + $q9;
 
@@ -60,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div id="navBar">
         <a href="../welcome.php">Home</a>
         <a href="../patientList.php">Your Patients</a>
-        <a href="depHome.php">Depression Treatment</a>
+        <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a href="depDiag.php">Depression PHQ</a>
         <a href = "../php/logout.php">Sign Out</a>
     </div>
@@ -144,27 +146,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                             <td><input type="radio" name="q9" value="2"></td>
                             <td><input type="radio" name="q9" value="3"></td>
                         </tr>
-                        <tr>
-                            <td><br/></td>
-                            <td><br/></td>
-                            <td><br/></td>
-                            <td><br/></td>
-                            <td><br/></td>
-                        </tr>
-                        <tr>
-                            <td><br/></td>
-                            <td>Not difficult at all</td>
-                            <td>Somewhat difficult</td>
-                            <td>Very difficult</td>
-                            <td>Extremely difficult</td>
-                        </tr>
-                        <tr>
-                            <td>10. If you checked off any problems, how difficult have those problems made it for you to do your work, take car of things at home, or get along with other people?</td>
-                            <td><input type="radio" name="q10" value="0" checked></td>
-                            <td><input type="radio" name="q10" value="1"></td>
-                            <td><input type="radio" name="q10" value="2"></td>
-                            <td><input type="radio" name="q10" value="3"></td>
-                        </tr>
+                    </table><br/><br/>
+                        <table style="width:100%">
+                            <tr>
+                                <th></th>
+                                <th>Not difficult at all</th>
+                                <th>Somewhat difficult</th>
+                                <th>Very difficult</th>
+                                <th>Extremely difficult</th>
+                            </tr>
+                            <tr>
+                                <td>10. If you checked off any problems, how difficult have those problems made it for you to do your work, take car of things at home, or get along with other people?</td>
+                                <td><input type="radio" name="q10" value="Not difficult at all" checked></td>
+                                <td><input type="radio" name="q10" value="Somewhat difficult"></td>
+                                <td><input type="radio" name="q10" value="Very difficult"></td>
+                                <td><input type="radio" name="q10" value="Extremely difficult"></td>
+                            </tr>
                     </table><br/><br/>
 
 
@@ -173,6 +170,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div><?php
                     echo $total;
+                    echo $q10;
                     ?></div>
             </div>
         </div>

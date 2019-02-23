@@ -28,7 +28,7 @@ $patientInfo = $patients->fetch();
     <div id="navBar">
         <a href="welcome.php">Home</a>
         <a href="patientList.php">Your Patients</a>
-        <a href="dep/depHome.php">Depression Treatment</a>
+        <a href = <?php echo "dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a href = "php/logout.php">Sign Out</a>
     </div>
 <div class="">

@@ -26,7 +26,7 @@ include('../php/session.php');
     <div id="navBar">
         <a href="../welcome.php">Home</a>
         <a href="../patientList.php">Your Patients</a>
-        <a href="depHome.php">Depression Treatment</a>
+        <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a href="depDiag.php">Depression PHQ</a>
         <a href = "../php/logout.php">Sign Out</a>
     </div>
