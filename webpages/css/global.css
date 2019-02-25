@@ -1,6 +1,12 @@
+html, body{
+	height: 100%;
+}
+
 body {
+	display: flex;
+	flex-direction: column;
 	float: middle;
-	background-color: #AEE8FF;
+	background-color: #add8e6;
 	max-width: 100%;
 }
 
@@ -8,6 +14,7 @@ h1 {
 	font-family: Sans-Serif;
     text-align: left;
 	font-size: 60px;
+	padding-top: 34px;
 }
 
 h2	{
@@ -35,36 +42,103 @@ a {
 	font-family: sans-serif;
 }
 
-#navBar{
+a:hover{
+	color: blue;
+	
+}
+
+.header {
+	height: 10%;
+	vertical-align: text-bottom;
+	background-color: #999999;
+	height: 24%;
+	width: 100%;
+	padding-left: 4%;
+	padding-right: 6%;
+	text-align: center;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.column {
+	float: left;
+	padding: 10px;
+}
+
+.left {
+	float: left;
+	width: 320px;
+}
+
+.right {
+	float: right;
+	width: calc(100% - 360px);
+	overflow: hidden;
+}
+
+.headerRow:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.navBar{
+	overflow: hidden;
+	background-color: #333;
 	border: 2px clear #000000;
 	padding: 1%;
 	Text-align: left;
 	color: #D3D3D3;
 	width: 100%;
 	margin-bottom: 15px;
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
-#header {
-	height: 180px;
-	vertical-align: text-bottom;
-	width: 90%;
-
-	padding-left: 4%;
-	padding-right: 6%;
+.navBar a {
+	color: white;
+	float: left;
+	display: block;
 	text-align: center;
-	margin-bottom: 5%;
-	background-color: #808080;
+	padding: 10px 14px;
+}
+
+.navBar a:hover {
+	background-color: #ddd;
+	color: black;
 }
 
 .content{
-	width: 90%;
+	padding-top: 2%;
+	width: 80%;
 	margin-left: 5%;
 	margin-right: 5%;
+	flex: 1 0 auto;
 }
+
+.footer{
+	padding: 15px;
+	text-align: center;
+	background: #999999;
+	margin-top: 20px;
+	border-top: 3px solid #333;
+	border-bottom: 3px solid #333;
+	flex-shrink: 0;
+}
+
+
 
 #searchBar{
 	border: 2px clear #000000;
 	float: right;
-	padding-right: 14.5%;
+	padding-right: 10%;
+	padding-top: 12px;
 	width: 10%;
 }
+
+
+#headerLogo{
+	
+}
+
+
