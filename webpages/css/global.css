@@ -5,6 +5,7 @@ html, body{
 body {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	float: middle;
 	background-color: #ffffff;
 	max-width: 100%;
@@ -14,7 +15,7 @@ h1 {
 	font-family: Sans-Serif;
     text-align: left;
 	font-size: 60px;
-	padding-top: 34px;
+	padding-top: 45px;
 }
 
 h2	{
@@ -48,18 +49,16 @@ a:hover{
 }
 
 .header {
-	height: 10%;
 	vertical-align: text-bottom;
-	background-color: #999999;
+	background-color: #ffffff;
 	height: 220px;
-	width: 100%;
 	padding-left: 4%;
-	padding-right: 6%;
+	padding-right: 2%;
 	text-align: center;
 	overflow: hidden;
 	margin-bottom: 10px;
 	flex-shrink: 0;
-	border-bottom: 3px solid #333;
+	/*border-bottom: 3px solid #333;*/
 }
 
 .column {
@@ -91,7 +90,6 @@ a:hover{
 	padding: 1%;
 	Text-align: left;
 	color: #D3D3D3;
-	width: 100%;
 	margin-bottom: 15px;
 	margin-left: 0px;
 	margin-right: 0px;
@@ -113,7 +111,6 @@ a:hover{
 
 .content{
 	padding-top: 2%;
-	width: 80%;
 	margin-left: 5%;
 	margin-right: 5%;
 	flex: 1 0 auto;
@@ -131,7 +128,7 @@ a:hover{
 
 #loginButton{
 	float: right;
-	margin-right: 75px;
+	margin-right: 40px;
 	background-color: #a9a9a9
 }
 
