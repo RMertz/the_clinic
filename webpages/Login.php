@@ -46,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="profile.html">PROFILE</a>
             <a href="patientPage.html">PATIENTS</a>
             <a href="help.html">HELP</a>
-            <a href="Login.php"></a>
+            <a href="Login.php">Login</a>
         </div>
     <div/>
 
