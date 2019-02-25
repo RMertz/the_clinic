@@ -28,13 +28,12 @@ $patientInfo = $patients->fetch();
     <div id="navBar">
         <a href="welcome.php">Home</a>
         <a href="patientList.php">Your Patients</a>
-        <a href="dep/depHome.php">Depression Treatment</a>
+        <a href = <?php echo "dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a href = "php/logout.php">Sign Out</a>
     </div>
 <div class="">
-    <div class="content" align="left">
-        <h2 style="text-align: left;
-    padding: 0;">
+    <div class="content" >
+        <h2 >
             Patient Info:
         </h2>
         <h3>
@@ -60,17 +59,13 @@ $patientInfo = $patients->fetch();
 
         </ul>
     </div>
-    <div class="right" align="">
-        <p>
-            test
-        </p>
-    </div>
+
 </div>
 </body>
 
 <footer>
     <h4>
-        About This App
+        <a href="https://github.com/RMertz/the_clinic">About This App</a>
     </h4>
 </footer>
 

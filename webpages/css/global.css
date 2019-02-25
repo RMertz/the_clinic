@@ -136,9 +136,35 @@ a:hover{
 	width: 10%;
 }
 
+.column3 {
+	float: left;
+	width: 33.33%;
+	text-align: center;
+}
+
+.column2 {
+	float: left;
+	width: 50%;
+	text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+
 
 #headerLogo{
 	
 }
+
 
 
