@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $myusername = $_POST['username'];
     $mypassword = $_POST['password'];
 
-    $count = $db->query("SELECT doctorID, username FROM `Doctor Information` WHERE username = '$myusername' and password = '$mypassword'");
+    $count = $db->query("SELECT DoctorID, Username FROM `DoctorInformation` WHERE Username = '$myusername' and Password = '$mypassword'");
 
     // If result matched $myusername and $mypassword, table row must be 1 row
 
