@@ -4,7 +4,7 @@
 $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
-$dbName = "demo";
+$dbName = "/php/webpages/the_clinic\Database\database.mwb";
 
 $link = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 /* Include this code in any php using this file:
