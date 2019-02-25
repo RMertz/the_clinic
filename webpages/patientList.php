@@ -1,5 +1,5 @@
 <?php
-include('php/session.php');
+include('php/includes/dbhandler.php');
 $docSQL = $db->prepare("SELECT DoctorID FROM `Doctor Information` WHERE username = :user_check");
 $docSQL->bindParam(":user_check",$user_check);
 $docSQL->execute();
