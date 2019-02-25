@@ -17,7 +17,7 @@ $link = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 if($link == false){
 	die("ERROR: Could not connect. " . mysqli_connect_error());
 }
-
+/*
 //Attempt insert query execution
 $sql = "INSERT INTO persons(FirstName, Surname)VALUES('Peter','Parker')";
 
@@ -31,5 +31,5 @@ else{
 
 // Close connection
 mysqli_close($link);
-
+*/
 ?>
