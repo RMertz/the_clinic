@@ -1,7 +1,6 @@
 <?php
 include('../php/session.php');
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    // username and password sent from form
     $q1 = $_POST['q1'];
     $q2 = $_POST['q2'];
     $q3 = $_POST['q3'];
@@ -13,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $q9 = $_POST['q9'];
     $q10 = $_POST['q10'];
     $total = $q1 + $q2 + $q3 + $q4 + $q5 + $q6 + $q7 + $q8 + $q9;
-    header("location: welcome.php");
+    header("location: depPHQAnalysis.php?id=".$_GET['id']."&total=".$total."&q10=".$q10);
 }
 ?>
 
@@ -28,15 +27,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<div id="header">
-    <div class="header">
-        <div class=headerRow">
-            <div class= "column left">
-                <h1>The Clinic</h1>
-            </div>
-            <div class= "column right">
-                <div id="headerLogo">
-                    <img src="../images/longHeader.png" alt="HeaderImage">
+    <div id="header">
+        <div class="header">
+            <div class=headerRow">
+                <div class= "column left">
+                    <h1>The Clinic</h1>
+                </div>
+                <div class= "column right">
+                    <div id="headerLogo">
+                        <img src="../images/longHeader.png" alt="HeaderImage">
+                    </div>
                 </div>
             </div>
         </div>
@@ -140,10 +140,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                             </tr>
                             <tr>
                                 <td>10. If you checked off any problems, how difficult have those problems made it for you to do your work, take car of things at home, or get along with other people?</td>
-                                <td><input type="radio" name="q10" value="Not difficult at all" checked></td>
-                                <td><input type="radio" name="q10" value="Somewhat difficult"></td>
-                                <td><input type="radio" name="q10" value="Very difficult"></td>
-                                <td><input type="radio" name="q10" value="Extremely difficult"></td>
+                                <td><input type="radio" name="q10" value="1" checked></td>
+                                <td><input type="radio" name="q10" value="2"></td>
+                                <td><input type="radio" name="q10" value="3"></td>
+                                <td><input type="radio" name="q10" value="4"></td>
                             </tr>
                     </table><br/><br/>
 
