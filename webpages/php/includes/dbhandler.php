@@ -2,9 +2,9 @@
 
 // Initializing variables
 $dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "/php/webpages/the_clinic\Database\database.mwb";
+$dbUsername = "group1";
+$dbPassword = "db4Group1blue";
+$dbName = "group1";
 
 $link = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 /* Include this code in any php using this file:
