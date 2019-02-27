@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $myusername = $_POST['username'];
     $mypassword = $_POST['password'];
 
-    $count = $db->query("SELECT DoctorID, Username FROM `DoctorInformation` WHERE Username = '$myusername' and Password = '$mypassword'");
+    $count = $db->query("SELECT DoctorID, username FROM `Doctor Information` WHERE username = '$myusername' and password = '$mypassword'");
 
     // If result matched $myusername and $mypassword, table row must be 1 row
 
@@ -34,21 +34,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <div id="header">
-        <h1>
-            <br>
-            <img src="images/hospitalLogo.jpg" alt="Hospital Logo" width="20%" height="20%">
-            Login
-        </h1>
+<div class="header">
 
-        <div id="navBar">
-            <a href="index.html">HOME PAGE</a>
-            <a href="profile.html">PROFILE</a>
-            <a href="patientPage.html">PATIENTS</a>
-            <a href="help.html">HELP</a>
-            <a href="Login.php">Login</a>
+    <div class=headerRow">
+        <div class= "column left">
+            <h1>The Clinic</h1>
         </div>
-    <div/>
+        <div class= "column right">
+            <div id="headerLogo">
+                <img src="images/longHeader.png" alt="HeaderImage">
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="navBar">
+
+    <a href="index.html">HOME PAGE</a>
+    <a href="profile.html">PROFILE</a>
+    <a href="patientPage.html">PATIENTS</a>
+    <a href="help.html">HELP</a>
+    <a href="Login.php">LOGIN</a>
+    <div id="searchBar">
+        <img src="images/searchBar.PNG" alt="Search Bar" border="0px" height= "20px" width= "150px">
+    </div>
+
+
+
+</div>
 
     <div class = "content" >
         <div style = "width:300px; border: solid 1px #333333; " align = "left">

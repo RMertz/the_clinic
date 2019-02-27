@@ -1,5 +1,5 @@
 <?php
-include('php/includes/dbhandler.php');
+include('php/Config.php');
 $docSQL = $db->prepare("SELECT DoctorID FROM `Doctor Information` WHERE username = :user_check");
 $docSQL->bindParam(":user_check",$user_check);
 $docSQL->execute();
@@ -26,16 +26,34 @@ $patientLi = $patients->fetchAll();
 </head>
 
 <body>
-<div id="header">
-    <h1>
-        <br>
-        Your Patients
-    </h1>
 
-    <div id="navBar">
-        <a href="welcome.php">Home</a>
-        <a href = "php/logout.php">Sign Out</a>
+<div class="header">
+
+    <div class=headerRow">
+        <div class= "column left">
+            <h1>The Clinic</h1>
+        </div>
+        <div class= "column right">
+            <div id="headerLogo">
+                <img src="images/longHeader.png" alt="HeaderImage">
+            </div>
+        </div>
     </div>
+
+
+</div>
+
+<div class="navBar">
+
+    <a href="welcome.php">Home</a>
+    <a href = "php/logout.php">Sign Out</a>
+    <div id="searchBar">
+        <img src="images/searchBar.PNG" alt="Search Bar" border="0px" height= "20px" width= "150px">
+    </div>
+
+
+
+</div>
 
     <div class="content">
         <h2>
