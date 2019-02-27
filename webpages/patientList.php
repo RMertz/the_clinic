@@ -1,13 +1,12 @@
 <?php
-include('php/includes/dbhandler.php');
-$docSQL = $db->prepare("SELECT DoctorID FROM `Doctor Information` WHERE username = :user_check");
-$docSQL->bindParam(":user_check",$user_check);
-$docSQL->execute();
-$row = $docSQL->fetch();
-$docID = $row['DoctorID'];
-//echo $docID;
-$patients = $db->prepare( "SELECT * FROM `Patient Information` WHERE DoctorID = :doc_ID");
-$patients->bindParam(":doc_ID", $docID);
+include('php/session.php');
+$docID = $db->prepare("SELECT DoctorID FROM `DoctorInformation` WHERE LastName = :user_check");
+$docID->bindParam(":user_check", $user_check);
+$docID->execute();
+$row = $docID->fetch();
+$doc_ID = $row['DoctorID'];
+$patients = $db->prepare( "SELECT * FROM `PatientInformation` WHERE DoctorID = :doc_ID");
+$patients->bindParam(":doc_ID", $doc_ID);
 $patients->execute();
 $patientLi = $patients->fetchAll();
 //echo $patientLi['LastName'];
@@ -26,16 +25,29 @@ $patientLi = $patients->fetchAll();
 </head>
 
 <body>
-<div id="header">
-    <h1>
-        <br>
-        Your Patients
-    </h1>
 
-    <div id="navBar">
-        <a href="welcome.php">Home</a>
-        <a href = "php/logout.php">Sign Out</a>
+<div class="header">
+
+    <div class=headerRow">
+        <div class= "column left">
+            <h1>The Clinic</h1>
+        </div>
+        <div class= "column right">
+            <div id="headerLogo">
+                <img src="images/longHeader.png" alt="HeaderImage">
+            </div>
+        </div>
     </div>
+</div>
+
+<div class="navBar">
+    <a href="welcome.php">HOME</a>
+    <a href="patientList.php">YOUR PATIENTS</a>
+    <a href = "php/logout.php">LOG OUT</a>
+    <div id="searchBar">
+        <img src="images/searchBar.PNG" alt="Search Bar" border="0px" height= "20px" width= "150px">
+    </div>
+</div>
 
     <div class="content">
         <h2>
@@ -44,7 +56,7 @@ $patientLi = $patients->fetchAll();
         <li>
             <?php
                 foreach ($patientLi as $val){
-                    echo "<a href = 'patientHome.php?id=".$val['PatientID']."'>".$val['FirstName']." ".$val['LastName'] . "</a>";
+                    echo "<a href = 'patientHome.php?id=".$val['PatientID']."'>".$val['FirstName']." ".$val['Surname'] . "</a>";
                 }
             ?>
         </li>
@@ -53,10 +65,8 @@ $patientLi = $patients->fetchAll();
         </ul>
     </div>
 </body>
-<footer>
-    <h4>
-        <a href="https://github.com/RMertz/the_clinic">About This App</a>
-    </h4>
-</footer>
+<div class="footer">
+    <a href="https://github.com/RMertz/the_clinic.git">Repository</a>
+</div>
 
 </html>

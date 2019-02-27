@@ -1,18 +1,6 @@
 <?php
 include('../php/session.php');
-//style="text-align: left;
-//    padding: 0;"
-
-$error = " ";
-$myusername = " ";
-$myGender = " ";
-$mypassword = " ";
-$q1 = " ";
-$q2 = " ";
-$total = " ";
-$q10 = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    // username and password sent from form
     $q1 = $_POST['q1'];
     $q2 = $_POST['q2'];
     $q3 = $_POST['q3'];
@@ -23,20 +11,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $q8 = $_POST['q8'];
     $q9 = $_POST['q9'];
     $q10 = $_POST['q10'];
-    $error = "Your Login Name or Password is invalid";
     $total = $q1 + $q2 + $q3 + $q4 + $q5 + $q6 + $q7 + $q8 + $q9;
-
-    /*$count = $db->query("SELECT doctorID, username FROM `Doctor Information` WHERE username = '$myusername' and password = '$mypassword'");
-
-    // If result matched $myusername and $mypassword, table row must be 1 row
-
-    if($count->rowCount() == 1) {
-        $_SESSION['login_user'] = $myusername;
-
-        header("location: welcome.php");
-    }else {
-        $error = "Your Login Name or Password is invalid";
-    }*/
+    header("location: depPHQAnalysis.php?id=".$_GET['id']."&total=".$total."&q10=".$q10);
 }
 ?>
 
@@ -51,19 +27,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<div id="header">
-    <h1>
-        <br>
-        <?php
-        echo "Depression PHQ for 'Insert Name Here'";
-        ?>
-    </h1>
+    <div id="header">
+        <div class="header">
+            <div class=headerRow">
+                <div class= "column left">
+                    <h1>The Clinic</h1>
+                </div>
+                <div class= "column right">
+                    <div id="headerLogo">
+                        <img src="../images/longHeader.png" alt="HeaderImage">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div id="navBar">
+    <div class="navBar">
         <a href="../welcome.php">Home</a>
         <a href="../patientList.php">Your Patients</a>
         <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
-        <a href="depDiag.php">Depression PHQ</a>
+        <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
         <a href = "../php/logout.php">Sign Out</a>
     </div>
     <div class="row">
@@ -157,21 +140,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                             </tr>
                             <tr>
                                 <td>10. If you checked off any problems, how difficult have those problems made it for you to do your work, take car of things at home, or get along with other people?</td>
-                                <td><input type="radio" name="q10" value="Not difficult at all" checked></td>
-                                <td><input type="radio" name="q10" value="Somewhat difficult"></td>
-                                <td><input type="radio" name="q10" value="Very difficult"></td>
-                                <td><input type="radio" name="q10" value="Extremely difficult"></td>
+                                <td><input type="radio" name="q10" value="1" checked></td>
+                                <td><input type="radio" name="q10" value="2"></td>
+                                <td><input type="radio" name="q10" value="3"></td>
+                                <td><input type="radio" name="q10" value="4"></td>
                             </tr>
                     </table><br/><br/>
 
 
                     <input type = "submit" value = " Submit PHQ "/><br />
                 </form>
-
-                <div><?php
-                    echo $total;
-                    echo $q10;
-                    ?></div>
             </div>
         </div>
     </div>

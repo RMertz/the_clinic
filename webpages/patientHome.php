@@ -1,6 +1,6 @@
 <?php
 include('php/session.php');
-$patients = $db->prepare( "SELECT * FROM `Patient Information` WHERE PatientID = :pat_ID");
+$patients = $db->prepare( "SELECT * FROM `PatientInformation` WHERE PatientID = :pat_ID");
 $patients->bindParam(":pat_ID", $_GET['id']);
 $patients->execute();
 $patientInfo = $patients->fetch();
@@ -10,28 +10,36 @@ $patientInfo = $patients->fetch();
 
 <head>
     <title><?php
-        echo $patientInfo['FirstName']." ".$patientInfo['LastName'];
+        echo $patientInfo['FirstName']." ".$patientInfo['Surname'];
         ?></title>
     <link rel="stylesheet" href="css/global.css" type="text/css">
     <link rel="stylesheet" href="css/indexHome.css" type="text/css">
 </head>
 
 <body>
-<div id="header">
-    <h1>
-        <br>
-        <?php
-            echo $patientInfo['FirstName']." ".$patientInfo['LastName'];
-        ?>
-    </h1>
+    <div class="header">
+        <div class=headerRow">
+            <div class= "column left">
+                <h1>The Clinic</h1>
+            </div>
+            <div class= "column right">
+                <div id="headerLogo">
+                    <img src="images/longHeader.png" alt="HeaderImage">
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div id="navBar">
+    <div class="navBar">
         <a href="welcome.php">Home</a>
         <a href="patientList.php">Your Patients</a>
         <a href = <?php echo "dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a href = "php/logout.php">Sign Out</a>
+        <div id="searchBar">
+            <img src="images/searchBar.PNG" alt="Search Bar" border="0px" height= "20px" width= "150px">
+        </div>
     </div>
-<div class="">
+
     <div class="content" >
         <h2 >
             Patient Info:
@@ -40,7 +48,7 @@ $patientInfo = $patients->fetch();
             Patient Name:
         </h3>
             <?php
-                echo $patientInfo['FirstName']." ".$patientInfo['LastName'];
+                echo $patientInfo['FirstName']." ".$patientInfo['Surname'];
             ?>
         <h3>
             Patient Diagnosis:
@@ -52,22 +60,17 @@ $patientInfo = $patients->fetch();
             Date of Last Visit:
         </h3>
         <?php
-        echo $patientInfo['lastVisit'];
+        echo $patientInfo['LastVisit'];
         ?>
 
-        <ul id="oneFourth"
 
-        </ul>
     </div>
 
-</div>
 </body>
 
-<footer>
-    <h4>
-        <a href="https://github.com/RMertz/the_clinic">About This App</a>
-    </h4>
-</footer>
+<div class="footer">
+    <a href="https://github.com/RMertz/the_clinic.git">Repository</a>
+</div>
 
 </html>
 

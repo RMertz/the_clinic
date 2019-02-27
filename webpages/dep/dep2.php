@@ -15,23 +15,28 @@ include('../php/session.php');
 </head>
 
 <body>
-<div id="header">
-    <h1>
-        <br>
-        <?php
-        echo "Depression Treatment for 'Insert Name Here'";
-        ?>
-    </h1>
+    <div class="header">
+        <div class=headerRow">
+            <div class= "column left">
+                <h1>The Clinic</h1>
+            </div>
+            <div class= "column right">
+                <div id="headerLogo">
+                    <img src="../images/longHeader.png" alt="HeaderImage">
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div id="navBar">
+    <div class="navBar">
         <a href="../welcome.php">Home</a>
         <a href="../patientList.php">Your Patients</a>
         <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
-        <a href="depDiag.php">Depression PHQ</a>
+        <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
         <a href = "../php/logout.php">Sign Out</a>
     </div>
-</div>
-<div class="row">
+
+    <div class="row">
         <div class="column3" >
             <h2 >
                 If Non-response:
@@ -46,7 +51,7 @@ include('../php/session.php');
                 Stub
             </p>
             <h3>
-                <a href="depNR3.php">Next Step</a>
+                <a href=<?php echo "depNR3.php?id=".$_GET['id'];?>>Next Step</a>
             </h3>
             <p>
                 Stub: update database for step we are on
@@ -66,7 +71,7 @@ include('../php/session.php');
                 Stub
             </p>
             <h3>
-                <a href="depPR3.php">Next Step</a>
+                <a href=<?php echo "depPR3.php?id=".$_GET['id'];?>>Next Step</a>
             </h3>
             <p>
                 Stub: update database for step we are on
@@ -89,10 +94,10 @@ include('../php/session.php');
                 Stub: update database for step we are on
             </p>
         </div>
-</div>
-<h3>
-    <a href="depHome.php">Back</a>
-</h3>
+    </div>
+    <h3>
+        <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Back</a>
+    </h3>
 </body>
 
 <footer>

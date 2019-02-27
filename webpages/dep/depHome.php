@@ -1,7 +1,5 @@
 <?php
 include('../php/session.php');
-//style="text-align: left;
-//    padding: 0;"
 ?>
 
 <html>
@@ -15,19 +13,24 @@ include('../php/session.php');
 </head>
 
 <body>
-<div id="header">
-    <h1>
-        <br>
-        <?php
-        echo "Depression Treatment for 'Insert Name Here'";
-        ?>
-    </h1>
+    <div class="header">
+        <div class=headerRow">
+            <div class= "column left">
+                <h1>The Clinic</h1>
+            </div>
+            <div class= "column right">
+                <div id="headerLogo">
+                    <img src="../images/longHeader.png" alt="HeaderImage">
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div id="navBar">
+    <div class="navBar">
         <a href="../welcome.php">Home</a>
         <a href="../patientList.php">Your Patients</a>
         <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
-        <a href="depDiag.php">Depression PHQ</a>
+        <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
         <a href = "../php/logout.php">Sign Out</a>
     </div>
 
@@ -40,7 +43,7 @@ include('../php/session.php');
                 Stub for inital step directions
             </p>
             <h3>
-                <a href="dep2.php">Next Step</a>
+                <a href=<?php echo "dep2.php?id=".$_GET['id'];?>>Next Step</a>
             </h3>
             <p>
                 Stub: update database for step we are on
