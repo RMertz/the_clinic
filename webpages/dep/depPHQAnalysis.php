@@ -1,5 +1,15 @@
 <?php
 include('../php/session.php');
+$diagnosis='';
+$treatmentTF='';
+if($_GET['type']==0){
+    if($_GET['q1']==1&&$_GET['q2']==1&&$_GET['q3']==1) {
+        $diagnosis = "Depression";
+    }else{
+        $diagnosis = "None";
+    }
+}
+
 ?>
 
 <html>

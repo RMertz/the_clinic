@@ -1,18 +1,38 @@
 <?php
 include('../php/session.php');
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $q1 = $_POST['q1'];
-    $q2 = $_POST['q2'];
-    $q3 = $_POST['q3'];
-    $q4 = $_POST['q4'];
-    $q5 = $_POST['q5'];
-    $q6 = $_POST['q6'];
-    $q7 = $_POST['q7'];
-    $q8 = $_POST['q8'];
-    $q9 = $_POST['q9'];
-    $q10 = $_POST['q10'];
-    $total = $q1 + $q2 + $q3 + $q4 + $q5 + $q6 + $q7 + $q8 + $q9;
-    header("location: depPHQAnalysis.php?id=".$_GET['id']."&total=".$total."&q10=".$q10);
+    $answers = array($_POST['q1'],$_POST['q2'],$_POST['q3'],$_POST['q4'],$_POST['q5'],$_POST['q6'],$_POST['q7'],$_POST['q8'],$_POST['q9']);
+    $total=0;
+    $totalPoints=0;
+    for ($i = 0; $i < 8; $i++){
+        if($answers[$i]>1){
+            $total++;
+            $totalPoints+=$answers[$i];
+        }
+    }
+    if($answers[0]>1||$answers[1]>1){
+        $q1=1;
+    }else{
+        $q1=0;
+    }
+    if($answers[8]>0){
+        $total++;
+    }
+    if($total>=5){
+        $total=1;
+    }else{
+        $total=0;
+    }
+    if($_POST['q10']>0){
+        $q3=1;
+    }else{
+        $q3=0;
+    }
+    if (isset($_POST['Initial'])) {
+        header("location: depPHQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $total . "&q3=" . $q3 . "&q1=" . $q1."&type=0"."&total=".$totalPoints); //type 0 = initial diagnosis
+    }else{
+        header("location: depPHQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $total . "&q3=" . $q3 . "&q1=" . $q1."&type=1"."&total=".$totalPoints); //type 1 = continuing treatment
+    }
 }
 ?>
 
@@ -67,7 +87,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                             <th>3</th>
                         </tr>
                         <tr>
-                            <td>1. Little interest or plesure in doing things.</td>
+                            <td>1. Little interest or pleasure in doing things.</td>
                             <td><input type="radio" name="q1" value="0" checked></td>
                             <td><input type="radio" name="q1" value="1"></td>
                             <td><input type="radio" name="q1" value="2"></td>
@@ -140,15 +160,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                             </tr>
                             <tr>
                                 <td>10. If you checked off any problems, how difficult have those problems made it for you to do your work, take car of things at home, or get along with other people?</td>
-                                <td><input type="radio" name="q10" value="1" checked></td>
+                                <td><input type="radio" name="q10" value="0" checked></td>
+                                <td><input type="radio" name="q10" value="1"></td>
                                 <td><input type="radio" name="q10" value="2"></td>
                                 <td><input type="radio" name="q10" value="3"></td>
-                                <td><input type="radio" name="q10" value="4"></td>
                             </tr>
                     </table><br/><br/>
 
 
-                    <input type = "submit" value = " Submit PHQ "/><br />
+                    <input type = "submit" name="Initial" value = " Submit PHQ For Initial Diagnosis and Treatment "/>
+                    <input type = "submit" name="Continuing" value = " Submit PHQ For Continuing Treatment "/><br />
                 </form>
             </div>
         </div>
