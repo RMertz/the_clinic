@@ -53,6 +53,7 @@ $patientLi = $patients->fetchAll();
         <h2>
             Select a patient to View Info
         </h2>
+        <ul>
         <li>
             <?php
                 foreach ($patientLi as $val){
@@ -60,9 +61,8 @@ $patientLi = $patients->fetchAll();
                 }
             ?>
         </li>
-        <ul id="oneFourth"
-
         </ul>
+
     </div>
 </body>
 <div class="footer">

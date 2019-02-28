@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema group1
+-- Schema group2
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema group1
+-- Schema group2
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `group1` DEFAULT CHARACTER SET utf8 ;
-USE `group1` ;
+CREATE SCHEMA IF NOT EXISTS `group2` DEFAULT CHARACTER SET utf8 ;
+USE `group2` ;
 
 -- -----------------------------------------------------
--- Table `group1`.`DoctorInformation`
+-- Table `group2`.`DoctorInformation`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `group1`.`DoctorInformation` (
+CREATE TABLE IF NOT EXISTS `group2`.`DoctorInformation` (
   `DoctorID` INT NOT NULL AUTO_INCREMENT,
   `FirstName` VARCHAR(30) NOT NULL,
   `LastName` VARCHAR(30) NOT NULL,
@@ -34,9 +34,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `group1`.`MedicationInformation`
+-- Table `group2`.`MedicationInformation`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `group1`.`MedicationInformation` (
+CREATE TABLE IF NOT EXISTS `group2`.`MedicationInformation` (
   `MedicationID` INT NOT NULL AUTO_INCREMENT COMMENT 'The ID of each drug.',
   `MinimumDosage` MEDIUMTEXT NULL COMMENT 'The smallest dose for each drug',
   `MaximumDosage` MEDIUMTEXT NULL COMMENT 'The largest dose for each drug.',
@@ -48,9 +48,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `group1`.`PatientInformation`
+-- Table `group2`.`PatientInformation`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `group1`.`PatientInformation` (
+CREATE TABLE IF NOT EXISTS `group2`.`PatientInformation` (
   `PatientID` INT NOT NULL AUTO_INCREMENT,
   `FirstName` VARCHAR(30) NOT NULL,
   `Surname` VARCHAR(30) NOT NULL,
@@ -68,9 +68,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `group1`.`Conflicting Medication`
+-- Table `group2`.`Conflicting Medication`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `group1`.`Conflicting Medication` (
+CREATE TABLE IF NOT EXISTS `group2`.`Conflicting Medication` (
   `ConflictingID` INT NOT NULL AUTO_INCREMENT,
   `MedicationID` INT NULL,
   PRIMARY KEY (`ConflictingID`),

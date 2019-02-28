@@ -1,5 +1,8 @@
 <?php
-include("php/config.php");
+if((include $_SERVER['DOCUMENT_ROOT']."/php/Config.php")==TRUE){
+}else{
+    echo "nooo";
+};
 $error = " ";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -57,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <a href="help.html">HELP</a>
     <a href="Login.php">LOGIN</a>
     <div id="searchBar">
-        <img src="images/searchBar.PNG" alt="Search Bar" border="0px" height= "20px" width= "150px">
+        <img src="images/searchBar.png" alt="Search Bar" border="0px" height= "20px" width= "150px">
     </div>
 </div>
 

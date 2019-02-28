@@ -32,7 +32,7 @@ p {
 }
 
 li	{
-	display: inline;
+
 }
 
 a {
@@ -50,7 +50,7 @@ a:hover{
 
 .header {
 	vertical-align: text-bottom;
-	background-color: #ffffff;
+	background-color: #999;
 	height: 220px;
 	padding-left: 4%;
 	padding-right: 2%;
