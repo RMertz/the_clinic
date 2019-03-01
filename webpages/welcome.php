@@ -36,7 +36,7 @@ $login_session = $row['Firstname'];
     <a href="php/logout.php">LOG OUT</a>
     <a href="help.html">HELP</a>
     <div id="searchBar">
-        <img src="images/searchBar.PNG" alt="Search Bar" border="0px" height= "20px" width= "150px">
+        <img src="images/searchBar.png" alt="Search Bar" border="0px" height= "20px" width= "150px">
     </div>
 </div>
 <div class="content">

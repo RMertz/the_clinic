@@ -40,7 +40,7 @@ $patientLi = $patients->fetchAll();
     <a href="patientList.php">YOUR PATIENTS</a>
     <a href = "php/logout.php">LOG OUT</a>
     <div id="searchBar">
-        <img src="images/searchBar.PNG" alt="Search Bar" border="0px" height= "20px" width= "150px">
+        <img src="images/searchBar.png" alt="Search Bar" border="0px" height= "20px" width= "150px">
     </div>
 </div>
 

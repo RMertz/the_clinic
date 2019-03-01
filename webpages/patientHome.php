@@ -39,7 +39,7 @@ $patientInfo = $patients->fetch();
         <a href=<?php echo "medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
         <a href = "php/logout.php">Sign Out</a>
         <div id="searchBar">
-            <img src="images/searchBar.PNG" alt="Search Bar" border="0px" height= "20px" width= "150px">
+            <img src="images/searchBar.png" alt="Search Bar" border="0px" height= "20px" width= "150px">
         </div>
     </div>
 
