@@ -188,6 +188,12 @@ table, th, td {
 	border-collapse: collapse;
 	text-align: center;
 }
+.center {
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+	list-style-position: inside;
+}
 
 
 
