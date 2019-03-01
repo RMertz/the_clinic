@@ -92,3 +92,7 @@ if($_GET['q9']>0){
         </ol>
     </div>
 </body>
+<div class="footer">
+    <a href="https://github.com/RMertz/the_clinic.git">Repository</a>
+</div>
+</html>
