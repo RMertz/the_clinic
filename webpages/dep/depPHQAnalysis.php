@@ -5,6 +5,10 @@ $diagnosisInfo='';
 $treatmentTF='';
 $suicide='';
 $diagnosisHeader="";
+$error = " ";
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $error="Feature Coming Soon!";
+}
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['Schedule'])){
 
@@ -131,6 +135,7 @@ contact in one week";
                     <input type = "date" name="Date" value = " Schedule Patient Visit "/><br/><br/>
                     <input type = "submit" name="Schedule" value = " Schedule Patient "/>
                 </form>
+                <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
             </div>
             <div class="column2">
                 <h3>Prescribe Patient a Medication</h3>
