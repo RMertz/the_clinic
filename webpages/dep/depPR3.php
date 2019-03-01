@@ -1,7 +1,5 @@
 <?php
 include('../php/session.php');
-//style="text-align: left;
-//    padding: 0;"
 ?>
 
 <html>
@@ -85,11 +83,9 @@ include('../php/session.php');
     </h3>
 </body>
 
-<footer>
-    <h4>
-        <a href="https://github.com/RMertz/the_clinic">About This App</a>
-    </h4>
-</footer>
+<div class="footer">
+    <a href="https://github.com/RMertz/the_clinic.git">Repository</a>
+</div>
 
 </html>
 

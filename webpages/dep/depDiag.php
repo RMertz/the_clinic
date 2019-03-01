@@ -28,10 +28,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }else{
         $q3=0;
     }
-    if (isset($_POST['Initial'])) {
-        header("location: depPHQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $total . "&q3=" . $q3 . "&q1=" . $q1."&type=0"."&total=".$totalPoints); //type 0 = initial diagnosis
+    if($answers[7]>0){
+        $q9=1;
     }else{
-        header("location: depPHQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $total . "&q3=" . $q3 . "&q1=" . $q1."&type=1"."&total=".$totalPoints); //type 1 = continuing treatment
+        $q9=0;
+    }
+    if (isset($_POST['Initial'])) {
+        header("location: depPHQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $total . "&q3=" . $q3 . "&q1=" . $q1."&type=0"."&total=".$totalPoints."&q9=".$q9); //type 0 = initial diagnosis
+    }else{
+        header("location: depPHQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $total . "&q3=" . $q3 . "&q1=" . $q1."&type=1"."&total=".$totalPoints."&q9=".$q9); //type 1 = continuing treatment
     }
 }
 ?>
@@ -176,11 +181,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </body>
 
-<footer>
-    <h4>
-        <a href="https://github.com/RMertz/the_clinic">About This App</a>
-    </h4>
-</footer>
+<div class="footer">
+    <a href="https://github.com/RMertz/the_clinic.git">Repository</a>
+</div>
 
 </html>
 

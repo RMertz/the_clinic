@@ -35,7 +35,7 @@ include('../php/session.php');
     </div>
 
     <div class="row">
-        <div class="content">
+        <div class="content" style="text-align: center">
             <h2 >
                 Initial Step:
             </h2>
@@ -52,11 +52,9 @@ include('../php/session.php');
     </div>
 </body>
 
-<footer>
-    <h4>
-        <a href="https://github.com/RMertz/the_clinic">About This App</a>
-    </h4>
-</footer>
+<div class="footer">
+    <a href="https://github.com/RMertz/the_clinic.git">Repository</a>
+</div>
 
 </html>
 

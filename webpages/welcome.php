@@ -31,7 +31,7 @@ $login_session = $row['Firstname'];
     </div>
 </div>
 <div class="navBar">
-    <a href="index.html">HOME PAGE</a>
+    <a href="welcome.php">HOME PAGE</a>
     <a href="patientList.php">YOUR PATIENTS</a>
     <a href="php/logout.php">LOG OUT</a>
     <a href="help.html">HELP</a>

@@ -34,13 +34,14 @@ $patientInfo = $patients->fetch();
         <a href="welcome.php">Home</a>
         <a href="patientList.php">Your Patients</a>
         <a href = <?php echo "dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
+        <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
         <a href = "php/logout.php">Sign Out</a>
         <div id="searchBar">
             <img src="images/searchBar.PNG" alt="Search Bar" border="0px" height= "20px" width= "150px">
         </div>
     </div>
 
-    <div class="content" >
+    <div class="content" style="text-align: center">
         <h2 >
             Patient Info:
         </h2>
