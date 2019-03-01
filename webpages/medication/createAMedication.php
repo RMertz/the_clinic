@@ -30,7 +30,7 @@ include('../php/session.php');
 <div class="navBar">
     <a href="../welcome.php">Home</a>
     <a href="../patientList.php">Your Patients</a>
-    <a href="../patientHome.php">Patient Home</a>
+    <a href=<?php echo "../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
     <a href=<?php echo "../dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
     <a href=<?php echo "../dep/depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
     <a href=<?php echo "medicationHome.php?id=".$_GET['id'];?>>Medication</a>
