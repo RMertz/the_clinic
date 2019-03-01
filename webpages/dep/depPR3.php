@@ -1,5 +1,9 @@
 <?php
 include('../php/session.php');
+$error = " ";
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $error="Feature Coming Soon!";
+}
 ?>
 
 <html>
@@ -91,6 +95,7 @@ include('../php/session.php');
                 <input type = "date" name="Date" value = " Schedule Patient Visit "/><br/><br/>
                 <input type = "submit" name="Schedule" value = " Schedule Patient "/>
             </form>
+            <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
         </div>
         <div class="column2">
             <h3>Prescribe Patient a Medication</h3>
