@@ -70,8 +70,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="navBar">
         <a href="../welcome.php">Home</a>
         <a href="../patientList.php">Your Patients</a>
+        <a href="../patientHome.php">Patient Home</a>
         <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
+        <a href=<?php echo "../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
         <a href = "../php/logout.php">Sign Out</a>
     </div>
     <div class="row">

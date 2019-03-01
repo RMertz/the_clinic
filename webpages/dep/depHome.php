@@ -29,8 +29,10 @@ include('../php/session.php');
     <div class="navBar">
         <a href="../welcome.php">Home</a>
         <a href="../patientList.php">Your Patients</a>
+        <a href="../patientHome.php">Patient Home</a>
         <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
+        <a href=<?php echo "../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
         <a href = "../php/logout.php">Sign Out</a>
     </div>
 
@@ -40,7 +42,8 @@ include('../php/session.php');
                 Initial Step:
             </h2>
             <p>
-                Stub for inital step directions
+                Initial therapy with citalopram or sertraline (unless compelling indication for alternate agent).<br>
+                Address side effects and encourage adherence in 1 week. Evaluate response in 3-4 weeks.
             </p>
             <h3>
                 <a href=<?php echo "dep2.php?id=".$_GET['id'];?>>Next Step</a>
@@ -48,6 +51,19 @@ include('../php/session.php');
             <p>
                 Stub: update database for step we are on
             </p>
+            <div class="row">
+                <div class="column2">
+                    <h3>Schedule Patient Visit</h3>
+                    <form action = "" method = "post">
+                        <input type = "date" name="Date" value = " Schedule Patient Visit "/><br/><br/>
+                        <input type = "submit" name="Schedule" value = " Schedule Patient "/>
+                    </form>
+                </div>
+                <div class="column2">
+                    <h3>Prescribe Patient a Medication</h3>
+                    <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
+                </div>
+            </div>
         </div>
     </div>
 </body>
