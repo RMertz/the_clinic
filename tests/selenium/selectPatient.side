@@ -96,6 +96,17 @@
         ["xpath=//a[contains(.,'Chris Miller')]", "xpath:innerText"]
       ],
       "value": ""
+    }, {
+      "id": "e69e3a0a-3c0e-4f24-9080-397c9fee784f",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Patient Info:')]", "xpath:innerText"]
+      ],
+      "value": "Patient Info:"
     }]
   }, {
     "id": "d3ec7659-2a32-48e8-9d85-db342e2caef8",
@@ -229,140 +240,37 @@
         ["xpath=//div[contains(.,'Coming Soon!')]", "xpath:innerText"]
       ],
       "value": ""
+    }, {
+      "id": "b6c438b5-60cb-47ea-a289-992cb4b746d2",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Coming Soon!')]", "xpath:innerText"]
+      ],
+      "value": "Coming Soon!"
     }]
   }, {
     "id": "0cb0c0bd-c936-4ac0-87f0-89226fbd6326",
     "name": "SchedulePatient",
     "commands": [{
-      "id": "608f1de6-d5ce-4342-ab77-6f8779d34812",
+      "id": "03c1f5a3-784c-4916-9bb7-5231c131be84",
       "comment": "",
       "command": "open",
       "target": "https://esof423.cs.montana.edu/group1/the_clinic/webpages/Login.php",
       "targets": [],
       "value": ""
     }, {
-      "id": "c8c8d408-98c5-4137-b6df-c52d1e71b4b8",
+      "id": "94163a24-6dfc-4f2a-8b2b-76745d62ddac",
       "comment": "",
       "command": "setWindowSize",
       "target": "1050x843",
       "targets": [],
       "value": ""
     }, {
-      "id": "3a5af4a7-f6bd-49a1-b17a-1231ea709960",
-      "comment": "",
-      "command": "sendKeys",
-      "target": "name=password",
-      "targets": [
-        ["name=password", "name"],
-        ["css=.box:nth-child(6)", "css:finder"],
-        ["xpath=//input[@name='password']", "xpath:attributes"],
-        ["xpath=//input[2]", "xpath:position"]
-      ],
-      "value": "${KEY_ENTER}"
-    }, {
-      "id": "cb8537ca-99b9-4452-8220-2b82947e4dda",
-      "comment": "",
-      "command": "type",
-      "target": "name=password",
-      "targets": [
-        ["name=password", "name"],
-        ["css=.box:nth-child(6)", "css:finder"],
-        ["xpath=//input[@name='password']", "xpath:attributes"],
-        ["xpath=//input[2]", "xpath:position"]
-      ],
-      "value": "Jeff1"
-    }, {
-      "id": "a0e12474-d283-43fb-b920-0063d6176156",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=YOUR PATIENTS",
-      "targets": [
-        ["linkText=YOUR PATIENTS", "linkText"],
-        ["css=a:nth-child(2)", "css:finder"],
-        ["xpath=//a[contains(text(),'YOUR PATIENTS')]", "xpath:link"],
-        ["xpath=//a[contains(@href, 'patientList.php')]", "xpath:href"],
-        ["xpath=//a[2]", "xpath:position"],
-        ["xpath=//a[contains(.,'YOUR PATIENTS')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "ba2ea7ec-1f93-4cf6-b921-780a38582499",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Chris Miller",
-      "targets": [
-        ["linkText=Chris Miller", "linkText"],
-        ["css=li > a:nth-child(1)", "css:finder"],
-        ["xpath=//a[contains(text(),'Chris Miller')]", "xpath:link"],
-        ["xpath=//a[contains(@href, 'patientHome.php?id=2')]", "xpath:href"],
-        ["xpath=//li/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Chris Miller')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "93f57108-5611-44f0-a1a0-1b3bdff20804",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Depression Treatment",
-      "targets": [
-        ["linkText=Depression Treatment", "linkText"],
-        ["css=a:nth-child(4)", "css:finder"],
-        ["xpath=//a[contains(text(),'Depression Treatment')]", "xpath:link"],
-        ["xpath=//a[contains(@href, 'dep/depHome.php?id=2')]", "xpath:href"],
-        ["xpath=//a[4]", "xpath:position"],
-        ["xpath=//a[contains(.,'Depression Treatment')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "657c6776-f86e-4611-9a17-76ae78a4a6d9",
-      "comment": "",
-      "command": "click",
-      "target": "name=Date",
-      "targets": [
-        ["name=Date", "name"],
-        ["css=input:nth-child(1)", "css:finder"],
-        ["xpath=//input[@name='Date']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "7ad4117b-85fb-418a-8fa1-be65f0248145",
-      "comment": "",
-      "command": "click",
-      "target": "name=Date",
-      "targets": [
-        ["name=Date", "name"],
-        ["css=input:nth-child(1)", "css:finder"],
-        ["xpath=//input[@name='Date']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "f8fd534d-d539-4b93-aac4-1c4ecf6ac96d",
-      "comment": "",
-      "command": "type",
-      "target": "name=Date",
-      "targets": [
-        ["name=Date", "name"],
-        ["css=input:nth-child(1)", "css:finder"],
-        ["xpath=//input[@name='Date']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "2019-03-21"
-    }, {
-      "id": "96349f9e-7392-4237-a673-8574cfd314e6",
-      "comment": "",
-      "command": "click",
-      "target": "name=Schedule",
-      "targets": [
-        ["name=Schedule", "name"],
-        ["css=input:nth-child(4)", "css:finder"],
-        ["xpath=//input[@name='Schedule']", "xpath:attributes"],
-        ["xpath=//input[2]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "430d2fdc-940f-4d0c-8b82-3902b6c01b3f",
+      "id": "de036488-0c6b-4b9c-9204-d706d7ffbd76",
       "comment": "",
       "command": "click",
       "target": "name=username",
@@ -374,7 +282,7 @@
       ],
       "value": ""
     }, {
-      "id": "64bea162-9bb9-4bb8-91c8-0ce427c56197",
+      "id": "e95f7975-8a7d-4bc7-8c6b-e96925e6bb10",
       "comment": "",
       "command": "type",
       "target": "name=username",
@@ -386,7 +294,7 @@
       ],
       "value": "Jeff"
     }, {
-      "id": "0ce23d47-d4cd-45b9-82dc-c4d545942078",
+      "id": "7991a5c2-ae80-4060-a00d-3e2b05dcbea6",
       "comment": "",
       "command": "type",
       "target": "name=password",
@@ -398,7 +306,7 @@
       ],
       "value": "Jeff1"
     }, {
-      "id": "e8ab5f6a-65e4-4ba2-9444-16de338489a0",
+      "id": "187b0254-e505-4391-8713-73dd659183bb",
       "comment": "",
       "command": "sendKeys",
       "target": "name=password",
@@ -410,7 +318,7 @@
       ],
       "value": "${KEY_ENTER}"
     }, {
-      "id": "42c5538e-2b37-4d30-9dc6-5e288b4e3ebd",
+      "id": "0c2d289d-952f-49e1-92dc-b3016a736cea",
       "comment": "",
       "command": "click",
       "target": "linkText=YOUR PATIENTS",
@@ -424,7 +332,7 @@
       ],
       "value": ""
     }, {
-      "id": "4f15c915-0ac7-4ec1-aff5-45eda674556b",
+      "id": "067255a4-c9c5-4e28-84a4-1251fd3abd2b",
       "comment": "",
       "command": "click",
       "target": "linkText=Chris Miller",
@@ -438,7 +346,7 @@
       ],
       "value": ""
     }, {
-      "id": "0988713c-9de7-4fbe-8618-d934c48e148d",
+      "id": "07129097-9a72-4f79-a3d0-a295a511c1a3",
       "comment": "",
       "command": "click",
       "target": "linkText=Depression Treatment",
@@ -452,7 +360,7 @@
       ],
       "value": ""
     }, {
-      "id": "76e477af-aef3-43fa-b7d9-89a5f3ec8c88",
+      "id": "ef20859c-0646-48de-8dbb-6f928a6b81d1",
       "comment": "",
       "command": "click",
       "target": "name=Date",
@@ -464,7 +372,7 @@
       ],
       "value": ""
     }, {
-      "id": "a298f56d-65d7-415c-bb7f-f5c49e6e0138",
+      "id": "6f1dd218-3a2c-4e7b-81c6-8f012526257f",
       "comment": "",
       "command": "click",
       "target": "name=Date",
@@ -476,7 +384,7 @@
       ],
       "value": ""
     }, {
-      "id": "131dba04-18c9-4db4-8387-4e02a8b7fd1b",
+      "id": "35099b38-1a2d-45ab-8678-f01134a1fcf5",
       "comment": "",
       "command": "type",
       "target": "name=Date",
@@ -486,9 +394,9 @@
         ["xpath=//input[@name='Date']", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "2019-03-20"
+      "value": "2019-03-27"
     }, {
-      "id": "7f458306-71c4-4b8b-b368-f2da8e303663",
+      "id": "b90ae3c7-2c53-47aa-b16e-e2da9c4e9191",
       "comment": "",
       "command": "click",
       "target": "name=Schedule",
@@ -499,6 +407,16 @@
         ["xpath=//input[2]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "0b338e98-82aa-4139-ad10-baa1057491a1",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.column2 > div",
+      "targets": [
+        ["css=.column2 > div", "css:finder"],
+        ["xpath=//div[5]/div/div/div/div", "xpath:position"]
+      ],
+      "value": "Feature Coming Soon!"
     }]
   }, {
     "id": "a68511e4-1710-4521-abe6-e3b51b38db45",
@@ -637,6 +555,17 @@
         ["xpath=//a[contains(.,'Create a Medication')]", "xpath:innerText"]
       ],
       "value": ""
+    }, {
+      "id": "276f5aa2-4875-4b5a-8ea0-da16caf9545f",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Coming Soon!')]", "xpath:innerText"]
+      ],
+      "value": "Coming Soon!"
     }]
   }, {
     "id": "bbd1e84f-6050-4f47-927b-44e22a23cc3c",
@@ -805,6 +734,17 @@
         ["xpath=//input[2]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "e7ad99cb-2867-43a3-bf5b-d9729aac88fa",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=h2:nth-child(2)",
+      "targets": [
+        ["css=h2:nth-child(2)", "css:finder"],
+        ["xpath=//h2[2]", "xpath:position"],
+        ["xpath=//h2[contains(.,'Treatment and Monitoring')]", "xpath:innerText"]
+      ],
+      "value": "Treatment and Monitoring"
     }]
   }, {
     "id": "89a09413-c589-403f-b136-163476152429",
@@ -925,6 +865,17 @@
         ["xpath=//form/input", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "28e6d8aa-59d5-4d62-9374-96eed9baa996",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=h2:nth-child(2)",
+      "targets": [
+        ["css=h2:nth-child(2)", "css:finder"],
+        ["xpath=//h2[2]", "xpath:position"],
+        ["xpath=//h2[contains(.,'Treatment and Monitoring')]", "xpath:innerText"]
+      ],
+      "value": "Treatment and Monitoring"
     }]
   }, {
     "id": "7ba4a399-7996-48c7-823f-7bf21d6f0114",
@@ -991,6 +942,17 @@
         ["xpath=//input[2]", "xpath:position"]
       ],
       "value": "${KEY_ENTER}"
+    }, {
+      "id": "d7591055-52a5-411b-ba59-499e44586dc2",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Welcome Dan')]", "xpath:innerText"]
+      ],
+      "value": "Welcome Dan"
     }]
   }, {
     "id": "8064c8f0-508e-4e4c-8e68-10218d577208",
@@ -1071,6 +1033,18 @@
         ["xpath=//a[contains(.,'LOG OUT')]", "xpath:innerText"]
       ],
       "value": ""
+    }, {
+      "id": "be2d4383-aa9f-4b57-b298-175294b9b38e",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=.box:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
     }]
   }],
   "suites": [{
@@ -1086,7 +1060,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["a68511e4-1710-4521-abe6-e3b51b38db45"]
+    "tests": ["a68511e4-1710-4521-abe6-e3b51b38db45", "bbd1e84f-6050-4f47-927b-44e22a23cc3c", "89a09413-c589-403f-b136-163476152429", "7ba4a399-7996-48c7-823f-7bf21d6f0114", "8064c8f0-508e-4e4c-8e68-10218d577208", "d3ec7659-2a32-48e8-9d85-db342e2caef8", "0cb0c0bd-c936-4ac0-87f0-89226fbd6326", "f85244b4-0db4-4aa2-bdc0-38c5336d697d"]
   }],
   "urls": ["https://esof423.cs.montana.edu/", "https://esof423.cs.montana.edu/group1/the_clinic/webpages/Login.php"],
   "plugins": []

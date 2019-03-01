@@ -96,6 +96,17 @@
         ["xpath=//a[contains(.,'Chris Miller')]", "xpath:innerText"]
       ],
       "value": ""
+    }, {
+      "id": "e69e3a0a-3c0e-4f24-9080-397c9fee784f",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Patient Info:')]", "xpath:innerText"]
+      ],
+      "value": "Patient Info:"
     }]
   }, {
     "id": "d3ec7659-2a32-48e8-9d85-db342e2caef8",
@@ -229,6 +240,17 @@
         ["xpath=//div[contains(.,'Coming Soon!')]", "xpath:innerText"]
       ],
       "value": ""
+    }, {
+      "id": "b6c438b5-60cb-47ea-a289-992cb4b746d2",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Coming Soon!')]", "xpath:innerText"]
+      ],
+      "value": "Coming Soon!"
     }]
   }, {
     "id": "0cb0c0bd-c936-4ac0-87f0-89226fbd6326",
@@ -385,6 +407,16 @@
         ["xpath=//input[2]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "0b338e98-82aa-4139-ad10-baa1057491a1",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.column2 > div",
+      "targets": [
+        ["css=.column2 > div", "css:finder"],
+        ["xpath=//div[5]/div/div/div/div", "xpath:position"]
+      ],
+      "value": "Feature Coming Soon!"
     }]
   }, {
     "id": "a68511e4-1710-4521-abe6-e3b51b38db45",
@@ -523,6 +555,17 @@
         ["xpath=//a[contains(.,'Create a Medication')]", "xpath:innerText"]
       ],
       "value": ""
+    }, {
+      "id": "276f5aa2-4875-4b5a-8ea0-da16caf9545f",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Coming Soon!')]", "xpath:innerText"]
+      ],
+      "value": "Coming Soon!"
     }]
   }, {
     "id": "bbd1e84f-6050-4f47-927b-44e22a23cc3c",
@@ -691,6 +734,17 @@
         ["xpath=//input[2]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "e7ad99cb-2867-43a3-bf5b-d9729aac88fa",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=h2:nth-child(2)",
+      "targets": [
+        ["css=h2:nth-child(2)", "css:finder"],
+        ["xpath=//h2[2]", "xpath:position"],
+        ["xpath=//h2[contains(.,'Treatment and Monitoring')]", "xpath:innerText"]
+      ],
+      "value": "Treatment and Monitoring"
     }]
   }, {
     "id": "89a09413-c589-403f-b136-163476152429",
@@ -811,6 +865,17 @@
         ["xpath=//form/input", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "28e6d8aa-59d5-4d62-9374-96eed9baa996",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=h2:nth-child(2)",
+      "targets": [
+        ["css=h2:nth-child(2)", "css:finder"],
+        ["xpath=//h2[2]", "xpath:position"],
+        ["xpath=//h2[contains(.,'Treatment and Monitoring')]", "xpath:innerText"]
+      ],
+      "value": "Treatment and Monitoring"
     }]
   }, {
     "id": "7ba4a399-7996-48c7-823f-7bf21d6f0114",
@@ -877,6 +942,17 @@
         ["xpath=//input[2]", "xpath:position"]
       ],
       "value": "${KEY_ENTER}"
+    }, {
+      "id": "d7591055-52a5-411b-ba59-499e44586dc2",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Welcome Dan')]", "xpath:innerText"]
+      ],
+      "value": "Welcome Dan"
     }]
   }, {
     "id": "8064c8f0-508e-4e4c-8e68-10218d577208",
@@ -955,6 +1031,18 @@
         ["xpath=//a[contains(@href, 'php/logout.php')]", "xpath:href"],
         ["xpath=//a[3]", "xpath:position"],
         ["xpath=//a[contains(.,'LOG OUT')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "be2d4383-aa9f-4b57-b298-175294b9b38e",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=.box:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
       ],
       "value": ""
     }]
