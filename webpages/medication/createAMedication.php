@@ -5,7 +5,7 @@ include('../php/session.php');
 
 <head>
     <title><?php
-        echo "Medication Home";
+        echo "Create a Medication";
         ?></title>
     <link rel="stylesheet" href="../css/global.css" type="text/css">
     <link rel="stylesheet" href="../css/indexHome.css" type="text/css">
@@ -38,16 +38,7 @@ include('../php/session.php');
 </div>
 
 <div class="content" style="text-align: center">
-    <div class="row">
-        <div class="column2">
-            <h2>Prescribe Patent a Medication</h2><br/>
-            <a href=<?php echo "prescribe.php?id=".$_GET['id'];?>>Prescribe Patent a Medication</a>
-        </div>
-        <div class="column2">
-            <h2>Create a Medication</h2><br/>
-            <a href=<?php echo "createAMedication.php?id=".$_GET['id'];?>>Create a Medication</a>
-        </div>
-    </div>
+    <h2>Coming Soon!</h2>
 </div>
 </body>
 </html>

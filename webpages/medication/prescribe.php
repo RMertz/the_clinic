@@ -5,7 +5,7 @@ include('../php/session.php');
 
     <head>
         <title><?php
-            echo "Depression PHQ";
+            echo "Prescribe Patent Medication";
             ?></title>
         <link rel="stylesheet" href="../css/global.css" type="text/css">
         <link rel="stylesheet" href="../css/indexHome.css" type="text/css">
@@ -30,12 +30,15 @@ include('../php/session.php');
         <div class="navBar">
             <a href="../welcome.php">Home</a>
             <a href="../patientList.php">Your Patients</a>
-            <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
-            <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
+            <a href="../patientHome.php">Patient Home</a>
+            <a href=<?php echo "../dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
+            <a href=<?php echo "../dep/depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
+            <a href=<?php echo "medicationHome.php?id=".$_GET['id'];?>>Medication</a>
             <a href = "../php/logout.php">Sign Out</a>
         </div>
 
         <div class="content" style="text-align: center">
+            <h2>Coming Soon!</h2>
         </div>
     </body>
 </html>
