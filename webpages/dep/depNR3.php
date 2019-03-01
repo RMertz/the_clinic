@@ -42,13 +42,13 @@ include('../php/session.php');
                 If Non-response:
             </h2>
             <p>
-                Stub for Non-response directions
+                Switch to a different antidepressant<br> (alternate SSRI or non-SSRI)
             </p>
             <h3>
                 Re-Eval Timeline:
             </h3>
             <p>
-                Stub
+                Provider Discretion
             </p>
         </div>
         <div class="column3">
@@ -56,13 +56,13 @@ include('../php/session.php');
                 If Partial Response:
             </h2>
             <p>
-                Stub for Partial Response directions
+                Optimize dose OR augment <br>OR switch
             </p>
             <h3>
                 Re-Eval Timeline:
             </h3>
             <p>
-                Stub
+                Provider Discretion
             </p>
 
         </div>
@@ -71,14 +71,30 @@ include('../php/session.php');
                 If Full response:
             </h2>
             <p>
-                Stub for Full response directions
+                Continue same treatment for at least<br>
+                4 - 9 months
             </p>
             <h3>
                 Re-Eval Timeline:
             </h3>
             <p>
-                Stub
+                Provider Discretion
             </p>
+        </div>
+        <br/>
+        <h3 style="text-align: center">*Switch to a non-SSRI after two SSRI failures*</h3>
+    </div>
+    <div class="row">
+        <div class="column2">
+            <h3>Schedule Patient Visit</h3>
+            <form action = "" method = "post">
+                <input type = "date" name="Date" value = " Schedule Patient Visit "/><br/><br/>
+                <input type = "submit" name="Schedule" value = " Schedule Patient "/>
+            </form>
+        </div>
+        <div class="column2">
+            <h3>Prescribe Patient a Medication</h3>
+            <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
         </div>
     </div>
     <h3>

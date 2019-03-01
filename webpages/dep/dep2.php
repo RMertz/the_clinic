@@ -42,13 +42,14 @@ include('../php/session.php');
                 If Non-response:
             </h2>
             <p>
-                Stub for Non-response directions
+                Ensure medication adherence.<br>
+                Optimize dose OR switch (alternate SSRI or non-SSRI).
             </p>
             <h3>
                 Re-Eval Timeline:
             </h3>
             <p>
-                Stub
+                Evaluate Response in 3-4 weeks
             </p>
             <h3>
                 <a href=<?php echo "depNR3.php?id=".$_GET['id'];?>>Next Step</a>
@@ -62,13 +63,13 @@ include('../php/session.php');
                 If Partial Response:
             </h2>
             <p>
-                Stub for Partial Response directions
+                Optimize dose OR <br>augment<br>
             </p>
             <h3>
                 Re-Eval Timeline:
             </h3>
             <p>
-                Stub
+                Evaluate Response in 3-4 weeks
             </p>
             <h3>
                 <a href=<?php echo "depPR3.php?id=".$_GET['id'];?>>Next Step</a>
@@ -82,17 +83,21 @@ include('../php/session.php');
                 If Full response:
             </h2>
             <p>
-                Stub for Full response directions
+                Continue same treatment for at least 4-9 months
             </p>
-            <h3>
-                Re-Eval Timeline:
-            </h3>
-            <p>
-                Stub
-            </p>
-            <p>
-                Stub: update database for step we are on
-            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column2">
+            <h3>Schedule Patient Visit</h3>
+            <form action = "" method = "post">
+                <input type = "date" name="Date" value = " Schedule Patient Visit "/><br/><br/>
+                <input type = "submit" name="Schedule" value = " Schedule Patient "/>
+            </form>
+        </div>
+        <div class="column2">
+            <h3>Prescribe Patient a Medication</h3>
+            <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
         </div>
     </div>
     <h3>

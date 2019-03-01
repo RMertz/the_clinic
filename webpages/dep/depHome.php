@@ -42,7 +42,7 @@ include('../php/session.php');
                 Initial Step:
             </h2>
             <p>
-                Initial therapy with citalopram or sertraline (unless compelling indication for alternate agent).
+                Initial therapy with citalopram or sertraline (unless compelling indication for alternate agent).<br>
                 Address side effects and encourage adherence in 1 week. Evaluate response in 3-4 weeks.
             </p>
             <h3>
