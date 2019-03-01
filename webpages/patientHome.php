@@ -33,8 +33,10 @@ $patientInfo = $patients->fetch();
     <div class="navBar">
         <a href="welcome.php">Home</a>
         <a href="patientList.php">Your Patients</a>
+        <a href="patientHome.php">Patient Home</a>
         <a href = <?php echo "dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
-        <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
+        <a href=<?php echo "dep/depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
+        <a href=<?php echo "medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
         <a href = "php/logout.php">Sign Out</a>
         <div id="searchBar">
             <img src="images/searchBar.PNG" alt="Search Bar" border="0px" height= "20px" width= "150px">
