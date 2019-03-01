@@ -44,13 +44,15 @@ a {
 }
 
 a:hover{
-	color: blue;
+	color: #f7b733;
+	background-color: gray;
 	
 }
 
 .header {
 	vertical-align: text-bottom;
-	background-color: #999;
+	background-color: #ffffff;
+	background-color: #dfdce3;
 	height: 220px;
 	padding-left: 4%;
 	padding-right: 2%;
@@ -105,15 +107,17 @@ a:hover{
 }
 
 .navBar a:hover {
-	background-color: #ddd;
+	background-color: #dfdce3;
 	color: black;
 }
 
 .content{
 	padding-top: 2%;
-	margin-left: 5%;
-	margin-right: 5%;
 	flex: 1 0 auto;
+}
+
+.redBack{
+	background-color: #fc4a1a;
 }
 
 .navigationBoxes{
@@ -122,10 +126,33 @@ a:hover{
 	justify-content: center;
 }
 
+.navBox{
+	flex-basis: 30%;
+	background-color: #333;
+	height: 40%;
+	margin: 5% 2% 5% 2%;
+	color: #dfdce3;
+	height: auto;
+	padding-bottom: 10px;
+	text-align: center;
+	border: 2px solid black;
+	max-height: 40vh;
+}
+
+.navBoxSm{
+	flex-basis: 26%;
+	background-color: gray;
+	margin: 3%;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	border: 2px solid black;
+}
+
 .footer{
 	padding: 15px;
 	text-align: center;
-	background: #999999;
+	background: #dfdce3;
 	margin-top: 20px;
 	border-top: 3px solid #333;
 	border-bottom: 3px solid #333;
@@ -135,7 +162,7 @@ a:hover{
 #loginButton{
 	float: right;
 	margin-right: 40px;
-	background-color: #a9a9a9
+	background-color: #fc4a1a;
 }
 
 .column3 {
