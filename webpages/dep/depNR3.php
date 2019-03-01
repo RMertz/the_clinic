@@ -1,7 +1,5 @@
 <?php
 include('../php/session.php');
-//style="text-align: left;
-//    padding: 0;"
 ?>
 
 <html>

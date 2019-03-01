@@ -9,11 +9,6 @@ $patients = $db->prepare( "SELECT * FROM `PatientInformation` WHERE DoctorID = :
 $patients->bindParam(":doc_ID", $doc_ID);
 $patients->execute();
 $patientLi = $patients->fetchAll();
-//echo $patientLi['LastName'];
-/*foreach ($patientLi as $val){
-    echo $val['FirstName'] . " " . $val['LastName'] . "\n";
-}*/
-
 ?>
 
 <html>
