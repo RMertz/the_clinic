@@ -1,5 +1,9 @@
 <?php
 include('../php/session.php');
+$error = " ";
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $error="Feature Coming Soon!";
+}
 ?>
 
 <html>
