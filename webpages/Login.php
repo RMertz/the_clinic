@@ -11,13 +11,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $myusername = $_POST['username'];
     $mypassword = $_POST['password'];
 
-    $count = $db->query("SELECT DoctorID, Username FROM `DoctorInformation` WHERE LastName = '$myusername' and Username = '$mypassword'");
-
+    $doctor = $db->prepare("SELECT DoctorID, Username FROM `DoctorInformation` WHERE LastName = '$myusername' and Username = '$mypassword'");
+    $doctor->bindParam(":passwd", $mypassword);
+    $doctor->bindParam(":username", $myusername);
+    $doctor->execute();
     // If result matched $myusername and $mypassword, table row must be 1 row
 
-    if($count->rowCount() == 1) {
+    if($doctor->rowCount() == 1) {
         $_SESSION['login_user'] = $myusername;
-
         header("location: welcome.php");
     }else {
         $error = "Your Login Name or Password is invalid";
@@ -70,9 +71,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div style = "margin:30px">
 
-            <form action = "" method = "post">
-                <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
-                <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
+            <form method = "post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <label>UserName  :</label><input type = "text" name = "username" /><br /><br />
+                <label>Password  :</label><input type = "password" name = "password" /><br/><br />
                 <input type = "submit" value = " Submit "/><br />
             </form>
 

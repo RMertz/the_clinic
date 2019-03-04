@@ -1,12 +1,10 @@
 <?php
 include('../php/session.php');
 include('../php/scheduleVisit.php');
-
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $date = $_POST['Date'];
     $schedule = new scheduleVisit($_GET['id']);
-    if($schedule->schedule($date)){
+    if($schedule->schedule($_POST['Date'])){
         $error = "Next Visit Added.";
     }else{
         $error="Next Visit Not Added, Please Select a Valid Date.";
@@ -45,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
         <a href=<?php echo "../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
-        <a href = "../php/logout.php">Sign Out</a>
+        <a href = "../php/logout.php?type=0">Sign Out</a>
     </div>
 
     <div class="row">
@@ -106,7 +104,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type = "date" name="Date" value = " Schedule Patient Visit "/><br/><br/>
                 <input type = "submit" name="Schedule" value = " Schedule Patient "/>
             </form>
-            <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+            <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error;?></div>
         </div>
         <div class="column2">
             <h3>Prescribe Patient a Medication</h3>

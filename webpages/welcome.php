@@ -33,7 +33,7 @@ $login_session = $row['Firstname'];
 <div class="navBar">
     <a href="welcome.php">HOME PAGE</a>
     <a href="patientList.php">YOUR PATIENTS</a>
-    <a href="php/logout.php">LOG OUT</a>
+    <a href="php/logout.php?type=0">LOG OUT</a>
     <a href="help.html">HELP</a>
     <div id="searchBar">
         <img src="images/searchBar.png" alt="Search Bar" border="0px" height= "20px" width= "150px">

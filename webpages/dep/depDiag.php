@@ -74,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
         <a href=<?php echo "../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
-        <a href = "../php/logout.php">Sign Out</a>
+        <a href = "../php/logout.php?type=0">Sign Out</a>
     </div>
     <div class="row">
         <div >
@@ -84,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div style = "margin:30px">
 
-                <form action = "" method = "post">
+                <form  method = "post">
                     <table style="width:100%">
                         <tr>
                             <th style="width: 75%">Over the past 2 weeks, how often have you been bothered by any of the following problems?</th>

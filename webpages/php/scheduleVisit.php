@@ -9,13 +9,19 @@ class scheduleVisit
     }
 
     public function schedule($date){
+        if($date == null){
+            return false;
+        }
         include'Config.php';
-        $patient = "UPDATE `PatientInformation` SET `NextVisit` =? WHERE `PatientID` = ?";
+        if($type=1) {
+            $patient = "UPDATE `PatientInformation` SET `LastVisit` =? WHERE `PatientID` = ?";
+        }else{
+            $patient = "UPDATE `PatientInformation` SET `NextVisit` =? WHERE `PatientID` = ?";
+        }
         $patients = $db->prepare($patient);
         try {
             $patients->execute([$date, $this->id]);
         }catch (PDOException $po) {
-
             return false;
         }
         return true;
