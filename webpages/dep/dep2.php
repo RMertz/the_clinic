@@ -1,8 +1,16 @@
 <?php
 include('../php/session.php');
+include('../php/scheduleVisit.php');
+
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $error="Feature Coming Soon!";
+    $date = $_POST['Date'];
+    $schedule = new scheduleVisit($_GET['id']);
+    if($schedule->schedule($date)){
+        $error = "Next Visit Added.";
+    }else{
+        $error="Next Visit Not Added, Please Select a Valid Date.";
+    }
 }
 ?>
 
