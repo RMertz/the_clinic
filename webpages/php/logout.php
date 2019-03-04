@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(session_destroy()) {
+if($_GET['type']==0&&session_destroy()) {
     header("Location: ../Login.php");
 }
 ?>

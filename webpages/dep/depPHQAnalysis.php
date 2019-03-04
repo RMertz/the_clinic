@@ -51,7 +51,7 @@ $analysis = $PHQ->getResults($_GET['type'],$_GET['q1'],$_GET['q2'],$_GET['q3'],$
         <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
         <a href=<?php echo "../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
-        <a href = "../php/logout.php">Sign Out</a>
+        <a href = "../php/logout.php?type=0">Sign Out</a>
     </div>
 
     <div class="content" style="text-align: center">
