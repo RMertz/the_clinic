@@ -10,12 +10,15 @@ class scheduleVisit
 
     public function schedule($date){
         include'Config.php';
-        echo $date;
         $patient = "UPDATE `PatientInformation` SET `NextVisit` =? WHERE `PatientID` = ?";
         $patients = $db->prepare($patient);
-        $patients->execute([$date,$this->id]);
-        echo('yah');
+        try {
+            $patients->execute([$date, $this->id]);
+        }catch (PDOException $po) {
 
+            return false;
+        }
+        return true;
 
     }
 
