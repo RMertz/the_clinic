@@ -8,7 +8,7 @@ class scheduleVisit
         $this->id = $id;
     }
 
-    public function schedule($date, int $type){
+    public function schedule($date){
         if($date == null){
             return false;
         }

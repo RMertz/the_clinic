@@ -84,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div style = "margin:30px">
 
-                <form action = "" method = "post">
+                <form  method = "post">
                     <table style="width:100%">
                         <tr>
                             <th style="width: 75%">Over the past 2 weeks, how often have you been bothered by any of the following problems?</th>
