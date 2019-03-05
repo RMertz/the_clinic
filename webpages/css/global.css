@@ -118,12 +118,25 @@ a:hover{
 
 .redBack{
 	background-color: #fc4a1a;
+	padding-top: 4%;
+	padding-bottom: 4%;
 }
 
 .navigationBoxes{
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+}
+
+.loginBox{
+	flex-basis: 30%;
+	background-color: #dfdce3;
+	color: black;
+	height: auto;
+	text-align: left;
+	border: 2px solid black;
+	max-height: 40vh;
+	width:300px;  
 }
 
 .navBox{
