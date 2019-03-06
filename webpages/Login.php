@@ -45,7 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class= "column right">
             <div id="headerLogo">
-                <img src="images/longHeader.png" alt="HeaderImage">
+                <img src="images/HeaderImageOutline.png" alt="HeaderImage">
             </div>
         </div>
     </div>
@@ -55,34 +55,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="navBar">
 
-    <a href="index.html">HOME PAGE</a>
-    <a href="profile.html">PROFILE</a>
-    <a href="patientPage.html">PATIENTS</a>
-    <a href="help.html">HELP</a>
-    <a href="Login.php">LOGIN</a>
-    <div id="searchBar">
-        <img src="images/searchBar.png" alt="Search Bar" border="0px" height= "20px" width= "150px">
-    </div>
+
+
 </div>
 
 <div class = "content" >
-    <div style = "width:300px; border: solid 1px #333333; " align = "left">
-        <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
 
-        <div style = "margin:30px">
+	<div class="redBack">
+		<div class="navigationBoxes">
+			<div class= "loginBox">
+				<div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
 
-            <form method = "post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                <label>UserName  :</label><input type = "text" name = "username" /><br /><br />
-                <label>Password  :</label><input type = "password" name = "password" /><br/><br />
-                <input type = "submit" value = " Submit "/><br />
-            </form>
+				<div style = "padding:30px; background-color: #dfdce3; ">
 
-            <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+					<form action = "" method = "post">
+						<label>UserName :</label><input type = "text" name = "username" class = "box"/><br /><br />
+						<label>Password	:</label><input type = "password" name = "password" class = "box" /><br/><br />
+						<input type = "submit" value = " Submit "/><br />
+					</form>
 
-        </div>
+					<div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
 
-    </div>
+				</div>
 
+			</div>
+		</div>
+	</div>
 </div>
 <div class="footer">
     <a href="https://github.com/RMertz/the_clinic.git">Repository</a>
