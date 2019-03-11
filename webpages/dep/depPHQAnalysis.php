@@ -5,14 +5,9 @@ include ('../php/pHQAnalysis.php');
 
 $error = " ";
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $schedule = new scheduleVisit($_GET['id']);
-    if($schedule->schedule($_POST['Date'])){
-        $error = "Next Visit Added.";
-    }else{
-        $error="Next Visit Not Added, Please Select a Valid Date.";
-    }
-}
+echo $_POST['q1'];
+
+
 
 $PHQ = new pHQAnalysis($_GET['id']);
 $analysis = $PHQ->getResults($_GET['type'],$_GET['q1'],$_GET['q2'],$_GET['q3'],$_GET['q9'],$_GET['total']);
