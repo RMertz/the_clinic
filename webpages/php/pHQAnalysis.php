@@ -8,6 +8,11 @@ class pHQAnalysis
         $this->id = $id;
     }
 
+    public function getID():int
+    {
+    	return $this->id;	    
+    }
+
     public function getResults(int $type,  int $q1, int $q2, int $q3, int $q9, int $total){
         if($type==0){
             if($q1==1&&$q2==1&&$q3==1) {
