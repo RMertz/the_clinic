@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require __DIR__ . "/../webpages/Email.php";
+require __DIR__ . "/../webpages/php/Email.php";
 use PHPUnit\Framework\TestCase;
 
 final class EmailTest extends TestCase
