@@ -36,6 +36,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </head>
 
+<link rel="icon" type="image/png" href="images/favicon.ico">
+
 <body>
 <div class="header">
 
