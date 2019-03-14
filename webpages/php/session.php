@@ -6,7 +6,9 @@ $user_check = $_SESSION['login_user'];
 
 
 if(!isset($_SESSION['login_user'])){
-    header("location:Login.php");
+    session_unset();
+    session_destroy();
+    header("location:../Login.php");
     die();
 }
 ?>

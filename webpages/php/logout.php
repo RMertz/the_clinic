@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(session_destroy()) {
-    header("Location: webpages/login.php");
+if($_GET['type']==0&&session_unset()&&session_destroy()) {
+    header("Location: ../Login.php");
 }
 ?>

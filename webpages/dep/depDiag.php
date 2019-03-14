@@ -1,42 +1,43 @@
 <?php
 include('../php/session.php');
-//style="text-align: left;
-//    padding: 0;"
-
-$error = " ";
-$myusername = " ";
-$myGender = " ";
-$mypassword = " ";
-$q1 = " ";
-$q2 = " ";
-$total = " ";
-$q10 = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    // username and password sent from form
-    $q1 = $_POST['q1'];
-    $q2 = $_POST['q2'];
-    $q3 = $_POST['q3'];
-    $q4 = $_POST['q4'];
-    $q5 = $_POST['q5'];
-    $q6 = $_POST['q6'];
-    $q7 = $_POST['q7'];
-    $q8 = $_POST['q8'];
-    $q9 = $_POST['q9'];
-    $q10 = $_POST['q10'];
-    $error = "Your Login Name or Password is invalid";
-    $total = $q1 + $q2 + $q3 + $q4 + $q5 + $q6 + $q7 + $q8 + $q9;
-
-    /*$count = $db->query("SELECT doctorID, username FROM `Doctor Information` WHERE username = '$myusername' and password = '$mypassword'");
-
-    // If result matched $myusername and $mypassword, table row must be 1 row
-
-    if($count->rowCount() == 1) {
-        $_SESSION['login_user'] = $myusername;
-
-        header("location: welcome.php");
-    }else {
-        $error = "Your Login Name or Password is invalid";
-    }*/
+    $answers = array($_POST['q1'],$_POST['q2'],$_POST['q3'],$_POST['q4'],$_POST['q5'],$_POST['q6'],$_POST['q7'],$_POST['q8'],$_POST['q9']);
+    $total=0;
+    $totalPoints=0;
+    for ($i = 0; $i < 8; $i++){
+        if($answers[$i]>1){
+            $total++;
+            $totalPoints+=$answers[$i];
+        }
+    }
+    if($answers[0]>1||$answers[1]>1){
+        $q1=1;
+    }else{
+        $q1=0;
+    }
+    if($answers[8]>0){
+        $total++;
+    }
+    if($total>=5){
+        $total=1;
+    }else{
+        $total=0;
+    }
+    if($_POST['q10']>0){
+        $q3=1;
+    }else{
+        $q3=0;
+    }
+    if($answers[7]>0){
+        $q9=1;
+    }else{
+        $q9=0;
+    }
+    if (isset($_POST['Initial'])) {
+        header("location: depPHQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $total . "&q3=" . $q3 . "&q1=" . $q1."&type=0"."&total=".$totalPoints."&q9=".$q9); //type 0 = initial diagnosis
+    }else{
+        header("location: depPHQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $total . "&q3=" . $q3 . "&q1=" . $q1."&type=1"."&total=".$totalPoints."&q9=".$q9); //type 1 = continuing treatment
+    }
 }
 ?>
 
@@ -51,20 +52,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<div id="header">
-    <h1>
-        <br>
-        <?php
-        echo "Depression PHQ for 'Insert Name Here'";
-        ?>
-    </h1>
+    <div id="header">
+        <div class="header">
+            <div class=headerRow">
+                <div class= "column left">
+                    <h1>The Clinic</h1>
+                </div>
+                <div class= "column right">
+                    <div id="headerLogo">
+                        <img src="../images/longHeader.png" alt="HeaderImage">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div id="navBar">
+    <div class="navBar">
         <a href="../welcome.php">Home</a>
         <a href="../patientList.php">Your Patients</a>
+        <a href=<?php echo "../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
         <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
-        <a href="depDiag.php">Depression PHQ</a>
-        <a href = "../php/logout.php">Sign Out</a>
+        <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
+        <a href=<?php echo "../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
+        <a href = "../php/logout.php?type=0">Sign Out</a>
     </div>
     <div class="row">
         <div >
@@ -74,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div style = "margin:30px">
 
-                <form action = "" method = "post">
+                <form  method = "post">
                     <table style="width:100%">
                         <tr>
                             <th style="width: 75%">Over the past 2 weeks, how often have you been bothered by any of the following problems?</th>
@@ -84,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                             <th>3</th>
                         </tr>
                         <tr>
-                            <td>1. Little interest or plesure in doing things.</td>
+                            <td>1. Little interest or pleasure in doing things.</td>
                             <td><input type="radio" name="q1" value="0" checked></td>
                             <td><input type="radio" name="q1" value="1"></td>
                             <td><input type="radio" name="q1" value="2"></td>
@@ -157,31 +167,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                             </tr>
                             <tr>
                                 <td>10. If you checked off any problems, how difficult have those problems made it for you to do your work, take car of things at home, or get along with other people?</td>
-                                <td><input type="radio" name="q10" value="Not difficult at all" checked></td>
-                                <td><input type="radio" name="q10" value="Somewhat difficult"></td>
-                                <td><input type="radio" name="q10" value="Very difficult"></td>
-                                <td><input type="radio" name="q10" value="Extremely difficult"></td>
+                                <td><input type="radio" name="q10" value="0" checked></td>
+                                <td><input type="radio" name="q10" value="1"></td>
+                                <td><input type="radio" name="q10" value="2"></td>
+                                <td><input type="radio" name="q10" value="3"></td>
                             </tr>
                     </table><br/><br/>
 
 
-                    <input type = "submit" value = " Submit PHQ "/><br />
+                    <input type = "submit" name="Initial" value = " Submit PHQ For Initial Diagnosis and Treatment "/>
+                    <input type = "submit" name="Continuing" value = " Submit PHQ For Continuing Treatment "/><br />
                 </form>
-
-                <div><?php
-                    echo $total;
-                    echo $q10;
-                    ?></div>
             </div>
         </div>
     </div>
 </body>
 
-<footer>
-    <h4>
-        <a href="https://github.com/RMertz/the_clinic">About This App</a>
-    </h4>
-</footer>
+<div class="footer">
+    <a href="https://github.com/RMertz/the_clinic.git">Repository</a>
+</div>
 
 </html>
 
