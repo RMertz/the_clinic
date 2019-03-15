@@ -1,9 +1,5 @@
 <?php
-if(include('php/session.php')){
-    echo "yay";
-}else{
-    echo "noo";
-};
+include('php/session.php');
 $docID = $db->prepare("SELECT DoctorID FROM `DoctorInformation` WHERE LastName = :user_check");
 $docID->bindParam(":user_check", $user_check);
 $docID->execute();
@@ -48,7 +44,7 @@ $patientLi = $patients->fetchAll();
     </div>
 </div>
 
-    <div class="content">
+    <div >
         <h2>
             Select a patient to View Info
         </h2>
