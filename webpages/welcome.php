@@ -17,38 +17,86 @@ $login_session = $row['Firstname'];
 
 </head>
 
+<link rel="icon" type="image/png" href="images/favicon.ico">
 
+<body>
 <div class="header">
     <div class=headerRow">
         <div class= "column left">
-            <h1>The Clinic</h1>
+            <h1>The Clinician's Guide</h1>
         </div>
         <div class= "column right">
             <div id="headerLogo">
-                <img src="images/longHeader.png" alt="HeaderImage">
+                <img src="images/HeaderImageOutline.png" alt="HeaderImage">
             </div>
         </div>
     </div>
 </div>
-<div class="navBar">
-    <a href="welcome.php">HOME PAGE</a>
-    <a href="patientList.php">YOUR PATIENTS</a>
-    <a href="php/logout.php?type=0">LOG OUT</a>
-    <a href="help.html">HELP</a>
-    <div id="searchBar">
-        <img src="images/searchBar.png" alt="Search Bar" border="0px" height= "20px" width= "150px">
-    </div>
-</div>
+
+		<div class="navBar">
+			
+				<a href="index.html">HOME PAGE</a>
+				<a href="profile.html">PROFILE</a>
+				<a href="patientPage.html">PATIENTS</a>
+				<a href="help.html">HELP</a>
+				<a id="logoutButton" href="php/logout.php?type=0">LOGOUT</a>
+				
+		</div>
+		
 <div class="content">
     <h2>
         Welcome <?php echo $login_session; ?>
     </h2>
+	
+	<div class="redBack">
+	
+		<div class="navigationBoxes">
+			<div class="navBox">
+				<a class="navBoxSm href="profile.html">PROFILE</a>
+				<br><br>
+				<a href: "profile.html">
+				<img ID="Icon" src="images/DoctorIcon.png" alt="DoctorIcon">
+				</a>
+				<br><br>
+				<paragraph>
+				Manage your profile and preferences here
+				</paragraph>
+			</div>
+			
+			<div class="navBox">
+				<a class="navBoxSm href="patientPage.html">PATIENTS</a>
+				<br><br>
+					<a href: "patientPage.html">
+					<img ID="Icon" src="images/PatientIcon.png" alt="PatientIcon">
+					</a>
+				<br><br>
+				
+				<paragraph>
+				View, Manage, and Work with Patients
+				</paragraph>
+				
+			</div>
+			
+			<div class="navBox">
+				<a class="navBoxSm href="help.html">HELP</a>
+				<br><br>
+				<a href: "help.html">
+				<img ID="Icon" src="images/HelpIcon.png" alt="HelpIcon">
+				</a>
+				<br><br>
+				<paragraph>
+				Find out how to use features of this application 
+				or 
+				contact us about any problems you may be having.
+				</paragraph>
+			</div>
+		</div>
+	
+	</div>
+	
 </div>
-<div class="content">
-    <p style="text-align:center;" >
-        Click "Your Patients to begin"
-    </p>
-</div>
+
+
 <div class="footer">
     <a href="https://github.com/RMertz/the_clinic.git">Repository</a>
 </div>
