@@ -49,12 +49,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="navBar">
 
-    <a href="index.html">HOME PAGE</a>
-    <a href="profile.html">PROFILE</a>
-    <a href="patientPage.html">PATIENTS</a>
-    <a href="help.html">HELP</a>
-    <a id="loginButton" href="Login.php">LOGIN</a>
-    <a href="createUser.php">CREATE USER</a>
+    <a href="welcome.php">HOME</a>
+    <a href="patientList.php">YOUR PATIENTS</a>
+    <a href="createPatient.php">NEW PATIENT</a>
+    <a href = "php/logout.php?type=0">LOG OUT</a>
 
 </div>
 

@@ -16,7 +16,7 @@ class createUser
         $check->bindParam(":lastname", $lastname);
         $check->bindParam(":username", $myusername);
         $check->execute();
-        if ($check->rowCount() == 1) {
+        if ($check->rowCount() != 0) {
             return "Sorry that combination already exists";
         } else {
             $doctor = $db->prepare("INSERT INTO `DoctorInformation` (`DoctorID`, `FirstName`, `LastName`, `PatientID`, `Username`, `Password`) VALUES (NULL, :firstname, :lastname, NULL, :username, :passwd)");
@@ -40,7 +40,7 @@ class createUser
         $check->bindParam(":lastname", $lastname);
         $check->bindParam(":doctorid", $doctorID);
         $check->execute();
-        if ($check->rowCount() == 1){
+        if ($check->rowCount() != 0){
             return "Sorry that combination already exists";
         }else {
             $doctor = $db->prepare("INSERT INTO `PatientInformation` (`PatientID`, `FirstName`, `Surname`, `Diagnosis`, `MedicationID`, `CurrentDose`, `LastVisit`, `NextVisit`, `DoctorID`) VALUES (NULL, :firstname, :lastname, :diagnosis, NULL, NULL, NULL, NULL, :doctorid);");

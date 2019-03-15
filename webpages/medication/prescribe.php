@@ -1,5 +1,7 @@
 <?php
 include('../php/session.php');
+$medications = $db->prepare("SELECT * FROM MedicationInformation");
+$medications->execute();
 ?>
 <html>
 
@@ -38,7 +40,15 @@ include('../php/session.php');
         </div>
 
         <div class="content" style="text-align: center">
-            <h2>Coming Soon!</h2>
+            <h2>Pick a Medication To Prescribe</h2>
+
+            <li>
+                <?php
+                foreach ($medications as $val){
+                    echo "<a href = 'prescription.php?medid=".$val['MedicationID']."&id=".$_GET['id']."'>".$val['Name'] . "</a>";
+                }
+                ?>
+            </li>
         </div>
     </body>
 </html>
