@@ -5,6 +5,7 @@ $docID->bindParam(":user_check", $user_check);
 $docID->execute();
 $row = $docID->fetch();
 $login_session = $row['Firstname'];
+$activePage = basename($_SERVER['PHP_SELF'], ".php");
 ?>
 <html>
 
@@ -33,15 +34,13 @@ $login_session = $row['Firstname'];
     </div>
 </div>
 
-		<div class="navBar">
-			
-				<a href="index.html">HOME PAGE</a>
-				<a href="profile.html">PROFILE</a>
-				<a href="patientPage.html">PATIENTS</a>
-				<a href="help.html">HELP</a>
-				<a id="logoutButton" href="php/logout.php?type=0">LOGOUT</a>
-				
-		</div>
+    <div class="navBar">
+        <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="../welcome.php">Home</a>
+        <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="../patientList.php">Your Patients</a>
+        <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
+        <a class="<?= ($activePage == 'depDiag') ? 'active':''; ?>" href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
+        <a ID="logoutButton"href = "../php/logout.php">Sign Out</a>
+    </div>
 		
 <div class="content">
     <h2>

@@ -22,27 +22,27 @@ $patientLi = $patients->fetchAll();
 <body>
 
 <div class="header">
-
     <div class=headerRow">
         <div class= "column left">
-            <h1>The Clinic</h1>
+            <h1>The Clinician's Guide</h1>
         </div>
         <div class= "column right">
             <div id="headerLogo">
-                <img src="images/longHeader.png" alt="HeaderImage">
+                <img src="images/HeaderImageOutline.png" alt="HeaderImage">
             </div>
         </div>
     </div>
 </div>
 
-<div class="navBar">
-    <a href="welcome.php">HOME</a>
-    <a href="patientList.php">YOUR PATIENTS</a>
-    <a href = "php/logout.php?type=0">LOG OUT</a>
-    <div id="searchBar">
-        <img src="images/searchBar.png" alt="Search Bar" border="0px" height= "20px" width= "150px">
-    </div>
-</div>
+		<div class="navBar">
+			
+				<a href="index.html">HOME PAGE</a>
+				<a href="profile.html">PROFILE</a>
+				<a href="patientPage.html">PATIENTS</a>
+				<a href="help.html">HELP</a>
+				<a id="logoutButton" href="php/logout.php?type=0">LOGOUT</a>
+				
+		</div>
 
     <div class="content">
         <h2>

@@ -43,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class=headerRow">
         <div class= "column left">
-            <h1>The Clinic</h1>
+            <h1>The Clinician's Guide</h1>
         </div>
         <div class= "column right">
             <div id="headerLogo">
