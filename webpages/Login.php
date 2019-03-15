@@ -1,5 +1,5 @@
 <?php
-if((include $_SERVER['DOCUMENT_ROOT']."/php/Config.php")==TRUE){
+if((include "php/Config.php")){
 }else{
     echo "nooo";
 };
@@ -11,13 +11,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $myusername = $_POST['username'];
     $mypassword = $_POST['password'];
 
-    $count = $db->query("SELECT DoctorID, Username FROM `DoctorInformation` WHERE LastName = '$myusername' and Username = '$mypassword'");
-
+    $doctor = $db->prepare("SELECT DoctorID, Username FROM `DoctorInformation` WHERE Password = :passwd and Username = :username");
+    $doctor->bindParam(":passwd", $mypassword);
+    $doctor->bindParam(":username", $myusername);
+    $doctor->execute();
     // If result matched $myusername and $mypassword, table row must be 1 row
 
-    if($count->rowCount() == 1) {
+    if($doctor->rowCount() == 1) {
         $_SESSION['login_user'] = $myusername;
-
         header("location: welcome.php");
     }else {
         $error = "Your Login Name or Password is invalid";
@@ -35,16 +36,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </head>
 
+<link rel="icon" type="image/png" href="images/favicon.ico">
+
 <body>
 <div class="header">
 
-    <div class=headerRow">
+    <div class="headerRow">
         <div class= "column left">
-            <h1>The Clinic</h1>
+            <h1>The Clinician's Guide</h1>
         </div>
         <div class= "column right">
             <div id="headerLogo">
-                <img src="images/longHeader.png" alt="HeaderImage">
+                <img src="images/HeaderImageOutline.png" alt="HeaderImage">
             </div>
         </div>
     </div>
@@ -58,30 +61,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <a href="profile.html">PROFILE</a>
     <a href="patientPage.html">PATIENTS</a>
     <a href="help.html">HELP</a>
-    <a href="Login.php">LOGIN</a>
-    <div id="searchBar">
-        <img src="images/searchBar.png" alt="Search Bar" border="0px" height= "20px" width= "150px">
-    </div>
+    <a id="loginButton" href="Login.php">LOGIN</a>
+    <a href="createUser.php">CREATE USER</a>
+
 </div>
 
 <div class = "content" >
-    <div style = "width:300px; border: solid 1px #333333; " align = "left">
-        <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
 
-        <div style = "margin:30px">
+	<div class="redBack">
+		<div class="navigationBoxes">
+			<div class= "loginBox">
+				<div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
 
-            <form action = "" method = "post">
-                <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
-                <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
-                <input type = "submit" value = " Submit "/><br />
-            </form>
+				<div style = "padding:30px; background-color: #dfdce3; ">
 
-            <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+					<form action = "" method = "post">
+						<label>UserName :</label><input type = "text" name = "username" class = "box"/><br /><br />
+						<label>Password	:</label><input type = "password" name = "password" class = "box" /><br/><br />
+						<input type = "submit" value = " Submit "/><br />
+					</form>
 
-        </div>
+					<div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
 
-    </div>
+				</div>
 
+			</div>
+		</div>
+	</div>
 </div>
 <div class="footer">
     <a href="https://github.com/RMertz/the_clinic.git">Repository</a>

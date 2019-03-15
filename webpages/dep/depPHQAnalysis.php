@@ -1,64 +1,31 @@
 <?php
 include('../php/session.php');
-$diagnosis='';
-$diagnosisInfo='';
-$treatmentTF='';
-$suicide='';
-$diagnosisHeader="";
+include('../php/scheduleVisit.php');
+include ('../php/pHQAnalysis.php');
+include ('../php/addDiagnosis.php');
+
 $error = " ";
+$diagError = " ";
+$PHQ = new pHQAnalysis($_GET['id']);
+$analysis = $PHQ->getResults($_GET['type'],$_GET['q1'],$_GET['q2'],$_GET['q3'],$_GET['q9'],$_GET['total']);
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $error="Feature Coming Soon!";
-}
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST['Schedule'])){
+    if (isset($_POST['Schedule'])){
+        $schedule = new scheduleVisit($_GET['id']);
+        if($schedule->schedule($_POST['Date'])){
+            $error = "Next Visit Added.";
+        }else{
+            $error="Next Visit Not Added, Please Select a Valid Date.";
+        }
+    }
+    if (isset($_POST['Diagnosis'])){
+        $diag = new addDiagnosis();
+        $diagError = $diag->addDiagnosisToPatient($_GET['id'],$analysis['diagnosis']);
 
     }
-
 }
 
-if($_GET['type']==0){
-    if($_GET['q1']==1&&$_GET['q2']==1&&$_GET['q3']==1) {
-        $diagnosis = "Depression";
-        $diagnosisHeader="Diagnosis: ";
-        $diagnosisInfo = "Due to your patients responses from the PHQ we recommend making a tentative diagnosis of ".$diagnosis." after ruling out physical causes,
-         normal bereavement and a history of manic or hypomanic episode.";
-        $treatmentType="Treatment";
-    }else{
-        $diagnosis = "None";
-        $treatmentType="Treatment";
-        $diagnosisHeader="Diagnosis: ";
-    }
-}else{
-    $treatmentType="A Treatment change";
-}
-if($_GET['q1']==1||$_GET['q3']==1){
-    $treatmentTF=$treatmentType." may be warranted because at least one of the first two questions
-was rated a 2 or 3 OR question 10 was rated at least Somewhat difficult.";
-}else{
-    $treatmentTF=$treatmentType." may NOT be warranted because none of the first two questions
-was rated a 2 or 3 OR question 10 was rated Somewhat difficult or above.";
-}
-if($_GET['q9']>0){
-    $suicide="Due to positive answer to question 9 it is recommenced that the patient is assessed for suicide risk.";
-}else{
-    $suicide="Due to negative answer to question 9 it is NOT recommenced that the patient is assessed for suicide risk.";
-}
-if($_GET['total']>=5 && $_GET['total']<10){
-    $tentativeDiag = " Minimal Symptoms ";
-    $treatmentRec = "Support, ask to call if worse, return in 1 month";
-}else if($_GET['total']>=10 && $_GET['total']<15){
-    $tentativeDiag = " Minor Depression Dysthymia or Major Depression, Mild ";
-    $treatmentRec = "Support, contact in one week. Antidepressant or psychotherapy,
-contact in one week";
-}else if($_GET['total']>=15 && $_GET['total']<20){
-    $tentativeDiag = " Major Depression, Moderate ";
-    $treatmentRec = "Antidepressant or psychotherapy";
-}else if($_GET['total']>=20){
-    $tentativeDiag = " Major Depression, Severe ";
-    $treatmentRec = "Antidepressant and psychotherapy (especially if not improved on monotherapy)";
-}else{
-    $tentativeDiag = " None ";
-}
+
 
 ?>
 
@@ -73,7 +40,6 @@ contact in one week";
 </head>
 
 <body>
-    <div id="header">
         <div class="header">
             <div class=headerRow">
                 <div class= "column left">
@@ -85,7 +51,6 @@ contact in one week";
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 
     <div class="navBar">
@@ -95,20 +60,20 @@ contact in one week";
         <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
         <a href=<?php echo "../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
-        <a href = "../php/logout.php">Sign Out</a>
+        <a href = "../php/logout.php?type=0">Sign Out</a>
     </div>
 
     <div class="content" style="text-align: center">
         <h2>
-        <?php echo $diagnosisHeader.$diagnosis?>
+        <?php echo $analysis['diagnosisHeader'].$analysis['diagnosis']?>
         </h2>
-        <?php echo $diagnosisInfo?>
+        <?php echo $analysis['diagnosisInfo']?>
         <h2>
             Treatment and Monitoring
         </h2>
         <ol class="center">
-            <li><?php echo $treatmentTF?></li>
-            <li><?php echo $suicide?></li>
+            <li><?php echo $analysis['treatmentTF']?></li>
+            <li><?php echo $analysis['suicide']?></li>
             <li>
                 <table class="center">
                     <tr>
@@ -118,9 +83,9 @@ contact in one week";
                     </tr>
                     <tr>
                         <td><?php echo $_GET['total']?></td>
-                        <td><?php echo $tentativeDiag?></td>
+                        <td><?php echo $analysis['tentativeDiag']?></td>
                         <td>
-                            <?php echo $treatmentRec?>
+                            <?php echo $analysis['treatmentRec']?>
                         </td>
                     </tr>
                 </table>
@@ -129,7 +94,7 @@ contact in one week";
                     clinically significant in assessing improvement of symptoms.</li>
         </ol>
         <div class="row">
-            <div class="column2">
+            <div class="column3">
                 <h3>Schedule Patient Visit</h3>
                 <form action = "" method = "post">
                     <input type = "date" name="Date" value = " Schedule Patient Visit "/><br/><br/>
@@ -137,7 +102,13 @@ contact in one week";
                 </form>
                 <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
             </div>
-            <div class="column2">
+            <div class="column3">
+                <form action = "" method = "post">
+                    <input type = "submit" name="Diagnosis" value = " Approve Diagnosis "/>
+                </form>
+                <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $diagError; ?></div>
+            </div>
+            <div class="column3">
                 <h3>Prescribe Patient a Medication</h3>
                 <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
             </div>
