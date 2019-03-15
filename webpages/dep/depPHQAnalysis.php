@@ -7,6 +7,14 @@ $error = " ";
 
 echo $_POST['q1'];
 
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $schedule = new scheduleVisit($_GET['id']);
+    if($schedule->schedule($_POST['Date'])){
+        $error = "Next Visit Added.";
+    }else{
+        $error="Next Visit Not Added, Please Select a Valid Date.";
+    }
+}
 
 
 $PHQ = new pHQAnalysis($_GET['id']);
