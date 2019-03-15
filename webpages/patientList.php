@@ -1,5 +1,9 @@
 <?php
-include('php/session.php');
+if(include('php/session.php')){
+    echo "yay";
+}else{
+    echo "noo";
+};
 $docID = $db->prepare("SELECT DoctorID FROM `DoctorInformation` WHERE LastName = :user_check");
 $docID->bindParam(":user_check", $user_check);
 $docID->execute();
