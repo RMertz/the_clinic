@@ -5,6 +5,10 @@ $patients = $db->prepare( "SELECT * FROM `PatientInformation` WHERE PatientID = 
 $patients->bindParam(":pat_ID", $_GET['id']);
 $patients->execute();
 $patientInfo = $patients->fetch();
+$medication = $db->prepare( "SELECT `Name` FROM `MedicationInformation` WHERE MedicationID = :med_ID");
+$medication->bindParam(":med_ID", $patientInfo['MedicationID']);
+$medication->execute();
+$medicationInfo = $medication->fetch();
 $error='';
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $schedule = new scheduleVisit($_GET['id']);
@@ -68,6 +72,14 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
             Patient Diagnosis:
         </h3>
         <?php echo $patientInfo['Diagnosis']; ?>
+        <h3>
+            Current Medication:
+        </h3>
+        <?php echo $medicationInfo['Name']; ?>
+        <h3>
+            Current Dose:
+        </h3>
+        <?php echo $patientInfo['CurrentDose']; ?>
         <h3>
             Date of Last Visit:
         </h3>

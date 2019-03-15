@@ -1,5 +1,7 @@
 <?php
-include('php/session.php');
+if(include('php/session.php')){
+
+};
 $docID = $db->prepare("SELECT Firstname FROM `DoctorInformation` WHERE LastName = :user_check");
 $docID->bindParam(":user_check", $user_check);
 $docID->execute();
@@ -34,6 +36,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
     </div>
 </div>
 
+
     <div class="navBar">
         <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="../welcome.php">Home</a>
         <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="../patientList.php">Your Patients</a>
@@ -41,6 +44,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
         <a class="<?= ($activePage == 'depDiag') ? 'active':''; ?>" href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
         <a ID="logoutButton"href = "../php/logout.php">Sign Out</a>
     </div>
+
 		
 <div class="content">
     <h2>
@@ -51,7 +55,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 	
 		<div class="navigationBoxes">
 			<div class="navBox">
-				<a class="navBoxSm href="profile.html">PROFILE</a>
+				<a class="navBoxSm" href="profile.html">PROFILE</a>
 				<br><br>
 				<a href: "profile.html">
 				<img ID="Icon" src="images/DoctorIcon.png" alt="DoctorIcon">
@@ -63,9 +67,9 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 			</div>
 			
 			<div class="navBox">
-				<a class="navBoxSm href="patientPage.html">PATIENTS</a>
+				<a class="navBoxSm" href="patientList.php">PATIENTS</a>
 				<br><br>
-					<a href: "patientPage.html">
+					<a href="patientList.php" >
 					<img ID="Icon" src="images/PatientIcon.png" alt="PatientIcon">
 					</a>
 				<br><br>
@@ -77,7 +81,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 			</div>
 			
 			<div class="navBox">
-				<a class="navBoxSm href="help.html">HELP</a>
+				<a class="navBoxSm" href="help.html">HELP</a>
 				<br><br>
 				<a href: "help.html">
 				<img ID="Icon" src="images/HelpIcon.png" alt="HelpIcon">

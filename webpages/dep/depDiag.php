@@ -1,42 +1,14 @@
 <?php
 include('../php/session.php');
+include('../php/depDiagLogic.php');
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $answers = array($_POST['q1'],$_POST['q2'],$_POST['q3'],$_POST['q4'],$_POST['q5'],$_POST['q6'],$_POST['q7'],$_POST['q8'],$_POST['q9']);
-    $total=0;
-    $totalPoints=0;
-    for ($i = 0; $i < 8; $i++){
-        if($answers[$i]>1){
-            $total++;
-            $totalPoints+=$answers[$i];
-        }
-    }
-    if($answers[0]>1||$answers[1]>1){
-        $q1=1;
-    }else{
-        $q1=0;
-    }
-    if($answers[8]>0){
-        $total++;
-    }
-    if($total>=5){
-        $total=1;
-    }else{
-        $total=0;
-    }
-    if($_POST['q10']>0){
-        $q3=1;
-    }else{
-        $q3=0;
-    }
-    if($answers[7]>0){
-        $q9=1;
-    }else{
-        $q9=0;
-    }
+    $diag = new depDiagLogic();
+    $answers = array($_POST['q1'],$_POST['q2'],$_POST['q3'],$_POST['q4'],$_POST['q5'],$_POST['q6'],$_POST['q7'],$_POST['q8'],$_POST['q9'],$_POST['q10']);
+    $answers = $diag->getAnswers($answers);
     if (isset($_POST['Initial'])) {
-        header("location: depPHQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $total . "&q3=" . $q3 . "&q1=" . $q1."&type=0"."&total=".$totalPoints."&q9=".$q9); //type 0 = initial diagnosis
+        header("location: depPHQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $answers['q2'] . "&q3=" . $answers['q3'] . "&q1=" . $answers['q1'] ."&type=0"."&total=".$answers['severityScore']."&q9=".$answers['q9']); //type 0 = initial diagnosis
     }else{
-        header("location: depPHQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $total . "&q3=" . $q3 . "&q1=" . $q1."&type=1"."&total=".$totalPoints."&q9=".$q9); //type 1 = continuing treatment
+        header("location: depPHQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $answers['q2'] . "&q3=" . $answers['q3'] . "&q1=" . $answers['q1'] ."&type=1"."&total=".$answers['severityScore']."&q9=".$answers['q9']); //type 1 = continuing treatment
     }
 }
 	$activePage = basename($_SERVER['PHP_SELF'], ".php");
@@ -53,6 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+
     <div class="header">
     <div class=headerRow">
         <div class= "column left">
@@ -66,6 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </div>
 
+
     <div class="navBar">
         <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="../welcome.php">Home</a>
         <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="../patientList.php">Your Patients</a>
@@ -77,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="row">
         <div >
             <h2 >
-                Stub for patient health questionnaire form.<br>
+                Patient Health Questionnaire form<br>
             </h2>
 
             <div style = "margin:30px">

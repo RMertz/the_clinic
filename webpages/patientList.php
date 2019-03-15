@@ -1,6 +1,6 @@
 <?php
 include('php/session.php');
-$docID = $db->prepare("SELECT DoctorID FROM `DoctorInformation` WHERE LastName = :user_check");
+$docID = $db->prepare("SELECT DoctorID FROM `DoctorInformation` WHERE Username = :user_check");
 $docID->bindParam(":user_check", $user_check);
 $docID->execute();
 $row = $docID->fetch();
@@ -34,17 +34,18 @@ $patientLi = $patients->fetchAll();
     </div>
 </div>
 
-		<div class="navBar">
-			
-				<a href="index.html">HOME PAGE</a>
-				<a href="profile.html">PROFILE</a>
-				<a href="patientPage.html">PATIENTS</a>
-				<a href="help.html">HELP</a>
-				<a id="logoutButton" href="php/logout.php?type=0">LOGOUT</a>
-				
-		</div>
 
-    <div class="content">
+<div class="navBar">
+    <a href="welcome.php">HOME</a>
+    <a href="patientList.php">YOUR PATIENTS</a>
+    <a href="createPatient.php">NEW PATIENT</a>
+    <a href = "php/logout.php?type=0">LOG OUT</a>
+    <div id="searchBar">
+        <img src="images/searchBar.png" alt="Search Bar" border="0px" height= "20px" width= "150px">
+    </div>
+</div>
+
+    <div >
         <h2>
             Select a patient to View Info
         </h2>

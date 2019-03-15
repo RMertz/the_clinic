@@ -2,20 +2,31 @@
 include('../php/session.php');
 include('../php/scheduleVisit.php');
 include ('../php/pHQAnalysis.php');
+include ('../php/addDiagnosis.php');
 
 $error = " ";
+$diagError = " ";
+$PHQ = new pHQAnalysis($_GET['id']);
+$analysis = $PHQ->getResults($_GET['type'],$_GET['q1'],$_GET['q2'],$_GET['q3'],$_GET['q9'],$_GET['total']);
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $schedule = new scheduleVisit($_GET['id']);
-    if($schedule->schedule($_POST['Date'])){
-        $error = "Next Visit Added.";
-    }else{
-        $error="Next Visit Not Added, Please Select a Valid Date.";
+    if (isset($_POST['Schedule'])){
+        $schedule = new scheduleVisit($_GET['id']);
+        if($schedule->schedule($_POST['Date'])){
+            $error = "Next Visit Added.";
+        }else{
+            $error="Next Visit Not Added, Please Select a Valid Date.";
+        }
+    }
+    if (isset($_POST['Diagnosis'])){
+        $diag = new addDiagnosis();
+        $diagError = $diag->addDiagnosisToPatient($_GET['id'],$analysis['diagnosis']);
+
     }
 }
 
-$PHQ = new pHQAnalysis($_GET['id']);
-$analysis = $PHQ->getResults($_GET['type'],$_GET['q1'],$_GET['q2'],$_GET['q3'],$_GET['q9'],$_GET['total']);
+
+
 ?>
 
 <html>
@@ -29,7 +40,6 @@ $analysis = $PHQ->getResults($_GET['type'],$_GET['q1'],$_GET['q2'],$_GET['q3'],$
 </head>
 
 <body>
-    <div id="header">
         <div class="header">
             <div class=headerRow">
                 <div class= "column left">
@@ -41,7 +51,6 @@ $analysis = $PHQ->getResults($_GET['type'],$_GET['q1'],$_GET['q2'],$_GET['q3'],$
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 
     <div class="navBar">
@@ -85,7 +94,7 @@ $analysis = $PHQ->getResults($_GET['type'],$_GET['q1'],$_GET['q2'],$_GET['q3'],$
                     clinically significant in assessing improvement of symptoms.</li>
         </ol>
         <div class="row">
-            <div class="column2">
+            <div class="column3">
                 <h3>Schedule Patient Visit</h3>
                 <form action = "" method = "post">
                     <input type = "date" name="Date" value = " Schedule Patient Visit "/><br/><br/>
@@ -93,7 +102,13 @@ $analysis = $PHQ->getResults($_GET['type'],$_GET['q1'],$_GET['q2'],$_GET['q3'],$
                 </form>
                 <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
             </div>
-            <div class="column2">
+            <div class="column3">
+                <form action = "" method = "post">
+                    <input type = "submit" name="Diagnosis" value = " Approve Diagnosis "/>
+                </form>
+                <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $diagError; ?></div>
+            </div>
+            <div class="column3">
                 <h3>Prescribe Patient a Medication</h3>
                 <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
             </div>
