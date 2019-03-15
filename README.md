@@ -1,6 +1,9 @@
 # the_clinic
 
 Documentation for Users
+The login to the website is:
+Username:Jeff
+password:Jeff1
 
 Documentation for Developers
 For the latest release version check the release branch on github.
@@ -21,9 +24,10 @@ deliverables for ESOF 423.
 
 If you wish to use this software and update the webpages, you can edit the files in the subdirectory webpages to update the website.
 
-List of known bugs:
-Session Verification
 
-List of resolved bugs:
+List of known bugs: Travis.yml not automating tests. phpunit not running correctly 
+
+
+List of resolved bugs: Travis.yml has been configured to run correctly phpunit is now up and running
 
 If you find bugs in the software please contact us at antonmertz@gmail.com

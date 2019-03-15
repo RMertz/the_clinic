@@ -1,6 +1,13 @@
+html, body{
+	height: 100%;
+}
+
 body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	float: middle;
-	background-color: #AEE8FF;
+	background-color: #ffffff;
 	max-width: 100%;
 }
 
@@ -8,6 +15,7 @@ h1 {
 	font-family: Sans-Serif;
     text-align: left;
 	font-size: 60px;
+	padding-top: 45px;
 }
 
 h2	{
@@ -24,7 +32,7 @@ p {
 }
 
 li	{
-	display: inline;
+
 }
 
 a {
@@ -35,36 +43,163 @@ a {
 	font-family: sans-serif;
 }
 
-#navBar{
+a:hover{
+	color: #f7b733;
+	background-color: gray;
+	
+}
+
+.header {
+	vertical-align: text-bottom;
+	background-color: #ffffff;
+	background-color: #dfdce3;
+	height: 220px;
+	padding-left: 4%;
+	padding-right: 2%;
+	text-align: center;
+	overflow: hidden;
+	margin-bottom: 10px;
+	flex-shrink: 0;
+	/*border-bottom: 3px solid #333;*/
+}
+
+.column {
+	float: left;
+	padding: 10px;
+}
+
+.left {
+	float: left;
+	width: 320px;
+}
+
+.right {
+	float: right;
+	width: calc(100% - 360px);
+	overflow: hidden;
+}
+
+.headerRow:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.navBar{
+	overflow: hidden;
+	background-color: #333;
 	border: 2px clear #000000;
 	padding: 1%;
 	Text-align: left;
 	color: #D3D3D3;
-	width: 100%;
 	margin-bottom: 15px;
+	margin-left: 0px;
+	margin-right: 0px;
+	flex-shrink: 0;
 }
 
-#header {
-	height: 180px;
-	vertical-align: text-bottom;
-	width: 90%;
-	height: 20%;
-	padding-left: 4%;
-	padding-right: 6%;
+.navBar a {
+	color: white;
+	float: left;
+	display: block;
 	text-align: center;
-	margin-bottom: 5%;
-	background-color: #808080;
+	padding: 10px 14px;
+}
+
+.navBar a:hover {
+	background-color: #dfdce3;
+	color: black;
 }
 
 .content{
-	width: 90%;
-	margin-left: 5%;
-	margin-right: 5%;
+	padding-top: 2%;
+	flex: 1 0 auto;
 }
 
-#searchBar{
-	border: 2px clear #000000;
-	float: right;
-	padding-right: 14.5%;
-	width: 10%;
+.redBack{
+	background-color: #fc4a1a;
 }
+
+.navigationBoxes{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.navBox{
+	flex-basis: 30%;
+	background-color: #333;
+	height: 40%;
+	margin: 5% 2% 5% 2%;
+	color: #dfdce3;
+	height: auto;
+	padding-bottom: 10px;
+	text-align: center;
+	border: 2px solid black;
+	max-height: 40vh;
+}
+
+.navBoxSm{
+	flex-basis: 26%;
+	background-color: gray;
+	margin: 3%;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	border: 2px solid black;
+}
+
+.footer{
+	padding: 15px;
+	text-align: center;
+	background: #dfdce3;
+	margin-top: 20px;
+	border-top: 3px solid #333;
+	border-bottom: 3px solid #333;
+	flex-shrink: 0;
+}
+
+#loginButton{
+	float: right;
+	margin-right: 40px;
+	background-color: #fc4a1a;
+}
+
+.column3 {
+	float: left;
+	width: 33.33%;
+	text-align: center;
+}
+
+.column2 {
+	float: left;
+	width: 50%;
+	text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+}
+.center {
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+	list-style-position: inside;
+}
+
+
+
+#headerLogo{
+	
+}
+
+
+
