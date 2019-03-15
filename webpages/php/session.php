@@ -1,5 +1,8 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT']."/group1/the_clinic/webpages/php/Config.php";
+if((include $_SERVER['DOCUMENT_ROOT']."/group1/the_clinic/webpages/php/Config.php")){
+}else{
+    echo "nooo";
+};
 session_start();
 
 $user_check = $_SESSION['login_user'];

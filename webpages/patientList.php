@@ -1,6 +1,6 @@
 <?php
 include('php/session.php');
-$docID = $db->prepare("SELECT DoctorID FROM `DoctorInformation` WHERE LastName = :user_check");
+$docID = $db->prepare("SELECT DoctorID FROM `DoctorInformation` WHERE Username = :user_check");
 $docID->bindParam(":user_check", $user_check);
 $docID->execute();
 $row = $docID->fetch();
