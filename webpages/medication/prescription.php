@@ -1,13 +1,13 @@
 <?php
 include('../php/session.php');
-include ('../php/setDose.php');
+include('../php/medicationControl.php');
 $medications = $db->prepare("SELECT * FROM MedicationInformation WHERE MedicationID = :medid");
 $medications->bindParam(":medid", $_GET['medid']);
 $medications->execute();
 $row = $medications->fetch();
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $update = new setDose();
+    $update = new medicationControl();
     $error = $update->setDose($_GET['id'],$_GET['medid'],$_POST['dose']);
 };
 ?>
