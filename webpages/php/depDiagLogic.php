@@ -33,7 +33,7 @@ class depDiagLogic
         }else{
             $newAnswers['q2']=0;
         }
-        if($answers['q10']>0){
+        if($answers[9]>0){
             $newAnswers['q3']=1;
         }else{
             $newAnswers['q3']=0;

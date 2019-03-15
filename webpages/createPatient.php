@@ -1,26 +1,27 @@
 <?php
-if((include $_SERVER['DOCUMENT_ROOT']."/group1/the_clinic/webpages/php/Config.php")==TRUE){
-}else{
-    echo "nooo";
-};
+include('php/session.php');
 $error = " ";
 include "php/createUser.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form
-    $username = $_POST['username'];
+    $docID = $db->prepare("SELECT DoctorID FROM `DoctorInformation` WHERE Username = :user_check");
+    $docID->bindParam(":user_check", $user_check);
+    $docID->execute();
+    $row = $docID->fetch();
+    $doc_ID = $row['DoctorID'];
     $lastname = $_POST['lastname'];
     $firstname = $_POST['firstname'];
-    $passwd = $_POST['passwd'];
+    $diagnosis = $_POST['diagnosis'];
     $newUser = new createUser();
-    $error= $newUser->addDoctor($username,$lastname,$firstname,$passwd);
+    $error= $newUser->addPatient($doc_ID,$lastname,$firstname,$diagnosis);
 }
 ?>
 <html>
 
 <head>
     <meta charset="UTF-8">
-    <title>Create New Patient</title>
+    <title>Create User</title>
 
     <link rel="stylesheet" href="css/global.css" type="text/css">
     <link rel="stylesheet" href="css/indexHome.css" type="text/css">
@@ -62,15 +63,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="redBack">
         <div class="navigationBoxes">
             <div class= "loginBox">
-                <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Create New Patient Profile</b></div>
+                <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Create New Doctor Profile</b></div>
 
                 <div style = "padding:30px; background-color: #dfdce3; ">
 
                     <form action = "" method = "post">
                         <label>First Name :</label><input type = "text" name = "firstname" class = "box" required/><br /><br />
                         <label>Last Name :</label><input type = "text" name = "lastname" class = "box" required/><br/><br />
-                        <label>UserName :</label><input type = "text" name = "username" class = "box" required/><br /><br />
-                        <label>Password :</label><input type = "password" name = "passwd" class = "box" required/><br/><br />
+                        <label>Diagnosis :</label><input type = "text" name = "diagnosis" class = "box" required/><br /><br />
                         <input type = "submit" value = " Submit "/><br />
                     </form>
 
