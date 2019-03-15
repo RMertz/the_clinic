@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $myusername = $_POST['username'];
     $mypassword = $_POST['password'];
 
-    $doctor = $db->prepare("SELECT DoctorID, Username FROM `DoctorInformation` WHERE LastName = '$myusername' and Username = '$mypassword'");
+    $doctor = $db->prepare("SELECT DoctorID, Username FROM `DoctorInformation` WHERE LastName = ':passwd' and Username = '$mypassword'");
     $doctor->bindParam(":passwd", $mypassword);
     $doctor->bindParam(":username", $myusername);
     $doctor->execute();
@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <div class="header">
 
-    <div class=headerRow">
+    <div class="headerRow">
         <div class= "column left">
             <h1>The Clinic</h1>
         </div>
@@ -57,7 +57,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="navBar">
 
-
+    <a href="index.html">HOME PAGE</a>
+    <a href="profile.html">PROFILE</a>
+    <a href="patientPage.html">PATIENTS</a>
+    <a href="help.html">HELP</a>
+    <a id="loginButton" href="Login.php">LOGIN</a>
+    <a href="createUser.php">CREATE USER</a>
 
 </div>
 
