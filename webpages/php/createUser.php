@@ -48,7 +48,6 @@ class createUser
             $doctor->bindParam(":lastname", $lastname);
             $doctor->bindParam(":doctorid", $doctorID);
             $doctor->bindParam(":diagnosis", $diagnosis);
-            $doctor->execute();
             try {
                 $doctor->execute();
             }catch (PDOException $po) {
