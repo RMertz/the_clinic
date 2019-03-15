@@ -1,5 +1,5 @@
 <?php
-if((include $_SERVER['DOCUMENT_ROOT']."/php/Config.php")==TRUE){
+if((include $_SERVER['DOCUMENT_ROOT']."/group1/the_clinic/webpages/php/Config.php")==TRUE){
 }else{
     echo "nooo";
 };
@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $myusername = $_POST['username'];
     $mypassword = $_POST['password'];
 
-    $doctor = $db->prepare("SELECT DoctorID, Username FROM `DoctorInformation` WHERE LastName = ':passwd' and Username = '$mypassword'");
+    $doctor = $db->prepare("SELECT DoctorID, Username FROM `DoctorInformation` WHERE Password = :passwd and Username = :username");
     $doctor->bindParam(":passwd", $mypassword);
     $doctor->bindParam(":username", $myusername);
     $doctor->execute();

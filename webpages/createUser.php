@@ -1,10 +1,10 @@
 <?php
-if((include $_SERVER['DOCUMENT_ROOT']."/php/Config.php")==TRUE){
+if((include $_SERVER['DOCUMENT_ROOT']."/group1/the_clinic/webpages/php/Config.php")==TRUE){
 }else{
     echo "nooo";
 };
 $error = " ";
-include $_SERVER['DOCUMENT_ROOT']."/php/createUser.php";
+include "createUser.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form
@@ -14,11 +14,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $passwd = $_POST['passwd'];
     $newUser = new createUser();
     $error= $newUser->addDoctor($myusername,$lastname,$firstname,$passwd);
-
-
-
-    // If result matched $myusername and $mypassword, table row must be 1 row
-
 }
 ?>
 <html>

@@ -52,7 +52,7 @@ $login_session = $row['Firstname'];
 	
 		<div class="navigationBoxes">
 			<div class="navBox">
-				<a class="navBoxSm href="profile.html">PROFILE</a>
+				<a class="navBoxSm" href="profile.html">PROFILE</a>
 				<br><br>
 				<a href: "profile.html">
 				<img ID="Icon" src="images/DoctorIcon.png" alt="DoctorIcon">
@@ -64,7 +64,7 @@ $login_session = $row['Firstname'];
 			</div>
 			
 			<div class="navBox">
-				<a class="navBoxSm href="patientPage.html">PATIENTS</a>
+				<a class="navBoxSm" href="patientPage.html">PATIENTS</a>
 				<br><br>
 					<a href: "patientPage.html">
 					<img ID="Icon" src="images/PatientIcon.png" alt="PatientIcon">
@@ -78,7 +78,7 @@ $login_session = $row['Firstname'];
 			</div>
 			
 			<div class="navBox">
-				<a class="navBoxSm href="help.html">HELP</a>
+				<a class="navBoxSm" href="help.html">HELP</a>
 				<br><br>
 				<a href: "help.html">
 				<img ID="Icon" src="images/HelpIcon.png" alt="HelpIcon">
