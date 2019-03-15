@@ -37,7 +37,7 @@ $login_session = $row['Firstname'];
 			
 				<a href="index.html">HOME PAGE</a>
 				<a href="profile.html">PROFILE</a>
-				<a href="patientPage.html">PATIENTS</a>
+				<a href="patientList.php">PATIENTS</a>
 				<a href="help.html">HELP</a>
 				<a id="logoutButton" href="php/logout.php?type=0">LOGOUT</a>
 				
@@ -64,9 +64,9 @@ $login_session = $row['Firstname'];
 			</div>
 			
 			<div class="navBox">
-				<a class="navBoxSm" href="patientPage.html">PATIENTS</a>
+				<a class="navBoxSm" href="patientList.php">PATIENTS</a>
 				<br><br>
-					<a href: "patientPage.html">
+					<a href="patientList.php" >
 					<img ID="Icon" src="images/PatientIcon.png" alt="PatientIcon">
 					</a>
 				<br><br>
