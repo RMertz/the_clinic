@@ -46,11 +46,14 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 </div>
 
     <div class="navBar">
-        <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="../welcome.php">Home</a>
-        <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="../patientList.php">Your Patients</a>
-        <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
-        <a class="<?= ($activePage == 'depDiag') ? 'active':''; ?>" href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
-        <a ID="logoutButton"href = "../php/logout.php">Sign Out</a>
+        <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="welcome.php">Home</a>
+        <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="patientList.php">Your Patients</a>
+        <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
+        <a class="<?= ($activePage == 'depDiag') ? 'active':''; ?>" href=<?php echo "dep/depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
+        <a href=<?php echo "medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
+
+
+        <a ID="logoutButton"href = "php/logout.php">Sign Out</a>
     </div>
 
     <div class="content" style="text-align: center">
