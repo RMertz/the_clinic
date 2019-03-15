@@ -23,7 +23,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <div id="header">
         <div class="header">
             <div class=headerRow">
                 <div class= "column left">
@@ -36,7 +35,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="navBar">
         <a href="../welcome.php">Home</a>
@@ -50,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="row">
         <div >
             <h2 >
-                Stub for patient health questionnaire form.<br>
+                Patient Health Questionnaire form<br>
             </h2>
 
             <div style = "margin:30px">
