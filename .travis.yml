@@ -6,6 +6,7 @@ php:
 
 before_script:
         - composer install
-       
+        - "mysql -e 'create database my_app_test;'"
+        - "cp ./.travis.database.yml ./config/database.yml"       
 script: ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/EmailTest.php
 
