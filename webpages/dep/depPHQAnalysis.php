@@ -12,7 +12,7 @@ $analysis = $PHQ->getResults($_GET['type'],$_GET['q1'],$_GET['q2'],$_GET['q3'],$
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['Schedule'])){
         $schedule = new scheduleVisit($_GET['id']);
-        if($schedule->schedule($_POST['Date'])){
+        if($schedule->schedule($_POST['Date'],0)){
             $error = "Next Visit Added.";
         }else{
             $error="Next Visit Not Added, Please Select a Valid Date.";
