@@ -1,6 +1,13 @@
 <?php
 include('../php/session.php');
 include('../php/scheduleVisit.php');
+include('../php/bipolarTreatmentHandler.php');
+$type = new bipolarTreatmentHandler($_GET['id']);
+$typeNum = $type->checkTreatment();
+if($type->whatToDo($typeNum)){
+
+}
+echo $typeNum;
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $schedule = new scheduleVisit($_GET['id']);
@@ -18,7 +25,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 
 <head>
     <title><?php
-        echo "Depression Treatment";
+        echo "Bipolar Treatment Home";
         ?></title>
     <link rel="stylesheet" href="../css/global.css" type="text/css">
     <link rel="stylesheet" href="../css/indexHome.css" type="text/css">
@@ -41,9 +48,9 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
     <div class="navBar">
         <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="../welcome.php">Home</a>
         <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="../patientList.php">Your Patients</a>
-        <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
-        <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
-        <a class="<?= ($activePage == 'depDiag') ? 'active':''; ?>" href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
+        <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
+        <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
+        <a class="<?= ($activePage == 'depDiag') ? 'active':''; ?>" href=<?php echo "bipolarMDQ.php?id=".$_GET['id'];?>>Bipolar MDQ</a>
         <a ID="logoutButton"href = "../php/logout.php">Sign Out</a>
     </div>
 

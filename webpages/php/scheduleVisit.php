@@ -8,12 +8,12 @@ class scheduleVisit
         $this->id = $id;
     }
 
-    public function schedule($date){
+    public function schedule($date,$type){
         if($date == null){
             return false;
         }
         include'Config.php';
-        if($type=1) {
+        if($type==1) {
             $patient = "UPDATE `PatientInformation` SET `LastVisit` =? WHERE `PatientID` = ?";
         }else{
             $patient = "UPDATE `PatientInformation` SET `NextVisit` =? WHERE `PatientID` = ?";

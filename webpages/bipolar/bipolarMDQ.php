@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <title><?php
-        echo "Depression PHQ";
+        echo "Bipolar MDQ";
         ?></title>
     <link rel="stylesheet" href="../css/global.css" type="text/css">
     <link rel="stylesheet" href="../css/indexHome.css" type="text/css">
@@ -43,15 +43,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="navBar">
         <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="../welcome.php">Home</a>
         <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="../patientList.php">Your Patients</a>
-        <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
-        <a class="<?= ($activePage == 'depDiag') ? 'active':''; ?>" href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
+        <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
+        <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
+        <a class="<?= ($activePage == 'depDiag') ? 'active':''; ?>" href=<?php echo "bipolarMDQ.php?id=".$_GET['id'];?>>Bipolar MDQ</a>
         <a ID="logoutButton"href = "../php/logout.php">Sign Out</a>
     </div>
 	
         <div class="row">
         <div >
             <h2 >
-                Patient Health Questionnaire<br>
+                Mood Disorder Questionnaire<br>
             </h2>
 
             <div style = "margin:30px">
@@ -59,90 +60,96 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <form action = "" method = "post">
                     <table style="width:100% text-align: left;">
                         <tr>
-                            <th style="width: 75%; font-size: 1.5em;">Over the past 2 weeks, how often have you been bothered by any of the following problems?</th>
-                            <th>0</th>
-                            <th>1</th>
-                            <th>2</th>
-                            <th>3</th>
+                            <th style="width: 75%; font-size: 1.5em;">Has there ever been a period of time when you were not your usual self and...</th>
+                            <th>Yes</th>
+                            <th>No</th>
                         </tr>
                         <tr>
-                            <td class="prompt">1. Little interest or pleasure in doing things.</td>
+                            <td class="prompt">...you felt so good or so hyper that other people thought you were not
+                                your normal self or you were so hyper that you got into trouble?</td>
                             <td><input type="radio" class="radio" name="q1" value="0" checked></td>
                             <td><input type="radio" class="radio" name="q1" value="1"></td>
-                            <td><input type="radio" class="radio" name="q1" value="2"></td>
-                            <td><input type="radio" class="radio" name="q1" value="3"></td>
                         </tr>
                         <tr>
-                            <td class="prompt">2. Feeling down, depressed or hopeless.</td>
+                            <td class="prompt">...you were so irritable that you shouted at people or started fights or arguments?</td>
                             <td><input type="radio" class="radio" name="q2" value="0" checked></td>
                             <td><input type="radio" class="radio" name="q2" value="1"></td>
-                            <td><input type="radio" class="radio" name="q2" value="2"></td>
-                            <td><input type="radio" class="radio" name="q2" value="3"></td>
                         </tr>
                         <tr>
-                            <td class="prompt">3. Trouble falling asleep, staying asleep or sleeping too much.</td>
+                            <td class="prompt">...you felt much more self-confident than usual?</td>
                             <td><input type="radio" class="radio" name="q3" value="0" checked></td>
                             <td><input type="radio" class="radio" name="q3" value="1"></td>
-                            <td><input type="radio" class="radio" name="q3" value="2"></td>
-                            <td><input type="radio" class="radio" name="q3" value="3"></td>
                         </tr>
                         <tr>
-                            <td class="prompt">4. Feeling tired or	having little energy</td>
+                            <td class="prompt">...you got much less sleep than usual and found that you didn’t really miss it?</td>
                             <td><input type="radio" class="radio" name="q4" value="0" checked></td>
                             <td><input type="radio" class="radio" name="q4" value="1"></td>
-                            <td><input type="radio" class="radio" name="q4" value="2"></td>
-                            <td><input type="radio" class="radio" name="q4" value="3"></td>
                         </tr>
                         <tr>
-                            <td class="prompt">5. Poor appetite or overeating</td>
+                            <td class="prompt">...you were more talkative or spoke much faster than usual?</td>
                             <td><input type="radio" class="radio" name="q5" value="0" checked></td>
                             <td><input type="radio" class="radio" name="q5" value="1"></td>
-                            <td><input type="radio" class="radio" name="q5" value="2"></td>
-                            <td><input type="radio" class="radio" name="q5" value="3"></td>
                         </tr>
                         <tr>
-                            <td class="prompt">6. Feeling bad about yourself - or that you are a failure - or have let yourself or your family down.</td>
+                            <td class="prompt">...thoughts raced through your head or you couldn’t slow your mind down?</td>
                             <td><input type="radio" class="radio" name="q6" value="0" checked></td>
                             <td><input type="radio" class="radio" name="q6" value="1"></td>
-                            <td><input type="radio" class="radio" name="q6" value="2"></td>
-                            <td><input type="radio" class="radio" name="q6" value="3"></td>
                         </tr>
                         <tr>
-                            <td class="prompt">7. Trouble concentrating on things such as reading the newspaper or watching TV.</td>
+                            <td class="prompt">...you were so easily distracted by things around you that you had trouble concentrating or staying on track?</td>
                             <td><input type="radio" class="radio" name="q7" value="0" checked></td>
                             <td><input type="radio" class="radio" name="q7" value="1"></td>
-                            <td><input type="radio" class="radio" name="q7" value="2"></td>
-                            <td><input type="radio" class="radio" name="q7" value="3"></td>
                         </tr>
                         <tr>
-                            <td class="prompt">8. Moving or speaking so slowly that other people could not have noticed. Or, the opposite - being so fidgety or restless that you have been moving around a lot more than usual.</td>
+                            <td class="prompt">...you had more energy than usual?</td>
                             <td><input type="radio" class="radio" name="q8" value="0" checked></td>
                             <td><input type="radio" class="radio" name="q8" value="1"></td>
-                            <td><input type="radio" class="radio" name="q8" value="2"></td>
-                            <td><input type="radio" class="radio" name="q8" value="3"></td>
                         </tr>
                         <tr>
-                            <td class="prompt">9. Thought that you would be better off being dead or hurting yourself in some way.</td>
+                            <td class="prompt">...you were much more active or did many more things than usual?</td>
                             <td><input type="radio" class="radio" name="q9" value="0" checked></td>
                             <td><input type="radio" class="radio" name="q9" value="1"></td>
-                            <td><input type="radio" class="radio" name="q9" value="2"></td>
-                            <td><input type="radio" class="radio" name="q9" value="3"></td>
+                        </tr>
+                        <tr>
+                            <td class="prompt">...you were much more social or outgoing than usual, for example you telephoned friends in the middle of the night?</td>
+                            <td><input type="radio" class="radio" name="q10" value="0" checked></td>
+                            <td><input type="radio" class="radio" name="q10" value="1"></td>
+                        </tr>
+                        <tr>
+                            <td class="prompt">...you were much more interested in sex than usual?</td>
+                            <td><input type="radio" class="radio" name="q11" value="0" checked></td>
+                            <td><input type="radio" class="radio" name="q11" value="1"></td>
+                        </tr>
+                        <tr>
+                            <td class="prompt">...you did things that were unusual for you or that other people might have thought were excessive, foolish or risky?</td>
+                            <td><input type="radio" class="radio" name="q12" value="0" checked></td>
+                            <td><input type="radio" class="radio" name="q12" value="1"></td>
+                        </tr>
+                        <tr>
+                            <td class="prompt">...spending money got you or your family in trouble?</td>
+                            <td><input type="radio" class="radio" name="q13" value="0" checked></td>
+                            <td><input type="radio" class="radio" name="q13" value="1"></td>
+                        </tr>
+                        <tr>
+                            <td class="prompt">If you checked YES to more than one of the above, have several of these ever happened during the same period of time?</td>
+                            <td><input type="radio" class="radio" name="q14" value="0" checked></td>
+                            <td><input type="radio" class="radio" name="q14" value="1"></td>
                         </tr>
                     </table><br/><br/>
                         <table style="width:100%">
                             <tr>
                                 <th></th>
-                                <th>Not difficult at all</th>
-                                <th>Somewhat difficult</th>
-                                <th>Very difficult</th>
-                                <th>Extremely difficult</th>
+                                <th>No Problems</th>
+                                <th>Minor Problem</th>
+                                <th>Moderate Problem</th>
+                                <th>Serious Problem</th>
                             </tr>
                             <tr>
-                                <td class="prompt">10. If you checked off any problems, how difficult have those problems made it for you to do your work, take care of things at home, or get along with other people?</td>
-                                <td><input type="radio" class="radio" name="q10" value="0" checked></td>
-                                <td><input type="radio" class="radio" name="q10" value="1"></td>
-                                <td><input type="radio" class="radio" name="q10" value="2"></td>
-                                <td><input type="radio" class="radio" name="q10" value="3"></td>
+                                <td class="prompt">How much of a problem did any of these cause you – like being unable to work; having family, money or legal troubles; getting into arguments or fights?</td>
+                                <td><input type="radio" class="radio" name="q15" value="0" checked></td>
+                                <td><input type="radio" class="radio" name="q15" value="1"></td>
+                                <td><input type="radio" class="radio" name="q15" value="2"></td>
+                                <td><input type="radio" class="radio" name="q15" value="3"></td>
                             </tr>
                     </table><br/><br/>
 
