@@ -5,17 +5,10 @@ php:
 services:
         - mysql
 
-addons:
-        mariadb: '5.5.60'
-
 before_install:
-        - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('new_password') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
-        - sudo mysql_upgrade -u root -pnew_password
-        - sudo service mysql restart
-
+        - mysql -u root --password="" < test/travis.sql
 before_script:
         - composer install
-        - mysql -e 'CREATE DATABASE IF NOT EXISTS test;' 
 
 script: ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/EmailTest.php
 
