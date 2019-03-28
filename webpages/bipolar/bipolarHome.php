@@ -1,6 +1,13 @@
 <?php
 include('../php/session.php');
 include('../php/scheduleVisit.php');
+include('../php/bipolarTreatmentHandler.php');
+$type = new bipolarTreatmentHandler($_GET['id']);
+$typeNum = $type->checkTreatment();
+if($type->whatToDo($typeNum)){
+
+}
+echo $typeNum;
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $schedule = new scheduleVisit($_GET['id']);
