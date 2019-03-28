@@ -1,6 +1,9 @@
 <?php
 include('../../php/session.php');
 include('../../php/scheduleVisit.php');
+include('../../php/updateTreatmentPosition.php');
+$update = new updateTreatmentPosition($_GET['id']);
+$update->updateStep(1,3);
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $schedule = new scheduleVisit($_GET['id']);
@@ -18,8 +21,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <title><?php
         echo "Depression Treatment Step 2";
         ?></title>
-    <link rel="stylesheet" href="../css/global.css" type="text/css">
-    <link rel="stylesheet" href="../css/indexHome.css" type="text/css">
+    <link rel="stylesheet" href="../../css/global.css" type="text/css">
+    <link rel="stylesheet" href="../../css/indexHome.css" type="text/css">
 </head>
 
 <body>
@@ -30,20 +33,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class= "column right">
             <div id="headerLogo">
-                <img src="../images/longHeader.png" alt="HeaderImage">
+                <img src="../../images/longHeader.png" alt="HeaderImage">
             </div>
         </div>
     </div>
 </div>
 
 <div class="navBar">
-    <a href="../welcome.php">Home</a>
-    <a href="../patientList.php">Your Patients</a>
-    <a href=<?php echo "../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
-    <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
+    <a href="../../welcome.php">Home</a>
+    <a href="../../patientList.php">Your Patients</a>
+    <a href=<?php echo "../../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
+    <a href=<?php echo "../depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
     <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
     <a href=<?php echo "../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
-    <a href = "../php/logout.php?type=0">Sign Out</a>
+    <a href = "../../php/logout.php?type=0">Sign Out</a>
 </div>
 
 <div class="row" >

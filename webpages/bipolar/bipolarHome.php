@@ -2,20 +2,26 @@
 include('../php/session.php');
 include('../php/scheduleVisit.php');
 include('../php/bipolarTreatmentHandler.php');
+$treatmentOptions = array();
 $type = new bipolarTreatmentHandler($_GET['id']);
-$typeNum = $type->checkTreatment();
-if($type->whatToDo($typeNum)){
-
-}
-echo $typeNum;
+$treatmentOptions = $type->checkTreatment();
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $schedule = new scheduleVisit($_GET['id']);
-    if($schedule->schedule($_POST['Date'],0)){
-        $error = "Next Visit Added.";
+    if (isset($_POST['Schedule'])) {
+        $schedule = new scheduleVisit($_GET['id']);
+        if ($schedule->schedule($_POST['Date'], 0)) {
+            $error = "Next Visit Added.";
+        } else {
+            $error = "Next Visit Not Added, Please Select a Valid Date.";
+        }
+    }else if(isset($_POST['depD'])) {
+        $type->whatToDo(1);
     }else{
-        $error="Next Visit Not Added, Please Select a Valid Date.";
+        $type->whatToDo(2);
     }
+}
+if($_SERVER["REQUEST_METHOD"] == "POST1") {
+    $error = "test";
 }
 
 $activePage = basename($_SERVER['PHP_SELF'], ".php");
@@ -57,18 +63,12 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
     <div class="row">
         <div class="content" style="text-align: center">
             <h2 >
-                Initial Step:
+                <?php echo $treatmentOptions['title']?>
             </h2>
-            <p>
-                Initial therapy with citalopram or sertraline (unless compelling indication for alternate agent).<br>
-                Address side effects and encourage adherence in 1 week. Evaluate response in 3-4 weeks.
-            </p>
-            <h3>
-                <a href=<?php echo "dep2.php?id=".$_GET['id'];?>>Next Step</a>
-            </h3>
-            <p>
-                Stub: update database for step we are on
-            </p>
+            <form action = "" method = "post">
+                <input type = "submit" class= "submit" name ="depD" value = <?php echo $treatmentOptions['biD'];?>/><br />
+                <input type = "submit" class= "submit" name ="depM" value = <?php echo $treatmentOptions['biM'];?>/><br />
+            </form>
             <div class="row">
                 <div class="column2">
                     <h3>Schedule Patient Visit</h3>
