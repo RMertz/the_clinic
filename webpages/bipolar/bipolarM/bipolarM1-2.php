@@ -1,6 +1,9 @@
 <?php
 include('../../php/session.php');
 include('../../php/scheduleVisit.php');
+include('../../php/updateTreatmentPosition.php');
+$update = new updateTreatmentPosition($_GET['id']);
+$update->updateStep(1,2);
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $schedule = new scheduleVisit($_GET['id']);
@@ -92,6 +95,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         </p>
     </div>
     <br/>
+    <h3>
+        <a href=<?php $update->updatePrevStep(1,2); echo "bipolarM2.php?id=".$_GET['id'];?>>Next Step</a>
+    </h3>
     <h3 style="text-align: center">*Switch to a non-SSRI after two SSRI failures*</h3>
 </div>
 <div class="row">

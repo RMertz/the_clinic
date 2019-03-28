@@ -17,17 +17,38 @@ class bipolarTreatmentHandler
         $patient->bindParam(":patID", $this->patID);
         $patient->execute();
         $type = $patient->fetch();
+        $treatmentOptions = array();
+
+        $treatmentOptions['biD']=' Bipolar Depression Treatment ';
+        $treatmentOptions['biM']=' Bipolar Manic Treatment ';
 
         if($type['bipolarDTreatment'] == null && $type['bipolarMTreatment'] == null){
-            return 0;
+            $treatmentOptions['title'] ='Select Type of Bipolar Treatment to begin';
+            $treatmentOptions['biD']='Bipolar_Depression Treatment ';
+            $treatmentOptions['biM']='Bipolar_Manic Treatment ';
+            $treatmentOptions['type']=0;
+            return $treatmentOptions;
         }else if($type['bipolarDTreatment'] != null && $type['bipolarMTreatment'] != null){
-            return 1;
+            $treatmentOptions['title']='Select Which Type of Bipolar Treatment You Would Like to Continue';
+            return $treatmentOptions;
         }else if($type['bipolarDTreatment'] != null){
-            return 2;
+            $treatmentOptions['title']='Select If You Would Continue Bipolar Depression Treatment Or Start a New Bipolar Manic Treatment';
+            $treatmentOptions['biD']=' Continue Bipolar Depression Treatment ';
+            $treatmentOptions['biM']=' New Bipolar Manic Treatment ';
+            $treatmentOptions['type']=1;
+            return $treatmentOptions;
         }else if($type['bipolarMTreatment'] != null){
-            return 3;
+            $treatmentOptions['title']='Select If You Would Continue Manic Depression Treatment Or Start a New Bipolar Depression Treatment';
+            $treatmentOptions['biD']=" New_Bipolar_Depression_Treatment ";
+            $treatmentOptions['biM']=' Continue Bipolar Manic Treatment ';
+            $treatmentOptions['type']=2;
+            return $treatmentOptions;
         }else{
-            return 4;
+            $treatmentOptions['title'] ='Select Type of Bipolar Treatment to Begin';
+            $treatmentOptions['biD']=' Begin Bipolar Depression Treatment ';
+            $treatmentOptions['biM']=' Begin Bipolar Manic Treatment ';
+            $treatmentOptions['type']=3;
+            return $treatmentOptions;
         }
     }
 
@@ -43,7 +64,7 @@ class bipolarTreatmentHandler
         $patient->bindParam(":patID", $this->patID);
         $patient->execute();
         $treatment = $patient->fetch();
-        if($type==2){
+        if($type==1){
             switch($treatment['bipolarDTreatment']){
                 case 0:
                     header("Location: ../bipolar/bipolarD/bipolarDHome.php?id=".$this->patID);
@@ -74,7 +95,7 @@ class bipolarTreatmentHandler
                     break;
             }
         }
-        if($type==3){
+        if($type==2){
             switch($treatment['bipolarMTreatment']){
                 case 0:
                     header("Location: ../bipolar/bipolarM/bipolarMHome.php?id=".$this->patID);
