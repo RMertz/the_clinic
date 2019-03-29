@@ -14,15 +14,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $error = "Next Visit Not Added, Please Select a Valid Date.";
         }
-    }else if(isset($_POST['depD'])) {
+    }else if(isset($_POST['DepD'])) {
         $type->whatToDo(1);
-    }else{
+    }else if(isset($_POST['DepM'])){
         $type->whatToDo(2);
     }
 }
-if($_SERVER["REQUEST_METHOD"] == "POST1") {
-    $error = "test";
-}
+
 
 $activePage = basename($_SERVER['PHP_SELF'], ".php");
 ?>
@@ -66,8 +64,8 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
                 <?php echo $treatmentOptions['title']?>
             </h2>
             <form action = "" method = "post">
-                <input type = "submit" class= "submit" name ="depD" value = <?php echo $treatmentOptions['biD'];?>/><br />
-                <input type = "submit" class= "submit" name ="depM" value = <?php echo $treatmentOptions['biM'];?>/><br />
+                <input type = "submit" class= "submit" name ="DepD" value = <?php echo $treatmentOptions['biD'];?>/><br />
+                <input type = "submit" class= "submit" name ="DepM" value = <?php echo $treatmentOptions['biM'];?>/><br />
             </form>
             <div class="row">
                 <div class="column2">

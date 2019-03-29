@@ -54,11 +54,7 @@ class bipolarTreatmentHandler
 
     public function whatToDo($type){
 
-        if($type==0){
-            return true;
-        }else if($type==1){
-            return false;
-        }
+
         include'Config.php';
         $patient = $db->prepare("SELECT `bipolarDTreatment`,`bipolarMTreatment` FROM PatientInformation WHERE `PatientID` = :patID");
         $patient->bindParam(":patID", $this->patID);
