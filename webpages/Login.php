@@ -4,7 +4,7 @@ if((include $_SERVER['DOCUMENT_ROOT']."/group1/the_clinic/webpages/php/Config.ph
     echo "nooo";
 };
 $error = " ";
-
+echo getcwd();
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form
     session_start();
