@@ -25,18 +25,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 </head>
 
 <body>
-    <div class="header">
-        <div class=headerRow">
-            <div class= "column left">
-                <h1>The Clinic</h1>
-            </div>
-            <div class= "column right">
-                <div id="headerLogo">
-                    <img src="../images/longHeader.png" alt="HeaderImage">
-                </div>
-            </div>
-        </div>
-    </div>
+ <?php include('css/header.php'); ?>
 
     <div class="navBar">
         <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="../welcome.php">Home</a>
@@ -44,7 +33,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
         <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
         <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a class="<?= ($activePage == 'depDiag') ? 'active':''; ?>" href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
-        <a ID="logoutButton"href = "../php/logout.php">Sign Out</a>
+        <a ID="logoutButton" href = "../php/logout.php">Sign Out</a>
     </div>
 
     <div class="row">

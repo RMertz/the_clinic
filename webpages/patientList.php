@@ -21,28 +21,15 @@ $patientLi = $patients->fetchAll();
 
 <body>
 
-<div class="header">
-    <div class=headerRow">
-        <div class= "column left">
-            <h1>The Clinician's Guide</h1>
-        </div>
-        <div class= "column right">
-            <div id="headerLogo">
-                <img src="images/HeaderImageOutline.png" alt="HeaderImage">
-            </div>
-        </div>
-    </div>
-</div>
+<?php include('css/header.php'); ?>
 
 
 <div class="navBar">
     <a href="welcome.php">HOME</a>
     <a href="patientList.php">YOUR PATIENTS</a>
     <a href="createPatient.php">NEW PATIENT</a>
-    <a href = "php/logout.php?type=0">LOG OUT</a>
-    <div id="searchBar">
-        <img src="images/searchBar.png" alt="Search Bar" border="0px" height= "20px" width= "150px">
-    </div>
+    <a id="logoutButton" href = "php/logout.php?type=0">LOG OUT</a>
+
 </div>
 
     <div >
@@ -66,3 +53,5 @@ $patientLi = $patients->fetchAll();
 </div>
 
 </html>
+
+
