@@ -79,6 +79,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
         Date of Next Visit:
         </h3>
         <?php echo $patientInfo['NextVisit']; ?>
+        <br><br/>
 
 
     </div>
@@ -86,6 +87,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 </body>
 
 <div class="footer">
+
     <a href="https://github.com/RMertz/the_clinic.git">Repository</a>
 </div>
 
