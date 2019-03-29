@@ -1,6 +1,6 @@
 <?php
-if((include "php/Config.php")){
-}else{
+if((include $_SERVER['DOCUMENT_ROOT']."/group1/the_clinic/webpages/php/Config.p")){
+ }else{
     echo "nooo";
 };
 $error = " ";
