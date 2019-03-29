@@ -30,7 +30,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
     <div class="navBar">
         <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="welcome.php">Home</a>
         <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="patientList.php">Your Patients</a>
-        <a ID="logoutButton" href = "../php/logout.php">Sign Out</a>
+        <a id="logoutButton" href = "../php/logout.php">Sign Out</a>
     </div>
 
 		

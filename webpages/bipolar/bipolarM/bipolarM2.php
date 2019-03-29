@@ -26,18 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<div class="header">
-    <div class=headerRow">
-        <div class= "column left">
-            <h1>The Clinic</h1>
-        </div>
-        <div class= "column right">
-            <div id="headerLogo">
-                <img src="../../images/longHeader.png" alt="HeaderImage">
-            </div>
-        </div>
-    </div>
-</div>
+<?php include('css/header.php'); ?>
 
 <div class="navBar">
     <a href="../../welcome.php">Home</a>
@@ -46,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <a href=<?php echo "../depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
     <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
     <a href=<?php echo "../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
-    <a href = "../../php/logout.php?type=0">Sign Out</a>
+    <a id="logoutButton" href = "../../php/logout.php?type=0">Sign Out</a>
 </div>
 
 <div class="row" >
