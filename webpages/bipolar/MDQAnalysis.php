@@ -68,15 +68,13 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
             non-response and recurrent episodes</li>
     </ul>
     <div class="row">
-        <div class="column3">
-            <h3>Schedule Patient Visit</h3>
-            <form action = "" method = "post">
-                <input type = "date" name="Date" value = " Schedule Patient Visit "/><br/><br/>
-                <input type = "submit" name="Schedule" value = " Schedule Patient "/>
-            </form>
-            <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-        </div>
         <?php include '../scheduleApp.php';?>
+        <div class="column3">
+            <form action = "" method = "post">
+                <input type = "submit" name="Diagnosis" value = " Approve Diagnosis "/>
+            </form>
+            <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $diagError; ?></div>
+        </div>
         <div class="column3">
             <h3>Prescribe Patient a Medication</h3>
             <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
