@@ -20,8 +20,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $type->whatToDo(2);
     }
 }
-
-
 $activePage = basename($_SERVER['PHP_SELF'], ".php");
 ?>
 
@@ -41,7 +39,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
     <div class="navBar">
         <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="../welcome.php">Home</a>
         <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="../patientList.php">Your Patients</a>
-        <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
+        <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
         <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
         <a class="<?= ($activePage == 'depDiag') ? 'active':''; ?>" href=<?php echo "bipolarMDQ.php?id=".$_GET['id'];?>>Bipolar MDQ</a>
         <a ID="logoutButton"href = "../php/logout.php">Sign Out</a>

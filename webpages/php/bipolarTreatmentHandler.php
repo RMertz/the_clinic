@@ -52,9 +52,16 @@ class bipolarTreatmentHandler
         }
     }
 
+    public function getPrevType(){
+        include'Config.php';
+        $patient = $db->prepare("SELECT `bipolarDPrevTreatment` FROM PatientInformation WHERE `PatientID` = :patID");
+        $patient->bindParam(":patID", $this->patID);
+        $patient->execute();
+        $treatment = $patient->fetch();
+        return $treatment['bipolarDPrevTreatment'];
+    }
+
     public function whatToDo($type){
-
-
         include'Config.php';
         $patient = $db->prepare("SELECT `bipolarDTreatment`,`bipolarMTreatment` FROM PatientInformation WHERE `PatientID` = :patID");
         $patient->bindParam(":patID", $this->patID);
@@ -90,17 +97,12 @@ class bipolarTreatmentHandler
                     header("Location: ../bipolar/bipolarD/bipolarDHome.php?id=".$this->patID);
                     break;
             }
+            //8 = track 1 ; 9= track 2 ; 10 = track 3 ; 11 = track 4
         }
         if($type==2){
             switch($treatment['bipolarMTreatment']){
                 case 0:
                     header("Location: ../bipolar/bipolarM/bipolarMHome.php?id=".$this->patID);
-                    break;
-                case 1:
-                    header("Location: ../bipolar/bipolarM/bipolarM1-1.php?id=".$this->patID);
-                    break;
-                case 2:
-                    header("Location: ../bipolar/bipolarM/bipolarM1-2.php?id=".$this->patID);
                     break;
                 case 3:
                     header("Location: ../bipolar/bipolarM/bipolarM2.php?id=".$this->patID);

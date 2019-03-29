@@ -358,6 +358,11 @@ input[type=password]{
 	width: 33.33%;
 	text-align: center;
 }
+.column4 {
+	float: left;
+	width: 25%;
+	text-align: center;
+}
 
 .column2 {
 	float: left;
