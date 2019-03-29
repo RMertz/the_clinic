@@ -85,14 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     clinically significant in assessing improvement of symptoms.</li>
         </ol>
         <div class="row">
-            <div class="column3">
-                <h3>Schedule Patient Visit</h3>
-                <form action = "" method = "post">
-                    <input type = "date" name="Date" value = " Schedule Patient Visit "/><br/><br/>
-                    <input type = "submit" name="Schedule" value = " Schedule Patient "/>
-                </form>
-                <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-            </div>
+            <?php include '../scheduleApp.php';?>
             <div class="column3">
                 <form action = "" method = "post">
                     <input type = "submit" name="Diagnosis" value = " Approve Diagnosis "/>

@@ -53,14 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <br/>
 </div>
 <div class="row">
-    <div class="column2">
-        <h3>Schedule Patient Visit</h3>
-        <form action = "" method = "post">
-            <input type = "date" name="Date" value = " Schedule Patient Visit "/><br/><br/>
-            <input type = "submit" name="Schedule" value = " Schedule Patient "/>
-        </form>
-        <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-    </div>
+    <?php include '../../scheduleApp.php';?>
     <div class="column2">
         <h3>Prescribe Patient a Medication</h3>
         <a href=<?php echo "../../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>

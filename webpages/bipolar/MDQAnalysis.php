@@ -76,12 +76,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
             </form>
             <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
         </div>
-        <div class="column3">
-            <form action = "" method = "post">
-                <input type = "submit" name="Diagnosis" value = " Approve Diagnosis "/>
-            </form>
-            <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $diagError; ?></div>
-        </div>
+        <?php include '../scheduleApp.php';?>
         <div class="column3">
             <h3>Prescribe Patient a Medication</h3>
             <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
