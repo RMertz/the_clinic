@@ -34,7 +34,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 </head>
 
 <body>
-<?php include('css/header.php'); ?>
+<?php include('../css/header.php'); ?>
 
     <div class="navBar">
         <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="../welcome.php">Home</a>

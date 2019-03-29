@@ -19,8 +19,8 @@ class bipolarTreatmentHandler
         $type = $patient->fetch();
         $treatmentOptions = array();
 
-        $treatmentOptions['biD']=' Bipolar Depression Treatment ';
-        $treatmentOptions['biM']=' Bipolar Manic Treatment ';
+        $treatmentOptions['biD']=' Bipolar-Depression ';
+        $treatmentOptions['biM']=' Bipolar-Manic ';
 
         if($type['bipolarDTreatment'] == null && $type['bipolarMTreatment'] == null){
             $treatmentOptions['title'] ='Select Type of Bipolar Treatment to begin';

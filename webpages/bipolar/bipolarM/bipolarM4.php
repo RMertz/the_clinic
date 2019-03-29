@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<?php include('css/header.php'); ?>
+<?php include('../../css/header.php'); ?>
 
 <div class="navBar">
     <a href="../../welcome.php">Home</a>

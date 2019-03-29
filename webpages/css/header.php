@@ -7,7 +7,7 @@
         </div>
         <div class= "column right">
             <div id="headerLogo">
-                <img src="/the_clinic/webpages/images/HeaderImageOutline.png" alt="HeaderImage">
+                <img src="../images/HeaderImageOutline.png" alt="HeaderImage">
             </div>
         </div>
     </div>

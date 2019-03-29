@@ -3,7 +3,7 @@ include('../../php/session.php');
 include('../../php/scheduleVisit.php');
 include('../../php/updateTreatmentPosition.php');
 $update = new updateTreatmentPosition($_GET['id']);
-$update->updateStep(1,2);
+$update->updateStep(2,3);
 $error = " ";
 $error2 ="";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -27,7 +27,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<?php include('css/header.php'); ?>
+<?php include('../../css/header.php'); ?>
 
 <div class="navBar">
     <a href="../../welcome.php">Home</a>
@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <a href=<?php echo "../bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
     <a href=<?php echo "../bipolarMDQ.php?id=".$_GET['id'];?>>MDQ</a>
     <a href=<?php echo "../../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
-    <a href = "../../php/logout.php?type=0">Sign Out</a>
+    <a id="logoutButton" href = "../../php/logout.php?type=0">Sign Out</a>
 </div>
 
 <div class="row" >
@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             Re-Eval Timeline:
         </h3>
         <p>
-            Provider Discretion
+            If partial or non-response after 4-6 weeks of therapy, move to the next stage of treatment.
         </p>
         <h3>
             <a href=<?php echo "bipolarD2-2.php?id=".$_GET['id'];?>>Next Step</a>

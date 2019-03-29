@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<?php include('css/header.php'); ?>
+<?php include('../../css/header.php'); ?>
 
 <div class="navBar">
     <a href="../../welcome.php">Home</a>
@@ -73,38 +73,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type = "submit" class= "submit" name ="DepD2" value = " Begin Treatment "/><br />
         </form>
     </div>
-    <div class="column3">
+    <div class="column4">
         <h2 >
-            If Partial Response:
+            Taking antimanic other than lithium<br>-
         </h2>
-        <p>
-            Optimize dose OR augment <br>OR switch
-        </p>
-        <h3>
-            Re-Eval Timeline:
-        </h3>
-        <p>
-            Provider Discretion
-        </p>
-
+        <form action = "" method = "post">
+            <input type = "submit" class= "submit" name ="DepD3" value = " Begin Treatment "/><br />
+        </form>
     </div>
-    <div class="column3">
+    <div class="column4">
         <h2 >
-            If Full response:
+            Taking lithium<br><br>-
         </h2>
-        <p>
-            Continue same treatment for at least<br>
-            4 - 9 months
-        </p>
-        <h3>
-            Re-Eval Timeline:
-        </h3>
-        <p>
-            Provider Discretion
-        </p>
+        <form action = "" method = "post">
+            <input type = "submit" class= "submit" name ="DepD4" value = " Begin Treatment "/><br />
+        </form>
     </div>
-    <br/>
-    <h3 style="text-align: center">*Switch to a non-SSRI after two SSRI failures*</h3>
+    <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error2; ?></div>
 </div>
 <div class="row">
     <div class="column2">
