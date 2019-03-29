@@ -7,7 +7,15 @@
         </div>
         <div class= "column right">
             <div id="headerLogo">
-                <img src="../images/HeaderImageOutline.png" alt="HeaderImage">
+                <img src=<?php
+                if(getcwd() == "/Users/chrismiller/Documents/CSCI/ESOF423/the_clinic/webpages/bipolar/bipolarM"||getcwd() == "/Users/chrismiller/Documents/CSCI/ESOF423/the_clinic/webpages/bipolar/bipolarD"){
+                    echo "../../images/HeaderImageOutline.png";
+                }elseif (getcwd() == "/Users/chrismiller/Documents/CSCI/ESOF423/the_clinic/webpages"){
+                    echo "images/HeaderImageOutline.png";
+                }else{
+                    echo "../images/HeaderImageOutline.png";
+                }
+                ?> alt="HeaderImage">
             </div>
         </div>
     </div>
