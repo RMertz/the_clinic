@@ -73,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <div class="column2">
         <h3>Prescribe Patient a Medication</h3>
-        <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
+        <a href=<?php echo "../../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
     </div>
 </div>
 <h3>
