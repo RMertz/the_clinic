@@ -1,5 +1,5 @@
 <?php
-if((include $_SERVER['DOCUMENT_ROOT']."/group1/the_clinic/webpages/php/Config.p")){
+if((include $_SERVER['DOCUMENT_ROOT']."/group1/the_clinic/webpages/php/Config.php")){
  }else{
     echo "nooo";
 };
