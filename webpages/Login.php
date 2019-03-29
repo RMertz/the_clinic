@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-<?php include('css/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/css/header.php'); ?>
 
 
 <div class="navBar">
