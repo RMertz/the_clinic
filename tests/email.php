@@ -1,5 +1,4 @@
 <?php
-use Config;
 require __DIR__ . "/../webpages/Email.php";
 use PHPUnit\Framework\TestCase;
 final class EmailTest extends TestCase

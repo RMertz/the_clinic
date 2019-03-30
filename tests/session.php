@@ -1,8 +1,5 @@
+<?php include "Config.php"?>
 <?php
-if((include "Config.php")){
-}else{
-    echo "nooo";
-};
 session_start();
 
 $user_check = $_SESSION['login_user'];
