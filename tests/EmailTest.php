@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use master;
+include(Config.php);
 require __DIR__ . "/../webpages/Email.php";
 use PHPUnit\Framework\TestCase;
 
@@ -10,7 +10,7 @@ final class EmailTest extends TestCase
 
     public function testCannotBeCreatedFromInvalidEmailAddress(): void
     {
-	start();    
+	session_start();    
 	$this->expectException(InvalidArgumentException::class);
 
         Email::fromString('invalid');
