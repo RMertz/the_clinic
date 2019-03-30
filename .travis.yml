@@ -7,7 +7,7 @@ services:
 
 before_install:
         - mysql -u root --password="" < tests/test.sql
-        - mysql -e 'CREATE DATABASE test/test;'
+        - mysql -e 'CREATE DATABASE tests/test;'
 before_script:
         - composer install
 
