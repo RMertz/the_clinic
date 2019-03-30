@@ -24,24 +24,13 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <link rel="icon" type="image/png" href="images/favicon.ico">
 
 <body>
-<div class="header">
-    <div class=headerRow">
-        <div class= "column left">
-            <h1>The Clinician's Guide</h1>
-        </div>
-        <div class= "column right">
-            <div id="headerLogo">
-                <img src="images/HeaderImageOutline.png" alt="HeaderImage">
-            </div>
-        </div>
-    </div>
-</div>
+<?php include('css/header.php'); ?>
 
 
     <div class="navBar">
         <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="welcome.php">Home</a>
         <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="patientList.php">Your Patients</a>
-        <a ID="logoutButton"href = "../php/logout.php">Sign Out</a>
+        <a id="logoutButton" href = "../php/logout.php">Sign Out</a>
     </div>
 
 		
@@ -105,3 +94,4 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 </body>
 
 </html>
+

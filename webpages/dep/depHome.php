@@ -25,18 +25,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 </head>
 
 <body>
-    <div class="header">
-        <div class=headerRow">
-            <div class= "column left">
-                <h1>The Clinic</h1>
-            </div>
-            <div class= "column right">
-                <div id="headerLogo">
-                    <img src="../images/longHeader.png" alt="HeaderImage">
-                </div>
-            </div>
-        </div>
-    </div>
+ <?php include('../css/header.php'); ?>
 
     <div class="navBar">
         <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="../welcome.php">Home</a>
@@ -44,7 +33,8 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
         <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
         <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a class="<?= ($activePage == 'depDiag') ? 'active':''; ?>" href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
-        <a ID="logoutButton"href = "../php/logout.php">Sign Out</a>
+        <a href=<?php echo "../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
+        <a ID="logoutButton" href = "../php/logout.php">Sign Out</a>
     </div>
 
     <div class="row">
@@ -63,14 +53,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
                 Stub: update database for step we are on
             </p>
             <div class="row">
-                <div class="column2">
-                    <h3>Schedule Patient Visit</h3>
-                    <form action = "" method = "post">
-                        <input type = "date" name="Date" value = " Schedule Patient Visit "/><br/><br/>
-                        <input type = "submit" name="Schedule" value = " Schedule Patient "/>
-                    </form>
-                    <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-                </div>
+                <?php include '../scheduleApp.php';?>
                 <div class="column2">
                     <h3>Prescribe Patient a Medication</h3>
                     <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>

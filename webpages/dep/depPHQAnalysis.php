@@ -40,18 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-        <div class="header">
-            <div class=headerRow">
-                <div class= "column left">
-                    <h1>The Clinic</h1>
-                </div>
-                <div class= "column right">
-                    <div id="headerLogo">
-                        <img src="../images/longHeader.png" alt="HeaderImage">
-                    </div>
-                </div>
-            </div>
-    </div>
+<?php include('../css/header.php'); ?>
 
     <div class="navBar">
         <a href="../welcome.php">Home</a>
@@ -59,8 +48,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href=<?php echo "../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
         <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
+        <a href=<?php echo "../bipolar/bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
+        <a href=<?php echo "../bipolar/bipolarMDQ.php?id=".$_GET['id'];?>>MDQ</a>
         <a href=<?php echo "../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
-        <a href = "../php/logout.php?type=0">Sign Out</a>
+        <a id="logoutButton" href = "../php/logout.php?type=0">Sign Out</a>
     </div>
 
     <div class="content" style="text-align: center">
@@ -94,14 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     clinically significant in assessing improvement of symptoms.</li>
         </ol>
         <div class="row">
-            <div class="column3">
-                <h3>Schedule Patient Visit</h3>
-                <form action = "" method = "post">
-                    <input type = "date" name="Date" value = " Schedule Patient Visit "/><br/><br/>
-                    <input type = "submit" name="Schedule" value = " Schedule Patient "/>
-                </form>
-                <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-            </div>
+            <?php include '../scheduleApp.php';?>
             <div class="column3">
                 <form action = "" method = "post">
                     <input type = "submit" name="Diagnosis" value = " Approve Diagnosis "/>

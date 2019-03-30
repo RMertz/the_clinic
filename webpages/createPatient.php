@@ -31,28 +31,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <link rel="icon" type="image/png" href="images/favicon.ico">
 
 <body>
-<div class="header">
-
-    <div class="headerRow">
-        <div class= "column left">
-            <h1>The Clinic</h1>
-        </div>
-        <div class= "column right">
-            <div id="headerLogo">
-                <img src="images/HeaderImageOutline.png" alt="HeaderImage">
-            </div>
-        </div>
-    </div>
-
-
-</div>
+<?php include('css/header.php'); ?>
 
 <div class="navBar">
 
     <a href="welcome.php">HOME</a>
     <a href="patientList.php">YOUR PATIENTS</a>
     <a href="createPatient.php">NEW PATIENT</a>
-    <a href = "php/logout.php?type=0">LOG OUT</a>
+    <a id="logoutButton" href = "php/logout.php?type=0">LOG OUT</a>
 
 </div>
 
@@ -69,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label>First Name :</label><input type = "text" name = "firstname" class = "box" required/><br /><br />
                         <label>Last Name :</label><input type = "text" name = "lastname" class = "box" required/><br/><br />
                         <label>Diagnosis :</label><input type = "text" name = "diagnosis" class = "box" required/><br /><br />
-                        <input type = "submit" value = " Submit "/><br />
+                        <input class="submitLogin" type = "submit" value = " Submit "/><br />
                     </form>
 
                     <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>

@@ -30,21 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <link rel="icon" type="image/png" href="images/favicon.ico">
 
 <body>
-<div class="header">
-
-    <div class="headerRow">
-        <div class= "column left">
-            <h1>The Clinic</h1>
-        </div>
-        <div class= "column right">
-            <div id="headerLogo">
-                <img src="images/HeaderImageOutline.png" alt="HeaderImage">
-            </div>
-        </div>
-    </div>
-
-
-</div>
+<?php include('css/header.php'); ?>
 
 <div class="navBar">
 
@@ -52,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <a href="profile.html">PROFILE</a>
     <a href="patientPage.html">PATIENTS</a>
     <a href="help.html">HELP</a>
-    <a id="loginButton" href="Login.php">LOGIN</a>
+    <a id="logoutButton"  href="Login.php">LOGIN</a>
     <a href="createUser.php">CREATE USER</a>
 
 </div>
@@ -62,16 +48,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="redBack">
         <div class="navigationBoxes">
             <div class= "loginBox">
-                <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Create New Patient Profile</b></div>
+                <div class="loginLabel"><b>Create New Patient Profile</b></div>
 
-                <div style = "padding:30px; background-color: #dfdce3; ">
+                <div >
 
                     <form action = "" method = "post">
                         <label>First Name :</label><input type = "text" name = "firstname" class = "box" required/><br /><br />
                         <label>Last Name :</label><input type = "text" name = "lastname" class = "box" required/><br/><br />
                         <label>UserName :</label><input type = "text" name = "username" class = "box" required/><br /><br />
                         <label>Password :</label><input type = "password" name = "passwd" class = "box" required/><br/><br />
-                        <input type = "submit" value = " Submit "/><br />
+                        <input class="submitLogin" type = "submit" value = " Submit "/><br />
                     </form>
 
                     <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
@@ -88,3 +74,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
+

@@ -1,14 +1,12 @@
 <?php
 include('../php/session.php');
-include('../php/depDiagLogic.php');
+include('../php/MDQLogic.php');
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $diag = new depDiagLogic();
-    $answers = array($_POST['q1'],$_POST['q2'],$_POST['q3'],$_POST['q4'],$_POST['q5'],$_POST['q6'],$_POST['q7'],$_POST['q8'],$_POST['q9'],$_POST['q10']);
+    $diag = new MDQLogic();
+    $answers = array($_POST['q1'],$_POST['q2'],$_POST['q3'],$_POST['q4'],$_POST['q5'],$_POST['q6'],$_POST['q7'],$_POST['q8'],$_POST['q9'],$_POST['q10'],$_POST['q11'],$_POST['q12'],$_POST['q13'],$_POST['q14'],$_POST['q15']);
     $answers = $diag->getAnswers($answers);
     if (isset($_POST['Initial'])) {
-        header("location: depPHQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $answers['q2'] . "&q3=" . $answers['q3'] . "&q1=" . $answers['q1'] ."&type=0"."&total=".$answers['severityScore']."&q9=".$answers['q9']); //type 0 = initial diagnosis
-    }else{
-        header("location: depPHQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $answers['q2'] . "&q3=" . $answers['q3'] . "&q1=" . $answers['q1'] ."&type=1"."&total=".$answers['severityScore']."&q9=".$answers['q9']); //type 1 = continuing treatment
+        header("location: MDQAnalysis.php?id=" . $_GET['id'] . "&q2=" . $answers['q2'] . "&q3=" . $answers['q3'] . "&q1=" . $answers['total']); //type 0 = initial diagnosis
     }
 }
 	$activePage = basename($_SERVER['PHP_SELF'], ".php");
@@ -26,24 +24,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-    <div class="header">
-    <div class=headerRow">
-        <div class= "column left">
-            <h1>The Clinician's Guide</h1>
-        </div>
-        <div class= "column right">
-            <div id="headerLogo">
-                <img src="../images/HeaderImageOutline.png" alt="HeaderImage">
-            </div>
-        </div>
-    </div>
-</div>
+<?php include('../css/header.php'); ?>
 
 
     <div class="navBar">
         <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="../welcome.php">Home</a>
         <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="../patientList.php">Your Patients</a>
-        <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
+        <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
+        <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>"href= <?php echo "../dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
+        <a class="<?= ($activePage == 'depDiag') ? 'active':''; ?>"href= <?php echo "../dep/depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
         <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
         <a class="<?= ($activePage == 'depDiag') ? 'active':''; ?>" href=<?php echo "bipolarMDQ.php?id=".$_GET['id'];?>>Bipolar MDQ</a>
         <a ID="logoutButton"href = "../php/logout.php">Sign Out</a>
@@ -61,8 +50,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <table style="width:100% text-align: left;">
                         <tr>
                             <th style="width: 75%; font-size: 1.5em;">Has there ever been a period of time when you were not your usual self and...</th>
-                            <th>Yes</th>
                             <th>No</th>
+                            <th>Yes</th>
                         </tr>
                         <tr>
                             <td class="prompt">...you felt so good or so hyper that other people thought you were not
@@ -154,8 +143,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     </table><br/><br/>
 
 					<div style=" text-align: center">
-                    <input type = "submit" class="submit" name="Initial" value = " Submit PHQ For Initial Diagnosis and Treatment "/>
-                    <input type = "submit" class="submit" name="Continuing" value = " Submit PHQ For Continuing Treatment "/><br />
+                    <input type = "submit" class="submit" name="Initial" value = " Submit MDQ For Initial Diagnosis and Treatment "/>
 					</div>
 				</form>
             </div>
