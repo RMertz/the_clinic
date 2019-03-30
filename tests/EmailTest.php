@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require __DIR__ . "Config.php";
+use Config.php;
 require __DIR__ . "/../webpages/Email.php";
 use PHPUnit\Framework\TestCase;
 
