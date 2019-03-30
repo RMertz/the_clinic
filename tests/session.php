@@ -1,4 +1,4 @@
-<?php include "Config.php"?>
+<?php include "testConfig.php"?>
 <?php
 session_start();
 
