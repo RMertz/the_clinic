@@ -11,5 +11,5 @@ before_install:
 before_script:
         - composer install
 
-script: ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/EmailTest.php
+script: ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/
 
