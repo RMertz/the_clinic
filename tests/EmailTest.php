@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 declare(strict_types=1);
 
 use Config;
@@ -10,7 +12,6 @@ final class EmailTest extends TestCase
 
     public function testCannotBeCreatedFromInvalidEmailAddress(): void
     {
-	session_start();    
 	$this->expectException(InvalidArgumentException::class);
 
         Email::fromString('invalid');
