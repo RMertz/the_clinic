@@ -1,5 +1,4 @@
-<?php
-session_start();
+<?phpsession_start();
 use Config;
 require __DIR__ . "/../webpages/Email.php";
 use PHPUnit\Framework\TestCase;
