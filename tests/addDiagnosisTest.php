@@ -6,7 +6,7 @@ final class addDiagnosisTest extends TestCase
 {
     public function testsInstantiation(): void
     {
-	    $masterTest = new masterTest();
+	    $masterTest = new master();
 	    $db = $masterTest->getConnection();
 	    session_start();
 	    $newaddDiagnosis = new addDiagnosis();
