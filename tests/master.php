@@ -4,9 +4,10 @@ use PHPUnit\Framework\TestCase;
 use PHPUnit\DbUnit\TestCaseTrait;
 
 
-class masterTest extends TestCase
+class master extends TestCase
 {
 	use TestCaseTrait;
+
 	public function __construct(){
 
 	}
