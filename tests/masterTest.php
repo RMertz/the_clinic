@@ -1,15 +1,19 @@
 <?php
 declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+use PHPUnit\DbUnit\TestCaseTrait;
 
-use Config;
 
-final class masterTest
+final class masterTest extends TestCase
 {
+	use TestCaseTrait;
+
 	public function getConnection(): PDO
 	{
 		try {
     			$dsn = 'mysql:host=localhost;dbname=test;charset=utf8';
-    			$db = new PDO($dsn, 'travis', '');
+			$db = new PDO($dsn, 'travis', '');
+			return $db;
 		}catch(PDOException $ex){
     			echo "<script>console.log('Failed to open database')</script>";
 		}
