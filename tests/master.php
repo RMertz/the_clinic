@@ -14,13 +14,12 @@ class master extends TestCase
 
 	public function getConnection(): PDO
 	{
-		try {
-    			$dsn = 'mysql:host=localhost;dbname=test;charset=utf8';
-			$db = new PDO($dsn, 'travis', '');
-			return $db;
-		}catch(PDOException $ex){
-    			echo "<script>console.log('Failed to open database')</script>";
-		}
+		$db = new PDO('mysql:host=127.0.0.1;dbname=test', 'travis', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+		return $db;
+}catch(PDOException $ex){
+    echo "<script>console.log('Failed to open database')</script>";
+}
+
 	}
 	public function getDataSet()
 	{
