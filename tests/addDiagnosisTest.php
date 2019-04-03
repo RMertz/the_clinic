@@ -8,7 +8,7 @@ final class addDiagnosisTest extends TestCase
     {
 	    $master = new master();
 	    $master->start(); 
-	    $newaddDiagnosis = new addDiagnosis;
+	    $newaddDiagnosis = new addDiagnosis();
 	    $this->assertEquals("AddedDiagnosis",$newaddDiagnosis->addDiagnosisToPatient('123','diagnosis'));
 	     
     }
