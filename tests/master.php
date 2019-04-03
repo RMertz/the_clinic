@@ -9,4 +9,14 @@ final class master
     {
 	session_start();
     }
+
+    public function unset(): void
+    {
+	    session_unset();
+    }
+
+    public function destroy(): void
+    {
+	    die();
+    }
 }
