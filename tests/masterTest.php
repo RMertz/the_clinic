@@ -7,6 +7,9 @@ use PHPUnit\DbUnit\TestCaseTrait;
 abstract class masterTest extends TestCase
 {
 	use TestCaseTrait;
+	public function __construct(){
+
+	}
 
 	public function getConnection(): PDO
 	{
