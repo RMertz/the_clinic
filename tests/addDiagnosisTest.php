@@ -6,7 +6,8 @@ final class addDiagnosisTest extends TestCase
 {
     public function testsInstantiation(): void
     {
-	    start(); 
+	    $master = new master();
+	    $master->start(); 
 	    $newaddDiagnosis = new addDiagnosis;
 	    $this->assertEquals("AddedDiagnosis",$newaddDiagnosis->addDiagnosisToPatient('123','diagnosis'));
 	     
