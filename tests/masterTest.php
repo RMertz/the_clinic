@@ -37,3 +37,4 @@ abstract class masterTest extends TestCase
 	    die();
     }
 }
+?>

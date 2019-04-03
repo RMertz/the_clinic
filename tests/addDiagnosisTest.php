@@ -1,6 +1,6 @@
-<?php include("masterTest.php"); ?>
 <?php
 session_start();
+include("masterTest.php");
 require __DIR__ . "/../webpages/php/addDiagnosis.php";
 use PHPUnit\Framework\TestCase;
 final class addDiagnosisTest extends TestCase
@@ -16,4 +16,4 @@ final class addDiagnosisTest extends TestCase
     }
 
 }
-
+?>
