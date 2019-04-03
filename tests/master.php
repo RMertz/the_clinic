@@ -14,6 +14,7 @@ class master extends TestCase
 
 	public function getConnection(): PDO
 	{
+		try{
 		$db = new PDO('mysql:host=127.0.0.1;dbname=test', 'travis', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 		return $db;
 }catch(PDOException $ex){
