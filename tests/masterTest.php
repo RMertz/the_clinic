@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 use PHPUnit\DbUnit\TestCaseTrait;
 
 
-abstract class masterTest extends TestCase
+class masterTest extends TestCase
 {
 	use TestCaseTrait;
 	public function __construct(){
@@ -21,7 +21,10 @@ abstract class masterTest extends TestCase
     			echo "<script>console.log('Failed to open database')</script>";
 		}
 	}
+	public function getDataSet()
+	{
 
+	}
 	public function start(): void
     {
 	session_start();
