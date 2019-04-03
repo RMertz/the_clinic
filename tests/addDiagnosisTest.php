@@ -1,4 +1,4 @@
-<?php include("master.php"); ?>
+<?php include("session.php"); ?>
 <?php
 require __DIR__ . "/../webpages/php/addDiagnosis.php";
 use PHPUnit\Framework\TestCase;
