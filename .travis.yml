@@ -5,6 +5,8 @@ php:
 service:
         - mysql
 
+addons:
+        mariadb: '4.5'
 
 before_install:
         - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
