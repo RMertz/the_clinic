@@ -32,7 +32,6 @@ CREATE TABLE IF NOT EXISTS `group2`.`DoctorInformation` (
   UNIQUE INDEX `Username_UNIQUE` (`Username` ASC) )
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table `group2`.`MedicationInformation`
 -- -----------------------------------------------------
@@ -54,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `group2`.`PatientInformation` (
   `PatientID` INT NOT NULL AUTO_INCREMENT,
   `FirstName` VARCHAR(30) NOT NULL,
   `Surname` VARCHAR(30) NOT NULL,
-  `Diagnosis` VARCHAR(45) NOT NULL,
+  `Diagnosis` VARCHAR(45) NULL,
   `MedicationID` INT NOT NULL,
   `CurrentDose` VARCHAR(15) NULL,
   `LastVisit` DATE NULL,
@@ -76,6 +75,14 @@ CREATE TABLE IF NOT EXISTS `group2`.`Conflicting Medication` (
   PRIMARY KEY (`ConflictingID`),
   INDEX `MedicationID_idx` (`MedicationID` ASC))
   
+ENGINE = InnoDB;
+--------------------------------------------------------
+-- Table 'group2'.'Diagnosis'
+--------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `group2`.`Diagnosis` (
+	'PatientID' INT NOT NULL,
+	'Diagnosis' VarChar(30) NOT NULL,
+	INDEX 'PatientID_idx' ('PatientID' ASC))
 ENGINE = InnoDB;
 
 
