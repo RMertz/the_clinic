@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if($error == "Sorry that name already exists"){
 
     }else {
-        header("location: createSteps.php?name=" . $_POST['name'] . "&level1=" . $_POST['firstSteps'] . "&level2=0" . "&level3=0" . "&level4=0");
+        header("location: createSteps.php?name=" . urlencode($_POST['name']) . "&level1=1" . "&level2=". $_POST['firstSteps'] . "&level3=0" . "&level4=0");
     }
 }
 ?>

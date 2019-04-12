@@ -3,29 +3,39 @@ $error="";
 include_once("../php/session.php");
 include_once("../php/jsonQuery.php");
 include_once("../php/modifyJson.php");
+include_once ('../php/showAlgo.php');
+
+$name = urldecode($_GET['name']);
 $query = new jsonQuery();
-$json = $query->getJson($_GET['name']);
+$json = $query->getJson($name);
+$show = new showAlgo($name,$json);
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 $edit = new modifyJson();
-    if($_POST['firstSteps']!=0){
-        switch ($_POST['firstSteps']){
-            case 1:
-                $json = $edit->modify($json,$_GET['level2'],$_GET['level3'],$_GET['level4'],$_POST['directions'],$_POST['re-eval'],$_POST['step1']);
-                break;
-            case 2:
-                $json = $edit->modify($json,$_GET['level2'],$_GET['level3'],$_GET['level4'],$_POST['directions'],$_POST['re-eval'],$_POST['step1']);
-                $json = $edit->modify($json,$_GET['level2'],$_GET['level3'],$_GET['level4'],$_POST['directions'],$_POST['re-eval'],$_POST['step2']);
-                break;
-            case 3:
-                $json = $edit->modify($json,$_GET['level2'],$_GET['level3'],$_GET['level4'],$_POST['directions'],$_POST['re-eval'],$_POST['step1']);
-                $json = $edit->modify($json,$_GET['level2'],$_GET['level3'],$_GET['level4'],$_POST['directions'],$_POST['re-eval'],$_POST['step2']);
-                $json = $edit->modify($json,$_GET['level2'],$_GET['level3'],$_GET['level4'],$_POST['directions'],$_POST['re-eval'],$_POST['step3']);
-                break;
-            default:
-                break;
-        }
-        $query->updateJson($json,$_GET['name']);
+    if (isset($_POST['done'])){
+        header("location: done.php");
+    }
 
+    switch ($_POST['firstSteps']) {
+        case 1:
+            $json = $edit->modifyReason($json,$_GET['level2'],$_GET['level3'],1,$_POST['step1']);
+            break;
+        case 2:
+            $json = $edit->modifyReason($json,$_GET['level2'],$_GET['level3'],1,$_POST['step1']);
+            $json = $edit->modifyReason($json,$_GET['level2'],$_GET['level3'],2,$_POST['step2']);
+            break;
+        case 3:
+            $json = $edit->modifyReason($json,$_GET['level2'],$_GET['level3'],1,$_POST['step1']);
+            $json = $edit->modifyReason($json,$_GET['level2'],$_GET['level3'],2,$_POST['step2']);
+            $json = $edit->modifyReason($json,$_GET['level2'],$_GET['level3'],3,$_POST['step3']);
+            break;
+        default:
+            $json = $edit->modifyDirections($json, $_GET['level2'], $_GET['level3'], $_GET['level4'], $_POST['directions'], $_POST['re-eval']);
+            break;
+    }
+    $json = $edit->modifyDirections($json, $_GET['level2'], $_GET['level3'], $_GET['level4'], $_POST['directions'], $_POST['re-eval']);
+    $query->updateJson($json, $_GET['name']);
+    if($_POST['firstSteps']!=0) {
         if ($_GET['level3'] != 0) {
             header("location: createSteps.php?name=" . $_GET['name'] . "&level1=" . $_GET['level1'] . "&level2=" . $_GET["level2"] . "&level3=" . $_GET["level3"] . "&level4=".$_POST["firstSteps"]);
         } else if ($_GET['level2'] != 0) {
@@ -36,7 +46,7 @@ $edit = new modifyJson();
             header("location: createSteps.php?name=" . $_GET['name'] . "&level1=" . $_GET['level1'] . "&level2=" . $_GET["level2"] . "&level3=" . $_GET["level3"] . "&level4=" . ($_GET["level4"] - 1));
         }
     }else {
-        if ($_GET['level4'] != 0) {
+        if($_GET['level4'] != 0) {
             header("location: createSteps.php?name=" . $_GET['name'] . "&level1=" . $_GET['level1'] . "&level2=" . $_GET["level2"] . "&level3=" . $_GET["level3"] . "&level4=" . ($_GET["level4"] - 1));
         } else if ($_GET['level3'] != 0) {
             header("location: createSteps.php?name=" . $_GET['name'] . "&level1=" . $_GET['level1'] . "&level2=" . $_GET["level2"] . "&level3=" . ($_GET["level3"] - 1) . "&level4=0");
@@ -48,6 +58,7 @@ $edit = new modifyJson();
 
         }
     }
+
 
     //header("location: createSteps.php");
 }
@@ -88,13 +99,13 @@ $edit = new modifyJson();
     <div class="redBack">
         <div class="navigationBoxes">
             <div class= "loginBox">
-                <div class="loginLabel"><b>Create Treatment Algorithm Steps for <?php echo $_GET['name']?></b></div>
+                <div class="loginLabel"><b>Create Treatment Algorithm Steps for <?php echo $name?></b></div>
 
                 <div style="margin: 10px">
 
                     <form action = "" method = "post">
                         <div>
-                            <label for="directions">Directions :</label>
+                            <label for="directions">Directions for "<?php echo $show->getReasonForEdit($_GET['level2'],$_GET['level3'],$_GET['level4'])?>" from Step <?php echo $show->getStep($_GET['level1'],$_GET['level2'],$_GET['level3'],$_GET['level4'])-1?>:</label>
                             <input type = "text" name = "directions" id="directions" class = "box" required/>
                         </div>
                         <div>
@@ -127,8 +138,9 @@ $edit = new modifyJson();
                             <label for="step3">3. Reason to move to next step:</label>
                             <input type = "text" name = "step3" id="step3" class = "box" />
                         </div>
-                        <input class="submitLogin" type = "submit" value = " Submit "/>
+                        <input class="submitLogin" name="next" type = "submit" value = " Submit "/>
                     </form>
+                    <a href="done.php" class="submitLogin">Done</a>
 
                     <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
 

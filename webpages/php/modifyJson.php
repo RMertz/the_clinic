@@ -8,7 +8,38 @@ class modifyJson
 
     }
 
-    public function modify($json, $l2, $l3, $l4, $directions, $re, $reason){
+    public function modifyDirections($json, $l2, $l3, $l4, $directions, $re)
+    {
+
+        if ($l2 > 0 && $l3 > 0 && $l4 > 0) {
+            $json['option' . $l2]['option' . $l3]['option' . $l4]['directions'] = $directions;
+            $json['option' . $l2]['option' . $l3]['option' . $l4]['re-eval'] = $re;
+        } else if ($l2 > 0 && $l3 > 0) {
+            $json['option' . $l2]['option' . $l3]['directions'] = $directions;
+            $json['option' . $l2]['option' . $l3]['re-eval'] = $re;
+        } else if ($l2 > 0) {
+            $json['option' . $l2]['directions'] = $directions;
+            $json['option' . $l2]['re-eval'] = $re;
+        } else if ($l2 == 0) {
+            $json['directions'] = $directions;
+            $json['re-eval'] = $re;
+        }
+        //echo json_encode($json);
+        return $json;
+    }
+
+    public function modifyReason($json, $l2, $l3, $selector,$reason){
+        if ($l2 > 0 && $l3 > 0) {
+            $json['option' . $l2]['option' . $l3]['option' . $selector]['reason'] = $reason;
+        } else if ($l2 > 0) {
+            $json['option' . $l2]['option' . $selector]['reason'] = $reason;
+        } else{
+            $json['option' . $selector]['reason'] = $reason;
+        }
+        return $json;
+    }
+
+/*
         switch ($l2) {
             case 1:
                 $json = $json['option1'];
@@ -267,9 +298,8 @@ class modifyJson
             default:
                 $json['directions'] = $directions;
                 $json['re-eval'] = $re;
-                $json['reason'] = $reason;
                 break;
-        }
-    return $json;
-    }
+        }*/
+
+
 }
