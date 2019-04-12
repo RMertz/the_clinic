@@ -20,6 +20,8 @@ User Manual can be found here: https://drive.google.com/file/d/1ZZdl_fwQhYjKMHsW
 
 If you have any problems using the software please email us at antonmertz@gmail.com
 
+User Feedback Report can be found here: https://docs.google.com/document/d/1L0TLKqaYZFcYcdEIK-HW-nYrx1OiFz6UdIUCtLw9DT8/edit?usp=sharing
+
 The subdirectories are the meeting_notes, webpages, and our deliverables
 where you will find our most recent weeks meeting notes, our webpages, and our
 deliverables for ESOF 423.
