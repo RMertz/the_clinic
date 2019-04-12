@@ -89,17 +89,7 @@ CREATE TABLE IF NOT EXISTS `group1`.`Conflicting Medication` (
   `ConflictingID` INT NOT NULL,
   `MedicationID` INT NULL,
   PRIMARY KEY (`ConflictingID`),
-  INDEX `MedicationID_idx` (`ConflictingID` ASC, `MedicationID` ASC),
-  CONSTRAINT `MedicationID`
-    FOREIGN KEY (`ConflictingID`)
-    REFERENCES `group1`.`MedicationInformation` (`MedicationID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `MedicationID`
-    FOREIGN KEY (`ConflictingID` , `MedicationID`)
-    REFERENCES `group1`.`MedicationInformation` (`MedicationID` , `MedicationID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  INDEX `MedicationID_idx` (`MedicationID` ASC))
 ENGINE = InnoDB;
 
 --------------------------------------------------------
