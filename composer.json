@@ -9,5 +9,6 @@
 		"phpunit/dbunit": "^4.0"
 	},
 	"require": {
-	}
+      "ext-json": "*"
+    }
 }
