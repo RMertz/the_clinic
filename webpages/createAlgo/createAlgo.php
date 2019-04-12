@@ -110,10 +110,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    var books = JSON.parse( '<?php echo json_encode($algo); ?>' );
-    console.log(books);
-</script>
 <div class="footer">
     <a href="https://github.com/RMertz/the_clinic.git">Repository</a>
 </div>
