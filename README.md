@@ -1,9 +1,8 @@
 # the_clinic
 
 Documentation for Users
-The login to the website is:
-Username:Jeff
-password:Jeff1
+You can log into the website by creating a new user.
+
 
 Documentation for Developers
 For the latest release version check the release branch on github.
