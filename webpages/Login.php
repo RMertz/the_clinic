@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-<?php include($_SERVER['DOCUMENT_ROOT'].'/css/header.php'); ?>
+<?php include_once($_SERVER['DOCUMENT_ROOT'].'/try2/the_clinic/webpages/css/header.php'); ?>
 
 
 <div class="navBar">
