@@ -4,14 +4,21 @@ include_once("../php/session.php");
 include_once("../php/jsonQuery.php");
 include_once("../php/modifyJson.php");
 include_once ('../php/showAlgo.php');
+include_once ("../php/createSteps.php");
+
+$move = new createSteps();
+$query = new jsonQuery();
+$edit = new modifyJson();
 
 $name = urldecode($_GET['name']);
-$query = new jsonQuery();
 $json = $query->getJson($name);
+
 $show = new showAlgo($name,$json);
+if($show->getDirections($_GET['level1'],$_GET['level2'],$_GET['level3'],$_GET['level4']) != ''){
+    $move->moveOn($_POST['firstSteps'],$_GET['level1'],$_GET['level2'],$_GET['level3'],$_GET['level4'],$_GET['name']);
+}
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-$edit = new modifyJson();
     if (isset($_POST['done'])){
         header("location: done.php");
     }
@@ -35,32 +42,8 @@ $edit = new modifyJson();
     }
     $json = $edit->modifyDirections($json, $_GET['level2'], $_GET['level3'], $_GET['level4'], $_POST['directions'], $_POST['re-eval']);
     $query->updateJson($json, $_GET['name']);
-    if($_POST['firstSteps']!=0) {
-        if ($_GET['level3'] != 0) {
-            header("location: createSteps.php?name=" . $_GET['name'] . "&level1=" . $_GET['level1'] . "&level2=" . $_GET["level2"] . "&level3=" . $_GET["level3"] . "&level4=".$_POST["firstSteps"]);
-        } else if ($_GET['level2'] != 0) {
-            header("location: createSteps.php?name=" . $_GET['name'] . "&level1=" . $_GET['level1'] . "&level2=" . $_GET["level2"] . "&level3=". $_POST["firstSteps"] . "&level4=0");
-        } else if ($_GET['level1'] != 0) {
-            header("location: createSteps.php?name=" . $_GET['name'] . "&level1=" . $_GET['level1'] . "&level2=". $_POST["firstSteps"] . "&level3=0" . "&level4=0");
-        } else {
-            header("location: createSteps.php?name=" . $_GET['name'] . "&level1=" . $_GET['level1'] . "&level2=" . $_GET["level2"] . "&level3=" . $_GET["level3"] . "&level4=" . ($_GET["level4"] - 1));
-        }
-    }else {
-        if($_GET['level4'] != 0) {
-            header("location: createSteps.php?name=" . $_GET['name'] . "&level1=" . $_GET['level1'] . "&level2=" . $_GET["level2"] . "&level3=" . $_GET["level3"] . "&level4=" . ($_GET["level4"] - 1));
-        } else if ($_GET['level3'] != 0) {
-            header("location: createSteps.php?name=" . $_GET['name'] . "&level1=" . $_GET['level1'] . "&level2=" . $_GET["level2"] . "&level3=" . ($_GET["level3"] - 1) . "&level4=0");
-        } else if ($_GET['level2'] != 0) {
-            header("location: createSteps.php?name=" . $_GET['name'] . "&level1=" . $_GET['level1'] . "&level2=" . ($_GET["level2"] - 1) . "&level3=0" . "&level4=0");
-        } else if ($_GET['level1'] != 0) {
-            header("location: createSteps.php?name=" . $_GET['name'] . "&level1=" . ($_GET['level1'] - 1) . "&level2=0" . "&level3=0" . "&level4=0");
-        } else {
+    $move->moveOn($_POST['firstSteps'],$_GET['level1'],$_GET['level2'],$_GET['level3'],$_GET['level4'],$_GET['name']);
 
-        }
-    }
-
-
-    //header("location: createSteps.php");
 }
 ?>
 
