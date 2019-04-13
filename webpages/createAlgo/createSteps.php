@@ -22,24 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['done'])){
         header("location: done.php");
     }
-
-    switch ($_POST['firstSteps']) {
-        case 1:
-            $json = $edit->modifyReason($json,$_GET['level2'],$_GET['level3'],1,$_POST['step1']);
-            break;
-        case 2:
-            $json = $edit->modifyReason($json,$_GET['level2'],$_GET['level3'],1,$_POST['step1']);
-            $json = $edit->modifyReason($json,$_GET['level2'],$_GET['level3'],2,$_POST['step2']);
-            break;
-        case 3:
-            $json = $edit->modifyReason($json,$_GET['level2'],$_GET['level3'],1,$_POST['step1']);
-            $json = $edit->modifyReason($json,$_GET['level2'],$_GET['level3'],2,$_POST['step2']);
-            $json = $edit->modifyReason($json,$_GET['level2'],$_GET['level3'],3,$_POST['step3']);
-            break;
-        default:
-            $json = $edit->modifyDirections($json, $_GET['level2'], $_GET['level3'], $_GET['level4'], $_POST['directions'], $_POST['re-eval']);
-            break;
-    }
+    $json = $move->updateJson($json,$edit,$_POST['firstSteps'],$_GET['level2'],$_GET['level3'],$_GET['level4'],$_POST['step1'],$_POST['step2'],$_POST['step3'],$_POST['directions'],$_POST['re-eval']);
     $json = $edit->modifyDirections($json, $_GET['level2'], $_GET['level3'], $_GET['level4'], $_POST['directions'], $_POST['re-eval']);
     $query->updateJson($json, $_GET['name']);
     $move->moveOn($_POST['firstSteps'],$_GET['level1'],$_GET['level2'],$_GET['level3'],$_GET['level4'],$_GET['name']);
