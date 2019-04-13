@@ -34,18 +34,19 @@ $patientLi = $patients->fetchAll();
 
     <div >
         <h2>
-            Select a patient to View Info
+            Select a Patient to View Info
         </h2>
-        <ul>
-        <li>
-            <?php
-                foreach ($patientLi as $val){
-                    echo "<a href = 'patientHome.php?id=".$val['PatientID']."'>".$val['FirstName']." ".$val['Surname'] . "</a>";
-                }
-            ?>
-        </li>
-        </ul>
-
+		<div class="redBack">
+			<ul>
+				<li>
+					<?php
+						foreach ($patientLi as $val){
+							echo "<a href = 'patientHome.php?id=".$val['PatientID']."'>".$val['FirstName']." ".$val['Surname'] . "</a>";
+						}
+					?>
+				</li>
+			</ul>
+		</div>
     </div>
 </body>
 <div class="footer">
@@ -53,5 +54,3 @@ $patientLi = $patients->fetchAll();
 </div>
 
 </html>
-
-
