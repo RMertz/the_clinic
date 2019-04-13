@@ -1,10 +1,9 @@
 <?php
-if((include "php/Config.php")){
-}else{
+if((include $_SERVER['DOCUMENT_ROOT']."/group1/the_clinic/webpages/php/Config.php")){
+ }else{
     echo "nooo";
 };
 $error = " ";
-
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form
     session_start();
@@ -40,7 +39,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-<?php include_once($_SERVER['DOCUMENT_ROOT'].'/try2/the_clinic/webpages/css/header.php'); ?>
+
+<?php include('css/header.php'); ?>
+
 
 
 <div class="navBar">

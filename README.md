@@ -2,8 +2,14 @@
 
 Documentation for Users
 The login to the website is:
-Username:Chrismiller
+
+Username:chrismiller
 password:Test123
+
+or
+
+Create a New Account.
+
 
 Documentation for Developers
 For the latest release version check the release branch on github.
