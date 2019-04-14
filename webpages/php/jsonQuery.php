@@ -25,8 +25,10 @@ class jsonQuery
             try {
                 $add->execute();
             } catch (PDOException $po) {
+                echo "<script>console.log('Json updated')</script>";
                 return "Error: Json not added";
             }
+            echo "<script>console.log('Json not updated')</script>";
             return "Json Added";
         }
     }
