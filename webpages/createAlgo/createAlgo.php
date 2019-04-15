@@ -4,10 +4,11 @@ include_once("../php/session.php");
 include_once ("../php/createAlgo.php");
 if(include_once ("../php/jsonQuery.php")){echo("<script> console.log('Here 10') </script>");}else{echo("<script> console.log('Here 9') </script>");}
 echo("<script> console.log('Here 0') </script>");
+$maker = new createAlgo();
+$query = new jsonQuery();
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     echo("<script> console.log('Here 1.1') </script>");
-    $maker = new createAlgo();
-    $query = new jsonQuery();
+
     echo("<script> console.log('Here 1') </script>");
     if($_POST["firstSteps"] == 1){
         echo("<script> console.log('Here 2') </script>");
