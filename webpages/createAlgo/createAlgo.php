@@ -44,7 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.js"></script>
 </head>
 
-<link rel="icon" type="image/png" href="../images/favicon.ico">
+<!--<link rel="icon" type="image/png" href="../images/favicon.ico">-->
 
 <body>
 <?php include('../css/header.php'); ?>
