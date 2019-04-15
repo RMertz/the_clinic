@@ -6,8 +6,11 @@ include_once ("../php/jsonQuery.php");
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $maker = new createAlgo();
     $query = new jsonQuery();
+    echo("<script> console.log('Here 1') </script>");
     if($_POST["firstSteps"] == 1){
+        echo("<script> console.log('Here 2') </script>");
         $algo = $maker->createArr1($_POST['directions'],$_POST['re-eval'],$_POST['step1']);
+        echo("<script> console.log('Here 3') </script>");
         $error = $query->setJson(json_encode($algo),$_POST['name']);
     }else if($_POST["firstSteps"] == 2){
         $algo = $maker->createArr2($_POST['directions'],$_POST['re-eval'],$_POST['step1'],$_POST['step2']);
@@ -16,6 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $algo = $maker->createArr3($_POST['directions'],$_POST['re-eval'],$_POST['step1'],$_POST['step2'],$_POST['step3']);
         $error = $query->setJson(json_encode($algo),$_POST['name']);
     }
+    echo("<script> console.log('Here 4') </script>");
     if($error == "Sorry that name already exists"){
 
     }else {
