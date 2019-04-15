@@ -85,7 +85,7 @@ ENGINE = InnoDB;
 --------------------------------------------------------
 -- Table 'group1'.'Prescription'
 --------------------------------------------------------
-$medication = $db->prepare("SELECT `MedicationInformation.Name, Prescription.CurrentDosage`
+'$medication = $db->prepare("SELECT `MedicationInformation.Name, Prescription.CurrentDosage`
 FROM `Prescription`
 LEFT JOIN MedicationInformation ON MedicationInformation.MedicationID=Prescription.MedicationID
 	AND Prescription.PatientID = :pat_ID");
@@ -97,12 +97,12 @@ $medicationInfo = $medication->fetch();
 			echo .$val['Name'].": ".$val['CurrentDosage'].;
         }
 ?>
-
+'
 CREATE TABLE IF NOT EXISTS `group1`.`Prescription` (
   `MedicationID` INT NOT NULL,
   `PatientID` INT NOT NULL,
   `CurrentDosage` MEDIUMTEXT NULL,
-  `Diagnosis` MEDIUMTEXT NULL COMMENT 'The diagnosis the drug is used for.',
+  `Diagnosis` MEDIUMTEXT NULL COMMENT 'The d[iagnosis the drug is used for.',
   PRIMARY KEY (`PatientID`),
   INDEX `MedicationID_idx` (`MedicationID` ASC),
   INDEX `PatientID_idx` (`PatientID` ASC) )
