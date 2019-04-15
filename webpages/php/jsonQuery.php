@@ -8,6 +8,12 @@ class jsonQuery
     }
 
     public function setJson($json, $name){
+        if(include 'Config.php'){
+
+        }else{
+            echo("<script> console.log('Here 7') </script>");
+            return "Did not include conifig.php";
+        }
         include 'Config.php';
         $check = $db->prepare("SELECT `AlgorithmID` FROM `Algorithm` WHERE `name` = :nam");
         $check->bindParam(":nam", $name);
