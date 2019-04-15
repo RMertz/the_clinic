@@ -3,7 +3,9 @@ $error="";
 include_once("../php/session.php");
 include_once ("../php/createAlgo.php");
 include_once ("../php/jsonQuery.php");
+echo("<script> console.log('Here 0') </script>");
 if($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo("<script> console.log('Here 1.1') </script>");
     $maker = new createAlgo();
     $query = new jsonQuery();
     echo("<script> console.log('Here 1') </script>");
