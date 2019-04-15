@@ -8,6 +8,7 @@ class jsonQuery
     }
 
     public function setJson($json, $name){
+        echo("<script> console.log('Here 8') </script>");
         if(include 'Config.php'){
 
         }else{
