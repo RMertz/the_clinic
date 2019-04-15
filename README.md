@@ -1,7 +1,18 @@
 # the_clinic
 
 Documentation for Users
+<<<<<<< HEAD
 You can log into the website by creating a new user.
+=======
+The login to the website is:
+
+Username:chrismiller
+password:Test123
+
+or
+
+Create a New Account.
+>>>>>>> 2f969556d429ddf4c9d3496b3d11700fae864651
 
 
 Documentation for Developers
@@ -15,7 +26,11 @@ The software can be found at https://esof423.cs.montana.edu/group1/the_clinic/we
 
 To use the software log in, and navigate to your patients information.
 
+User Manual can be found here: https://drive.google.com/file/d/1ZZdl_fwQhYjKMHsWQD9Vdt4r1YaG-mAE/view?usp=sharing
+
 If you have any problems using the software please email us at antonmertz@gmail.com
+
+User Feedback Report can be found here: https://docs.google.com/document/d/1L0TLKqaYZFcYcdEIK-HW-nYrx1OiFz6UdIUCtLw9DT8/edit?usp=sharing
 
 The subdirectories are the meeting_notes, webpages, and our deliverables
 where you will find our most recent weeks meeting notes, our webpages, and our

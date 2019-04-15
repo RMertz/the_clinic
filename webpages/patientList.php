@@ -1,6 +1,6 @@
 <?php
 include('php/session.php');
-$docID = $db->prepare("SELECT DoctorID FROM `DoctorInformation` WHERE LastName = :user_check");
+$docID = $db->prepare("SELECT DoctorID FROM `DoctorInformation` WHERE Username = :user_check");
 $docID->bindParam(":user_check", $user_check);
 $docID->execute();
 $row = $docID->fetch();
@@ -21,43 +21,32 @@ $patientLi = $patients->fetchAll();
 
 <body>
 
-<div class="header">
+<?php include('css/header.php'); ?>
 
-    <div class=headerRow">
-        <div class= "column left">
-            <h1>The Clinic</h1>
-        </div>
-        <div class= "column right">
-            <div id="headerLogo">
-                <img src="images/longHeader.png" alt="HeaderImage">
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="navBar">
     <a href="welcome.php">HOME</a>
     <a href="patientList.php">YOUR PATIENTS</a>
-    <a href = "php/logout.php">LOG OUT</a>
-    <div id="searchBar">
-        <img src="images/searchBar.png" alt="Search Bar" border="0px" height= "20px" width= "150px">
-    </div>
+    <a href="createPatient.php">NEW PATIENT</a>
+    <a id="logoutButton" href = "php/logout.php?type=0">LOG OUT</a>
+
 </div>
 
-    <div class="content">
+    <div >
         <h2>
-            Select a patient to View Info
+            Select a Patient to View Info
         </h2>
-        <ul>
-        <li>
-            <?php
-                foreach ($patientLi as $val){
-                    echo "<a href = 'patientHome.php?id=".$val['PatientID']."'>".$val['FirstName']." ".$val['Surname'] . "</a>";
-                }
-            ?>
-        </li>
-        </ul>
-
+		<div class="redBack">
+			<ul>
+				<li>
+					<?php
+						foreach ($patientLi as $val){
+							echo "<a href = 'patientHome.php?id=".$val['PatientID']."'>".$val['FirstName']." ".$val['Surname'] . "</a>";
+						}
+					?>
+				</li>
+			</ul>
+		</div>
     </div>
 </body>
 <div class="footer">

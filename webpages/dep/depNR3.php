@@ -1,8 +1,14 @@
 <?php
 include('../php/session.php');
+include('../php/scheduleVisit.php');
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $error="Feature Coming Soon!";
+    $schedule = new scheduleVisit($_GET['id']);
+    if($schedule->schedule($_POST['Date'],0)){
+        $error = "Next Visit Added.";
+    }else{
+        $error="Next Visit Not Added, Please Select a Valid Date.";
+    }
 }
 ?>
 
@@ -17,18 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <div class="header">
-        <div class=headerRow">
-            <div class= "column left">
-                <h1>The Clinic</h1>
-            </div>
-            <div class= "column right">
-                <div id="headerLogo">
-                    <img src="../images/longHeader.png" alt="HeaderImage">
-                </div>
-            </div>
-        </div>
-    </div>
+<?php include('../css/header.php'); ?>
 
     <div class="navBar">
         <a href="../welcome.php">Home</a>
@@ -36,8 +31,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href=<?php echo "../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
         <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
         <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
+        <a href=<?php echo "../bipolar/bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
+        <a href=<?php echo "../bipolar/bipolarMDQ.php?id=".$_GET['id'];?>>MDQ</a>
         <a href=<?php echo "../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
-        <a href = "../php/logout.php">Sign Out</a>
+        <a id="logoutButton" href = "../php/logout.php?type=0">Sign Out</a>
     </div>
 
     <div class="row" >
@@ -89,13 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <h3 style="text-align: center">*Switch to a non-SSRI after two SSRI failures*</h3>
     </div>
     <div class="row">
-        <div class="column2">
-            <h3>Schedule Patient Visit</h3>
-            <form action = "" method = "post">
-                <input type = "date" name="Date" value = " Schedule Patient Visit "/><br/><br/>
-                <input type = "submit" name="Schedule" value = " Schedule Patient "/>
-            </form>
-        </div>
+        <?php include '../scheduleApp.php';?>
         <div class="column2">
             <h3>Prescribe Patient a Medication</h3>
             <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
