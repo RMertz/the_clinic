@@ -2,7 +2,7 @@
 $error="";
 include_once("../php/session.php");
 include_once ("../php/createAlgo.php");
-include_once ("../php/jsonQuery.php");
+if(include_once ("../php/jsonQuery.php")){}else{echo("<script> console.log('Here 9') </script>");}
 echo("<script> console.log('Here 0') </script>");
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     echo("<script> console.log('Here 1.1') </script>");
