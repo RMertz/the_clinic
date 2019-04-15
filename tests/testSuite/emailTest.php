@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/stubs/Email.php";
+require __DIR__ . "/../stubs/Email.php";
 use PHPUnit\Framework\TestCase;
 final class EmailTest extends TestCase
 {
