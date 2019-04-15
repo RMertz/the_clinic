@@ -2,15 +2,6 @@ language: php
 
 php:
         - 7.2
-service:
-        - mysql
-
-addons:
-        mariadb: '10.0'
-
-before_install:
-        - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
-        - mysql -u root --password="" < tests/test.sql
 before_script:
         - composer install
 
