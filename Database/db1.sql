@@ -65,26 +65,6 @@ CREATE TABLE IF NOT EXISTS `group1`.`PatientInformation` (
   INDEX `DoctorID_idx` (`DoctorID` ASC) )
 ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Table `group1`.`Conflicting Medication`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `group1`.`Conflicting Medication` (
-  `ConflictingID` INT NOT NULL,
-  `MedicationID` INT NULL,
-  PRIMARY KEY (`ConflictingID`),
-  INDEX `MedicationID_idx` (`ConflictingID` ASC, `MedicationID` ASC) VISIBLE,
-  CONSTRAINT `MedicationID`
-	FOREIGN KEY (`ConflictingID`)
-	REFERENCES `group1`.`MedicationInformation` (`MedicationID`)
-	ON DELETE NO ACTION
-	ON UPDATE NO ACTION,
-  CONSTRAINT `MedicationID`
-	FOREIGN KEY (`ConflictingID` , `MedicationID`)
-	REFERENCES `group1`.`MedicationInformation` (`MedicationID`, `MedicationID`)
-	ON DELETE NO ACTION
-	ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
 CREATE TABLE IF NOT EXISTS `group1`.`Conflicting Medication` (
   `ConflictingID` INT NOT NULL,
   `MedicationID` INT NULL,
@@ -95,18 +75,35 @@ ENGINE = InnoDB;
 --------------------------------------------------------
 -- Table 'group1'.'Diagnosis'
 --------------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS `group1`.`Diagnosis` (
 	`DiagnosisName` VarChar(30) NOT NULL,
 	`DiagnosisID` INT NOT NULL,
 	PRIMARY KEY (`DiagnosisID`))
 ENGINE = InnoDB;
 
+--------------------------------------------------------
+-- Table 'group1'.'Prescription'
+--------------------------------------------------------
+$medication = $db->prepare("SELECT `MedicationInformation.Name, Prescription.CurrentDosage`
+FROM `Prescription`
+LEFT JOIN MedicationInformation ON MedicationInformation.MedicationID=Prescription.MedicationID
+	AND Prescription.PatientID = :pat_ID");
+$medication->execute();
+$medicationInfo = $medication->fetch();
+
+<?php
+		foreach ($medicationInfo as $val){
+			echo .$val['Name'].": ".$val['CurrentDosage'].;
+        }
+?>
+
 CREATE TABLE IF NOT EXISTS `group1`.`Prescription` (
-  `PrescriptionID` INT NOT NULL,
+  `MedicationID` INT NOT NULL,
   `PatientID` INT NOT NULL,
   `CurrentDosage` MEDIUMTEXT NULL,
   `Diagnosis` MEDIUMTEXT NULL COMMENT 'The diagnosis the drug is used for.',
-  PRIMARY KEY (`PrescriptionID`),
+  PRIMARY KEY (`PatientID`),
   INDEX `MedicationID_idx` (`MedicationID` ASC),
   INDEX `PatientID_idx` (`PatientID` ASC) )
 ENGINE = InnoDB;
