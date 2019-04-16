@@ -26,14 +26,13 @@ class medicationControl
 
     public function setDose($patID,$medID,$dose){
         include'Config.php';
-        $update = "INSERT INTO `Prescription` (`MedicationID`, `CurrentDosage`, `PatientID`) VALUES (`MedicationID` =?, `CurrentDosage` =?, `PatientID` = ?)";
-        $set = $db->prepare($update);
+        $update = $db->prepare("INSERT INTO `Prescription` (`MedicationID`, `CurrentDosage`, `PatientID`) VALUES ('$medID', '$dose', '$patID')");
         try {
-			$set->execute([$medID, $dose,$patID]);
+			$update->execute();
+			return "Success!";
         }catch (PDOException $po) {
             return "Error: Dose not set";
         }
-        return "Success!";
     }
 
     public function createMedication($name,$minDose,$maxDose,$conflicts){

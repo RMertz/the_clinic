@@ -5,12 +5,11 @@ $patients = $db->prepare( "SELECT * FROM `PatientInformation` WHERE PatientID = 
 $patients->bindParam(":pat_ID", $_GET['id']);
 $patients->execute();
 $patientInfo = $patients->fetch();
-$medication = $db->prepare("SELECT `MedicationInformation`.`Name`, `Prescription`.`CurrentDosage` FROM `Prescription`
+$medication = $db->prepare("SELECT * FROM `Prescription`
         LEFT JOIN `MedicationInformation` ON `MedicationInformation`.`MedicationID`=`Prescription`.`MedicationID`
                 AND `Prescription`.`PatientID` = :pat_ID");
 $medication->bindParam(":pat_ID", $_GET['id']);
 $medication->execute();
-$medicationInfo = array($medication->fetch());
 $error='';
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 	echo $patientID;
@@ -71,7 +70,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
             Current Medication:
         </h3>
 		<?php
-		foreach($medicationInfo as $val){
+		foreach($medication as $val){
 			echo $val['Name'].": ".$val['CurrentDosage']."<br>"; 
 		}
 		?>

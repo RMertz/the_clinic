@@ -52,7 +52,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="column2"
             <div class= "loginBox">
                 <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Prescribe This Medication</b></div>
-                    <div style = "padding:30px; background-color: #dfdce3; ">
                         <form action = "" method = "post">
                             <h3><?php echo $row['Name']?></h3>
                             <label>Dose :</label><input type = "text" name = "dose" class = "box" required/><br /><br />

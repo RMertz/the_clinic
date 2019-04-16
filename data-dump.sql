@@ -197,7 +197,7 @@ CREATE TABLE `Prescription` (
   `PatientID` int(11) NOT NULL,
   `CurrentDosage` mediumtext,
   `Diagnosis` mediumtext COMMENT 'The diagnosis the drug is used for.',
-  PRIMARY KEY (`PatientID`),
+  PRIMARY KEY (`MedicationID`),
   KEY `MedicationID_idx` (`MedicationID`),
   KEY `PatientID_idx` (`PatientID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
