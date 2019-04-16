@@ -1,3 +1,5 @@
+The below goes in medicationControl
+
 <?php
 
 class medicationControl
@@ -6,34 +8,37 @@ class medicationControl
 
     }
 
-	public function checkConflict($patID,$medID){
-        include 'Config.php';
-		$set = $db->prepare("SELECT `MedicationID` FROM `Prescription` WHERE `PatientID` = :patID");
-		$set->bindParam(":patID", $patID);
-		$set->execute();
-		$medConflict = $db->prepare("SELECT `MedicationID`, `ConflictingID` From `Conflicting Medication` WHERE ConflictingID = :med_ID OR MedicationID = :med_ID");
-		$medConflict->bindParam(":med_ID", $medID);
-		$medConflict->execute();
-		$conflict = array($medConflict->fetch());
-		foreach ($set as $val){
-			foreach ($conflict as $con){
-				if ($val['MedicationID']==$con['MedicationID']||$val['MedicationID']==$con['ConflictID']){
-						return True;
-				}
-			}
-		}
-    }
-
     public function setDose($patID,$medID,$dose){
         include'Config.php';
         $update = "INSERT INTO `Prescription` (`MedicationID`, `CurrentDosage`, `PatientID`) VALUES (`MedicationID` =?, `CurrentDosage` =?, `PatientID` = ?)";
         $set = $db->prepare($update);
         try {
-			$set->execute([$medID, $dose,$patID]);
+            if (checkConflict([$patID, $medID])){
+                return "Error: Medication conflicts with current prescription"
+            }
+            else{
+                $set->execute([$medID, $dose,$patID]);
+            }
         }catch (PDOException $po) {
             return "Error: Dose not set";
         }
         return "Success!";
+    }
+
+    public function checkConflict($patID,$medID){
+        include 'Config.php';
+        $currPrescriptions = "SELECT `MedicationID` FROM `Prescriptions` WHERE `PatientID` =?";
+        $set = $db->prepare($currPrescriptions);
+        $set->execute([$patID])
+        $medConflict = $db->prepare("SELECT `MedicationID` From `Conflicting Medication` WHERE ConflictingID = :med_ID OR MedicationID = :med_ID)");
+        $medConflict->bindParam(":med_ID", $medID);
+        $medConflict->execute();
+        foreach ($set as $val){
+                if (in_array($val['MedicationID'], $medConflict){
+                        return True;
+                }
+        }
+
     }
 
     public function createMedication($name,$minDose,$maxDose,$conflicts){
@@ -54,7 +59,7 @@ class medicationControl
                 $med->execute();
 				if (sizeof($conflicts)>0){
 					foreach ($conflicts as $var)
-						$medID = $db->prepare("SELECT 'MediccationID' FROM `MedicationInformation` WHERE `Name` = :name");
+						$medID = $db->prepare("SELECT 'MediccationID' FROM `MedicationInformation` WHERE `Name` = :name")
 						$medID->bindParam(":name", $name);
 						$medID->execute();
 						$newConflicts = $db->prepare("INSERT INTO `Conflicting Medication` (`ConflictingID`, `MedicationID`) VALUES (:conflict, :newID)");
@@ -70,3 +75,4 @@ class medicationControl
     }
 
 }
+
