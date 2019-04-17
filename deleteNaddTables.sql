@@ -19,10 +19,10 @@
 -- Table structure for table `Algorithm`
 --
 
-DROP TABLE IF EXISTS `Algorithm`;
+DROP TABLE IF EXISTS `group1`.`Algorithm`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Algorithm` (
+CREATE TABLE `group1`.`Algorithm` (
   `AlgorithmID` int(11) NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   `json` longtext,
@@ -34,16 +34,16 @@ CREATE TABLE `Algorithm` (
 -- Dumping data for table `Algorithm`
 --
 
-LOCK TABLES `Algorithm` WRITE;
-/*!40000 ALTER TABLE `Algorithm` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Algorithm` ENABLE KEYS */;
+LOCK TABLES `group1`.`Algorithm` WRITE;
+/*!40000 ALTER TABLE `group1`.`Algorithm` DISABLE KEYS */;
+/*!40000 ALTER TABLE `group1`.`Algorithm` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Table structure for table `Conflicting Medication`
 --
 
-DROP TABLE IF EXISTS `Conflicting Medication`;
+DROP TABLE IF EXISTS `group1`.`Conflicting Medication`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Conflicting Medication` (
@@ -58,20 +58,19 @@ CREATE TABLE `Conflicting Medication` (
 -- Dumping data for table `Conflicting Medication`
 --
 
-LOCK TABLES `Conflicting Medication` WRITE;
-/*!40000 ALTER TABLE `Conflicting Medication` DISABLE KEYS */;
-INSERT INTO `Conflicting Medication` VALUES (NULL, 1,2);
-/*!40000 ALTER TABLE `Conflicting Medication` ENABLE KEYS */;
+LOCK TABLES `group1`.`Conflicting Medication` WRITE;
+/*!40000 ALTER TABLE `group1`.`Conflicting Medication` DISABLE KEYS */;
+/*!40000 ALTER TABLE `group1`.`Conflicting Medication` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Table structure for table `Diagnosis`
 --
 
-DROP TABLE IF EXISTS `Diagnosis`;
+DROP TABLE IF EXISTS `group1`.`Diagnosis`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Diagnosis` (
+CREATE TABLE `group1`.`Diagnosis` (
   `DiagnosisName` varchar(30) NOT NULL,
   `DiagnosisID` int(11) NOT NULL,
   PRIMARY KEY (`DiagnosisID`)
@@ -82,19 +81,19 @@ CREATE TABLE `Diagnosis` (
 -- Dumping data for table `Diagnosis`
 --
 
-LOCK TABLES `Diagnosis` WRITE;
-/*!40000 ALTER TABLE `Diagnosis` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Diagnosis` ENABLE KEYS */;
+LOCK TABLES `group1`.`Diagnosis` WRITE;
+/*!40000 ALTER TABLE `group1`.`Diagnosis` DISABLE KEYS */;
+/*!40000 ALTER TABLE `group1`.`Diagnosis` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Table structure for table `DoctorInformation`
 --
 
-DROP TABLE IF EXISTS `DoctorInformation`;
+DROP TABLE IF EXISTS `group1`.`DoctorInformation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `DoctorInformation` (
+CREATE TABLE `group1`.`DoctorInformation` (
   `DoctorID` int(11) NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(30) NOT NULL,
   `LastName` varchar(30) NOT NULL,
@@ -112,20 +111,20 @@ CREATE TABLE `DoctorInformation` (
 -- Dumping data for table `DoctorInformation`
 --
 
-LOCK TABLES `DoctorInformation` WRITE;
-/*!40000 ALTER TABLE `DoctorInformation` DISABLE KEYS */;
-INSERT INTO `DoctorInformation` VALUES (1,'Dan','Jeff',NULL,'Jeff1',''),(3,'Chris','Miller',NULL,'doctor1',''),(4,'Chris','Miller',NULL,'chrismiller','Test123'),(5,'Rostik','Mertz',NULL,'bounce','bouncer'),(6,'Angelica','Jones',NULL,'AngieJones','Ilovecookies'),(7,'Rostik','Mertz',NULL,'sekiro','shadows');
-/*!40000 ALTER TABLE `DoctorInformation` ENABLE KEYS */;
+LOCK TABLES `group1`.`DoctorInformation` WRITE;
+/*!40000 ALTER TABLE `group1`.`DoctorInformation` DISABLE KEYS */;
+INSERT INTO `group1`.`DoctorInformation` VALUES (1,'Dan','Jeff',NULL,'Jeff1',''),(3,'Chris','Miller',NULL,'doctor1',''),(4,'Chris','Miller',NULL,'chrismiller','Test123'),(5,'Rostik','Mertz',NULL,'bounce','bouncer'),(6,'Angelica','Jones',NULL,'AngieJones','Ilovecookies'),(7,'Rostik','Mertz',NULL,'sekiro','shadows');
+/*!40000 ALTER TABLE `group1`.`DoctorInformation` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Table structure for table `MedicationInformation`
 --
 
-DROP TABLE IF EXISTS `MedicationInformation`;
+DROP TABLE IF EXISTS `group1`.`MedicationInformation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `MedicationInformation` (
+CREATE TABLE `group1`.`MedicationInformation` (
   `MedicationID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'The ID of each drug.',
   `MinimumDosage` mediumtext COMMENT 'The smallest dose for each drug',
   `MaximumDosage` mediumtext COMMENT 'The largest dose for each drug.',
@@ -141,7 +140,7 @@ CREATE TABLE `MedicationInformation` (
 -- Dumping data for table `MedicationInformation`
 --
 
-LOCK TABLES `MedicationInformation` WRITE;
+LOCK TABLES `group1`.`MedicationInformation` WRITE;
 /*!40000 ALTER TABLE `MedicationInformation` DISABLE KEYS */;
 INSERT INTO `MedicationInformation` VALUES (1,'2000Mg','20000mg',NULL,NULL,'Fun Juice'),(2,'100 mg','200 mg',NULL,NULL,'Lithium'),(3,'10mg','100mg',NULL,NULL,'Zertec');
 /*!40000 ALTER TABLE `MedicationInformation` ENABLE KEYS */;
@@ -151,10 +150,10 @@ UNLOCK TABLES;
 -- Table structure for table `PatientInformation`
 --
 
-DROP TABLE IF EXISTS `PatientInformation`;
+DROP TABLE IF EXISTS `group1`.`PatientInformation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `PatientInformation` (
+CREATE TABLE `group1`.`PatientInformation` (
   `PatientID` int(11) NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(30) NOT NULL,
   `Surname` varchar(30) NOT NULL,
@@ -180,20 +179,20 @@ CREATE TABLE `PatientInformation` (
 -- Dumping data for table `PatientInformation`
 --
 
-LOCK TABLES `PatientInformation` WRITE;
-/*!40000 ALTER TABLE `PatientInformation` DISABLE KEYS */;
-INSERT INTO `PatientInformation` VALUES (2,'Chris','Miller','None',1,'15000mg','2019-04-15','2019-03-20 00:00:00',4,NULL,NULL,NULL,NULL,NULL,NULL),(3,'Bob','Joe','None',NULL,NULL,NULL,'2019-03-13 00:00:00',4,NULL,NULL,NULL,NULL,NULL,NULL),(7,'Pie','Man','',NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL),(8,'Joe','Bob','None',NULL,NULL,NULL,NULL,4,NULL,NULL,NULL,NULL,NULL,NULL),(9,'Joe','Bob','None',NULL,NULL,NULL,NULL,4,NULL,NULL,NULL,NULL,NULL,NULL),(10,'Fred','Weezer','Possible Bipolar I Disorder',2,'100 mg','2019-03-28','2019-04-02 10:20:00',4,NULL,5,NULL,NULL,10,NULL),(11,'Fred','Weezer','None',2,'100 mg','2019-03-15','2019-03-30 10:10:00',4,NULL,4,NULL,NULL,8,NULL),(12,'Eve','Law','Depression',1,'2000','2019-03-29',NULL,4,NULL,2,NULL,NULL,10,NULL),(13,'Gary','Smith','Depression',1,'20,000MG','2019-04-12','2019-04-12 12:00:00',6,NULL,NULL,NULL,NULL,NULL,NULL),(14,'Fredrick','Willis','BiPolar',1,'3000Mg','2019-04-12','2019-04-19 03:00:00',6,NULL,NULL,4,NULL,NULL,4),(15,'poor ','guy','depressed',1,'2000mg','2019-04-13',NULL,7,NULL,NULL,NULL,NULL,NULL,NULL);
-/*!40000 ALTER TABLE `PatientInformation` ENABLE KEYS */;
+LOCK TABLES `group1`.`PatientInformation` WRITE;
+/*!40000 ALTER TABLE `group1`.`PatientInformation` DISABLE KEYS */;
+INSERT INTO `group1`.`PatientInformation` VALUES (2,'Chris','Miller','None',1,'15000mg','2019-04-15','2019-03-20 00:00:00',4,NULL,NULL,NULL,NULL,NULL,NULL),(3,'Bob','Joe','None',NULL,NULL,NULL,'2019-03-13 00:00:00',4,NULL,NULL,NULL,NULL,NULL,NULL),(7,'Pie','Man','',NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL),(8,'Joe','Bob','None',NULL,NULL,NULL,NULL,4,NULL,NULL,NULL,NULL,NULL,NULL),(9,'Joe','Bob','None',NULL,NULL,NULL,NULL,4,NULL,NULL,NULL,NULL,NULL,NULL),(10,'Fred','Weezer','Possible Bipolar I Disorder',2,'100 mg','2019-03-28','2019-04-02 10:20:00',4,NULL,5,NULL,NULL,10,NULL),(11,'Fred','Weezer','None',2,'100 mg','2019-03-15','2019-03-30 10:10:00',4,NULL,4,NULL,NULL,8,NULL),(12,'Eve','Law','Depression',1,'2000','2019-03-29',NULL,4,NULL,2,NULL,NULL,10,NULL),(13,'Gary','Smith','Depression',1,'20,000MG','2019-04-12','2019-04-12 12:00:00',6,NULL,NULL,NULL,NULL,NULL,NULL),(14,'Fredrick','Willis','BiPolar',1,'3000Mg','2019-04-12','2019-04-19 03:00:00',6,NULL,NULL,4,NULL,NULL,4),(15,'poor ','guy','depressed',1,'2000mg','2019-04-13',NULL,7,NULL,NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `group1`.`PatientInformation` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Table structure for table `Prescription`
 --
 
-DROP TABLE IF EXISTS `Prescription`;
+DROP TABLE IF EXISTS `group1`.`Prescription`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Prescription` (
+CREATE TABLE `group1`.`Prescription` (
   `PresciptionID` int(11) NOT NULL AUTO_INCREMENT,
   `MedicationID` int(11) NOT NULL,
   `PatientID` int(11) NOT NULL,
@@ -209,20 +208,19 @@ CREATE TABLE `Prescription` (
 -- Dumping data for table `Prescription`
 --
 
-LOCK TABLES `Prescription` WRITE;
-/*!40000 ALTER TABLE `Prescription` DISABLE KEYS */;
-INSERT INTO `Prescription` VALUES (NULL, 1, 2, "200mg", NULL);
-/*!40000 ALTER TABLE `Prescription` ENABLE KEYS */;
+LOCK TABLES `group1`.`Prescription` WRITE;
+/*!40000 ALTER TABLE `group1`.`Prescription` DISABLE KEYS */;
+/*!40000 ALTER TABLE `group1`.`Prescription` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Table structure for table `Visit`
 --
 
-DROP TABLE IF EXISTS `Visit`;
+DROP TABLE IF EXISTS `group1`.`Visit`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Visit` (
+CREATE TABLE `group1`.`Visit` (
   `LastVisit` date DEFAULT NULL,
   `NextVisit` date DEFAULT NULL,
   `VisitID` int(11) NOT NULL,
@@ -236,9 +234,9 @@ CREATE TABLE `Visit` (
 -- Dumping data for table `Visit`
 --
 
-LOCK TABLES `Visit` WRITE;
-/*!40000 ALTER TABLE `Visit` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Visit` ENABLE KEYS */;
+LOCK TABLES `group1`.`Visit` WRITE;
+/*!40000 ALTER TABLE `group1`.`Visit` DISABLE KEYS */;
+/*!40000 ALTER TABLE `group1`.`Visit` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
