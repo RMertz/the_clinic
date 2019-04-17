@@ -60,6 +60,7 @@ CREATE TABLE `Conflicting Medication` (
 
 LOCK TABLES `Conflicting Medication` WRITE;
 /*!40000 ALTER TABLE `Conflicting Medication` DISABLE KEYS */;
+INSERT INTO `Conflicting Medication` VALUES (NULL, 1,2);
 /*!40000 ALTER TABLE `Conflicting Medication` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,6 +211,7 @@ CREATE TABLE `Prescription` (
 
 LOCK TABLES `Prescription` WRITE;
 /*!40000 ALTER TABLE `Prescription` DISABLE KEYS */;
+INSERT INTO `Prescription` VALUES (NULL, 1, 2, "200mg", NULL);
 /*!40000 ALTER TABLE `Prescription` ENABLE KEYS */;
 UNLOCK TABLES;
 
