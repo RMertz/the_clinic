@@ -19,7 +19,7 @@
 -- Table structure for table `Algorithm`
 --
 
-CREATE TABLE `group1`.`Algorithm` (
+CREATE TABLE IF NOT EXISTS `group1`.`Algorithm` (
   `AlgorithmID` int(11) NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   `json` longtext,
@@ -40,7 +40,7 @@ UNLOCK TABLES;
 -- Table structure for table `Conflicting Medication`
 --
 
-CREATE TABLE `Conflicting Medication` (
+CREATE TABLE IF NOT EXISTS `Conflicting Medication` (
   `ConflictingID` int(11) NOT NULL AUTO_INCREMENT,
   `MedicationID1` int(11) DEFAULT NULL,
   `MedicationID2` int(11) DEFAULT NULL,
@@ -61,7 +61,7 @@ UNLOCK TABLES;
 -- Table structure for table `Diagnosis`
 --
 
-CREATE TABLE `group1`.`Diagnosis` (
+CREATE TABLE IF NOT EXISTS `group1`.`Diagnosis` (
   `DiagnosisName` varchar(30) NOT NULL,
   `DiagnosisID` int(11) NOT NULL,
   PRIMARY KEY (`DiagnosisID`)
@@ -81,7 +81,7 @@ UNLOCK TABLES;
 -- Table structure for table `DoctorInformation`
 --
 
-CREATE TABLE `group1`.`DoctorInformation` (
+CREATE TABLE IF NOT EXISTS `group1`.`DoctorInformation` (
   `DoctorID` int(11) NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(30) NOT NULL,
   `LastName` varchar(30) NOT NULL,
@@ -109,7 +109,7 @@ UNLOCK TABLES;
 -- Table structure for table `MedicationInformation`
 --
 
-CREATE TABLE `group1`.`MedicationInformation` (
+CREATE TABLE IF NOT EXISTS `group1`.`MedicationInformation` (
   `MedicationID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'The ID of each drug.',
   `MinimumDosage` mediumtext COMMENT 'The smallest dose for each drug',
   `MaximumDosage` mediumtext COMMENT 'The largest dose for each drug.',
@@ -135,7 +135,7 @@ UNLOCK TABLES;
 -- Table structure for table `PatientInformation`
 --
 
-CREATE TABLE `group1`.`PatientInformation` (
+CREATE TABLE IF NOT EXISTS `group1`.`PatientInformation` (
   `PatientID` int(11) NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(30) NOT NULL,
   `Surname` varchar(30) NOT NULL,
@@ -171,7 +171,7 @@ UNLOCK TABLES;
 -- Table structure for table `Prescription`
 --
 
-CREATE TABLE `group1`.`Prescription` (
+CREATE TABLE IF NOT EXISTS `group1`.`Prescription` (
   `PresciptionID` int(11) NOT NULL AUTO_INCREMENT,
   `MedicationID` int(11) NOT NULL,
   `PatientID` int(11) NOT NULL,
@@ -196,7 +196,7 @@ UNLOCK TABLES;
 -- Table structure for table `Visit`
 --
 
-CREATE TABLE `group1`.`Visit` (
+CREATE TABLE IF NOT EXISTS `group1`.`Visit` (
   `LastVisit` date DEFAULT NULL,
   `NextVisit` date DEFAULT NULL,
   `VisitID` int(11) NOT NULL,
