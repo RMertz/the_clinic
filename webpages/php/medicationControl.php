@@ -55,13 +55,15 @@ class medicationControl
                 $med->execute();
 				if (sizeof($conflicts)>0){
 					foreach ($conflicts as $var)
-						$medID = $db->prepare("SELECT 'MedicationID' FROM `MedicationInformation` WHERE `Name` = :name");
-						$medID->bindParam(":name", $name);
+						$medID = $db->prepare("SELECT 'MedicationID' FROM `MedicationInformation` WHERE `Name` = :medname and MinimumDosage = :mindose and MaximumDosage = :maxdose");
+						$medID->bindParam(":medname", $name);
+						$medID->bindParam(":mindose", $minDose);
+						$medID->bindParam(":maxdose", $maxDose);
 						$medID->execute();
 						$newMed = $medID->fetch();
 						$newConflicts = $db->prepare("INSERT INTO `Conflicting Medication` (`MedicationID1`, `MedicationID2`) VALUES (:conflict, :newID)");
 						$newConflicts->bindParam(":conflict", $var);
-						$newConflicts->bindParam(":newID", $newMed[0]);
+						$newConflicts->bindParam(":newID", $newMed);
 						$newConflicts->execute();
 				}
             }catch (PDOException $po){
