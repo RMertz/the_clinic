@@ -47,10 +47,10 @@ DROP TABLE IF EXISTS `Conflicting Medication`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Conflicting Medication` (
-  `ConflictingID` int(11) NOT NULL,
-  `MedicationID` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ConflictingID`),
-  KEY `MedicationID_idx` (`MedicationID`)
+  `ConflictingID` int(11) NOT NULL AUTO_INCREMENT,
+  `MedicationID1` int(11) DEFAULT NULL,
+  `MedicationID2` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ConflictingID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -193,11 +193,12 @@ DROP TABLE IF EXISTS `Prescription`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Prescription` (
+  `PresciptionID` int(11) NOT NULL AUTO_INCREMENT,
   `MedicationID` int(11) NOT NULL,
   `PatientID` int(11) NOT NULL,
   `CurrentDosage` mediumtext,
   `Diagnosis` mediumtext COMMENT 'The diagnosis the drug is used for.',
-  PRIMARY KEY (`MedicationID`),
+  PRIMARY KEY (`PresciptionID`),
   KEY `MedicationID_idx` (`MedicationID`),
   KEY `PatientID_idx` (`PatientID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

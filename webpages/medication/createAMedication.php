@@ -2,11 +2,10 @@
 include('../php/session.php');
 include('../php/medicationControl.php');
 $error = '';
-$conflicts = array();
 $posInArray = 0;
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $update = new medicationControl();
-    $error = $update->createMedication($_POST['name'],$_POST['MinimumDosage'],$_POST['MaximumDosage'],$conflicts);
+    $error = $update->createMedication($_POST['name'],$_POST['MinimumDosage'],$_POST['MaximumDosage'],$_POST['conflicts']);
 };
 ?>
 <html>
@@ -46,25 +45,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label>Minimum Dose :</label><input type = "text" name = "MinimumDosage" class = "box" required/><br/><br />
                     <label>Maximum Dose :</label><input type = "text" name = "MaximumDosage" class = "box" required/><br /><br />
 				
-				<label>Select Any medication that conflicts with this medication:</label>
-
-				<li>
-					<?php
-					$medications = $db->prepare("SELECT * FROM MedicationInformation");
-					$medications->execute();
-					foreach ($medications as $val){
-						echo "<a ?medid=".$val['MedicationID']."&id=".$val['MedicationId']."'>".$val['Name'] . "<br></a>";
-					}
-					if ($_GET['medid'] != Null){
-						$conflicts[$posInArray] = $_GET['medid'];
-						$posInArray=posInArray+1;
-					}
-					foreach ($conflicts as $con){
-						echo $con;
-					}
-					?>
-				</li>
-
+					<label>Select Any medication that conflicts with this medication:</label>
+						<select name="conflicts[ ]" multiple>
+							<?php
+							$medications = $db->prepare("SELECT * FROM MedicationInformation");
+							$medications->execute();
+							foreach ($medications as $val){ 
+								$medname = $val['Name'];
+								$medID = $val['MedicationID'];
+								?>
+								<option value="<?php echo $medID; ?>"><?php echo $medname; ?> </option>
+							<?php } ?>
+							</select>
                     <input type = "submit" value = " Submit "/><br />
                 </form>
 

@@ -9,7 +9,7 @@ $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $update = new medicationControl();
 	$conflict = $update->checkConflict($_GET['id'],$_GET['medid']);
-	if ($conflict){
+	if ($conflict>0){
 		$error = "Error: Medication conflicts with current prescription";
     }
     else{

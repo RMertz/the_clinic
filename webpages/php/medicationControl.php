@@ -11,17 +11,19 @@ class medicationControl
 		$set = $db->prepare("SELECT `MedicationID` FROM `Prescription` WHERE `PatientID` = :patID");
 		$set->bindParam(":patID", $patID);
 		$set->execute();
-		$medConflict = $db->prepare("SELECT `MedicationID`, `ConflictingID` From `Conflicting Medication` WHERE ConflictingID = :med_ID OR MedicationID = :med_ID");
+		$medConflict = $db->prepare("SELECT `MedicationID1`, `MedicationID2` From `Conflicting Medication` WHERE `MedicationID1` = :med_ID OR `MedicationID2` = :med_ID");
 		$medConflict->bindParam(":med_ID", $medID);
 		$medConflict->execute();
 		$conflict = array($medConflict->fetch());
+		$numConflicts = 0;
 		foreach ($set as $val){
 			foreach ($conflict as $con){
-				if ($val['MedicationID']==$con['MedicationID']||$val['MedicationID']==$con['ConflictID']){
-						return True;
+				if ($val['MedicationID']==$con['MedicationID1']||$val['MedicationID']==$con['MedicationID2']){
+						$numConflicts = $numConflicts+1;
 				}
 			}
 		}
+		return $numConflicts;
     }
 
     public function setDose($patID,$medID,$dose){
@@ -45,7 +47,7 @@ class medicationControl
         if ($check->rowCount() != 0) {
             return "Sorry that combination already exists";
         } else {
-            $med = $db->prepare("INSERT INTO `MedicationInformation` (`MedicatioonID`, `MinimumDosage`, `MaximumDosage`, `Diagnosis`, `Conflicting Medication`, `Name`) VALUES (NULL, :mindose, :maxdose, NULL, NULL, :medname)");
+            $med = $db->prepare("INSERT INTO `MedicationInformation` (`MinimumDosage`, `MaximumDosage`, `Name`) VALUES (:mindose, :maxdose, :medname)");
             $med->bindParam(":medname", $name);
             $med->bindParam(":mindose", $minDose);
             $med->bindParam(":maxdose", $maxDose);
@@ -53,12 +55,13 @@ class medicationControl
                 $med->execute();
 				if (sizeof($conflicts)>0){
 					foreach ($conflicts as $var)
-						$medID = $db->prepare("SELECT 'MediccationID' FROM `MedicationInformation` WHERE `Name` = :name");
+						$medID = $db->prepare("SELECT 'MedicationID' FROM `MedicationInformation` WHERE `Name` = :name");
 						$medID->bindParam(":name", $name);
 						$medID->execute();
-						$newConflicts = $db->prepare("INSERT INTO `Conflicting Medication` (`ConflictingID`, `MedicationID`) VALUES (:conflict, :newID)");
+						$newMed = $medID->fetch();
+						$newConflicts = $db->prepare("INSERT INTO `Conflicting Medication` (`MedicationID1`, `MedicationID2`) VALUES (:conflict, :newID)");
 						$newConflicts->bindParam(":conflict", $var);
-						$newConflicts->bindParam(":newID", $medID);
+						$newConflicts->bindParam(":newID", $newMed[0]);
 						$newConflicts->execute();
 				}
             }catch (PDOException $po){
