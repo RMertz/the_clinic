@@ -72,5 +72,29 @@ class medicationControl
             return "Success!";
         }
     }
+	
+	public function modifyMedication($name,$minDose,$maxDose){
+        include'Config.php';
+        $check = $db->prepare("SELECT MedicationID FROM `MedicationInformation` WHERE `Name` = :medname and MinimumDosage = :mindose and MaximumDosage = :maxdose");
+        $check->bindParam(":medname", $name);
+        $check->bindParam(":mindose", $minDose);
+        $check->bindParam(":maxdose", $maxDose);
+        $check->execute();
+        if ($check->rowCount() != 0) {
+			$med = $db->prepare("INSERT INTO `MedicationInformation` (`MedicationID`, `MinimumDosage`, `MaximumDosage`, `Diagnosis`, `Conflicting Medication`, `Name`) VALUES (NULL, :mindose, :maxdose, NULL, NULL, :medname)");
+            $med->bindParam(":medname", $name);
+            $med->bindParam(":mindose", $minDose);
+            $med->bindParam(":maxdose", $maxDose);
+            try{
+                $med->execute();
+            }catch (PDOException $po){
+                return 'Error: Medication not added';
+            }
+            return "Success!";
+        }
+            
+        } else {
+          return "Sorry there was a problem modifying that medication please contact a System Administrator";  
+    }
 
 }
