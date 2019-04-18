@@ -51,20 +51,23 @@ class medicationControl
             $med->bindParam(":medname", $name);
             $med->bindParam(":mindose", $minDose);
             $med->bindParam(":maxdose", $maxDose);
+			$newID = 0;
             try{
                 $med->execute();
 				if (sizeof($conflicts)>0){
-					foreach ($conflicts as $var)
-						$medID = $db->prepare("SELECT 'MedicationID' FROM `MedicationInformation` WHERE `Name` = :medname and MinimumDosage = :mindose and MaximumDosage = :maxdose");
-						$medID->bindParam(":medname", $name);
-						$medID->bindParam(":mindose", $minDose);
-						$medID->bindParam(":maxdose", $maxDose);
-						$medID->execute();
-						$newMed = $medID->fetch();
+					$allMed = $db->prepare("SELECT * FROM `MedicationInformation`");
+					$allMed->execute();
+					foreach($allMed as $val){
+						if ($val['Name'] == $name){
+							$newID = $val['MedicationID'];
+						}
+					}
+					foreach ($conflicts as $var){
 						$newConflicts = $db->prepare("INSERT INTO `Conflicting Medication` (`MedicationID1`, `MedicationID2`) VALUES (:conflict, :newID)");
 						$newConflicts->bindParam(":conflict", $var);
-						$newConflicts->bindParam(":newID", $newMed);
+						$newConflicts->bindParam(":newID", $newID);
 						$newConflicts->execute();
+					}
 				}
             }catch (PDOException $po){
                 return 'Error: Medication not added';
