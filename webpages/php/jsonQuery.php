@@ -15,7 +15,6 @@ class jsonQuery
             echo("<script> console.log('Here 7') </script>");
             return "Did not include conifig.php";
         }
-        include 'Config.php';
         $check = $db->prepare("SELECT `AlgorithmID` FROM `Algorithm` WHERE `name` = :nam");
         $check->bindParam(":nam", $name);
         echo("<script> console.log('Here 5') </script>");
