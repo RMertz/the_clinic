@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/../stubs/Login.php";
+require __DIR__ . "/../stubs/login.php";
 use PHPUnit\Framework\TestCase;
 
 final class loginTest extends TestCase
