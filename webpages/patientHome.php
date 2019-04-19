@@ -5,12 +5,14 @@ $patients = $db->prepare( "SELECT * FROM `PatientInformation` WHERE PatientID = 
 $patients->bindParam(":pat_ID", $_GET['id']);
 $patients->execute();
 $patientInfo = $patients->fetch();
-$medication = $db->prepare( "SELECT `Name` FROM `MedicationInformation` WHERE MedicationID = :med_ID");
-$medication->bindParam(":med_ID", $patientInfo['MedicationID']);
+$medication = $db->prepare("SELECT * FROM `Prescription`
+        LEFT JOIN `MedicationInformation` ON `MedicationInformation`.`MedicationID`=`Prescription`.`MedicationID`
+                AND `Prescription`.`PatientID` = :pat_ID");
+$medication->bindParam(":pat_ID", $_GET['id']);
 $medication->execute();
-$medicationInfo = $medication->fetch();
 $error='';
 if($_SERVER["REQUEST_METHOD"] == "POST") {
+	echo $patientID;
     $schedule = new scheduleVisit($_GET['id']);
     if($schedule->schedule(date("Y-m-d"),1)){
         $error = "Patient Checked In";
@@ -67,11 +69,11 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
         <h3>
             Current Medication:
         </h3>
-        <?php echo $medicationInfo['Name']; ?>
-        <h3>
-            Current Dose:
-        </h3>
-        <?php echo $patientInfo['CurrentDose']; ?>
+		<?php
+		foreach($medication as $val){
+			echo $val['Name'].": ".$val['CurrentDosage']."<br>"; 
+		}
+		?>
         <h3>
             Date of Last Visit:
         </h3>

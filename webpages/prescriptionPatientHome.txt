@@ -5,8 +5,10 @@ $patients = $db->prepare( "SELECT * FROM `PatientInformation` WHERE PatientID = 
 $patients->bindParam(":pat_ID", $_GET['id']);
 $patients->execute();
 $patientInfo = $patients->fetch();
-$medication = $db->prepare( "SELECT `Name` FROM `MedicationInformation` WHERE MedicationID = :med_ID");
-$medication->bindParam(":med_ID", $patientInfo['MedicationID']);
+$medication = $db->prepare("SELECT `MedicationInformation`.`Name`, `Prescription`.`CurrentDosage` FROM `Prescription`
+        LEFT JOIN `MedicationInformation` ON `MedicationInformation`.`MedicationID`=`Prescription`.`MedicationID`
+                AND `Prescription`.`PatientID` = :pat_ID");
+$medication->bindParam(":pat_ID", $_GET['id']);
 $medication->execute();
 $medicationInfo = $medication->fetch();
 $error='';
@@ -35,7 +37,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <?php include('css/header.php'); ?>
 
     <div class="navBar">
-        <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="welcome.php">Home</a>
+		<a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="welcome.php">Home</a>
         <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="patientList.php">Your Patients</a>
         <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
         <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
@@ -63,15 +65,13 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
         <h3>
             Patient Diagnosis:
         </h3>
-        <?php echo $patientInfo['Diagnosis']; ?>
+        <?php echo $patientInfo['Diagnois`]; ?>
         <h3>
             Current Medication:
         </h3>
-        <?php echo $medicationInfo['Name']; ?>
-        <h3>
-            Current Dose:
-        </h3>
-        <?php echo $patientInfo['CurrentDose']; ?>
+        <?php
+            foreach ($medicationInfo as $val){
+                echo $var['Name'] . ": " . $var['CurrentDosage'] . "<br>"; ?>
         <h3>
             Date of Last Visit:
         </h3>
@@ -93,6 +93,3 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 </div>
 
 </html>
-
-
-
