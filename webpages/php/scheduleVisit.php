@@ -4,8 +4,8 @@ class scheduleVisit
 {
     private $id;
 
-    public function __construct($passedID){
-        $id = $passedID;
+    public function __construct($id){
+        $this->id = $id;
     }
 
     public function schedule($date,$type){
