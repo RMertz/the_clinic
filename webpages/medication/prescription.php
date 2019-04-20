@@ -8,7 +8,13 @@ $row = $medications->fetch();
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $update = new medicationControl();
-    $error = $update->setDose($_GET['id'],$_GET['medid'],$_POST['dose']);
+	$conflict = $update->checkConflict($_GET['id'],$_GET['medid']);
+	if ($conflict>0){
+		$error = "Error: Medication conflicts with current prescription";
+    }
+    else{
+		$error = $update->setDose($_GET['id'],$_GET['medid'],$_POST['dose']);
+	}
 };
 ?>
 <html xmlns="http://www.w3.org/1999/html">

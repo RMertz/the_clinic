@@ -19,7 +19,10 @@
 -- Table structure for table `Algorithm`
 --
 
-CREATE TABLE IF NOT EXISTS `group1`.`Algorithm` (
+DROP TABLE IF EXISTS `group1`.`Algorithm`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group1`.`Algorithm` (
   `AlgorithmID` int(11) NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   `json` longtext,
@@ -40,7 +43,10 @@ UNLOCK TABLES;
 -- Table structure for table `Conflicting Medication`
 --
 
-CREATE TABLE IF NOT EXISTS `Conflicting Medication` (
+DROP TABLE IF EXISTS `group1`.`Conflicting Medication`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Conflicting Medication` (
   `ConflictingID` int(11) NOT NULL AUTO_INCREMENT,
   `MedicationID1` int(11) DEFAULT NULL,
   `MedicationID2` int(11) DEFAULT NULL,
@@ -61,7 +67,10 @@ UNLOCK TABLES;
 -- Table structure for table `Diagnosis`
 --
 
-CREATE TABLE IF NOT EXISTS `group1`.`Diagnosis` (
+DROP TABLE IF EXISTS `group1`.`Diagnosis`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group1`.`Diagnosis` (
   `DiagnosisName` varchar(30) NOT NULL,
   `DiagnosisID` int(11) NOT NULL,
   PRIMARY KEY (`DiagnosisID`)
@@ -81,7 +90,10 @@ UNLOCK TABLES;
 -- Table structure for table `DoctorInformation`
 --
 
-CREATE TABLE IF NOT EXISTS `group1`.`DoctorInformation` (
+DROP TABLE IF EXISTS `group1`.`DoctorInformation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group1`.`DoctorInformation` (
   `DoctorID` int(11) NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(30) NOT NULL,
   `LastName` varchar(30) NOT NULL,
@@ -109,7 +121,10 @@ UNLOCK TABLES;
 -- Table structure for table `MedicationInformation`
 --
 
-CREATE TABLE IF NOT EXISTS `group1`.`MedicationInformation` (
+DROP TABLE IF EXISTS `group1`.`MedicationInformation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group1`.`MedicationInformation` (
   `MedicationID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'The ID of each drug.',
   `MinimumDosage` mediumtext COMMENT 'The smallest dose for each drug',
   `MaximumDosage` mediumtext COMMENT 'The largest dose for each drug.',
@@ -135,7 +150,10 @@ UNLOCK TABLES;
 -- Table structure for table `PatientInformation`
 --
 
-CREATE TABLE IF NOT EXISTS `group1`.`PatientInformation` (
+DROP TABLE IF EXISTS `group1`.`PatientInformation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group1`.`PatientInformation` (
   `PatientID` int(11) NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(30) NOT NULL,
   `Surname` varchar(30) NOT NULL,
@@ -171,7 +189,10 @@ UNLOCK TABLES;
 -- Table structure for table `Prescription`
 --
 
-CREATE TABLE IF NOT EXISTS `group1`.`Prescription` (
+DROP TABLE IF EXISTS `group1`.`Prescription`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group1`.`Prescription` (
   `PresciptionID` int(11) NOT NULL AUTO_INCREMENT,
   `MedicationID` int(11) NOT NULL,
   `PatientID` int(11) NOT NULL,
@@ -196,7 +217,10 @@ UNLOCK TABLES;
 -- Table structure for table `Visit`
 --
 
-CREATE TABLE IF NOT EXISTS `group1`.`Visit` (
+DROP TABLE IF EXISTS `group1`.`Visit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group1`.`Visit` (
   `LastVisit` date DEFAULT NULL,
   `NextVisit` date DEFAULT NULL,
   `VisitID` int(11) NOT NULL,
