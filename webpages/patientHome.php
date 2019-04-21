@@ -71,6 +71,10 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
         </h3>
 		<?php
 		foreach($medication as $val){
+            if($medication->rowCount()==0){
+                echo "none";
+                break;
+            }
 			echo $val['Name'].": ".$val['CurrentDosage']."<br>"; 
 		}
 		?>
