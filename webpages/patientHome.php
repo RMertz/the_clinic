@@ -52,7 +52,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
             Check Patient In:
         </h2>
         <form method="post">
-            <input type = "submit" name="Schedule" value = " Check Patient In "/>
+            <input class="checkIn" type = "submit" name="Schedule" value = " Check Patient In "/>
         </form>
         <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error;?></div>
         <h2 >
