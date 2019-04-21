@@ -70,15 +70,14 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
             Current Medication:
         </h3>
 		<?php
-            if($medication['Name']==''){
+		foreach($medication as $val){
+            if($medication->rowCount()==0){
                 echo "None";
-            }else {
-                foreach ($medication as $val) {
-
-                    echo $val['Name'] . ": " . $val['CurrentDosage'] . "<br>";
-                }
+                break;
             }
-            ?>
+			echo $val['Name'].": ".$val['CurrentDosage']."<br>";
+		}
+		?>
         <h3>
             Date of Last Visit:
         </h3>
