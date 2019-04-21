@@ -1,114 +1,22 @@
 <?php
-include('../php/session.php');
-include('../php/scheduleVisit.php');
-$error = " ";
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $schedule = new scheduleVisit($_GET['id']);
-    if($schedule->schedule($_POST['Date'],0)){
-        $error = "Next Visit Added.";
-    }else{
-        $error="Next Visit Not Added, Please Select a Valid Date.";
-    }
+require __DIR__ . "/scheduleVisitMock1.php";
+class dep2
+{
+	public function __construct() 
+	{
+
+	}
+
+	public function test($id)
+	{
+    		$schedule = new scheduleVisitMock1(2);
+    		if($schedule->schedule($id)){
+       			$error = "Next Visit Added.";
+  		}else{
+       			$error="Next Visit Not Added, Please Select a Valid Date.";
+		}
+		return $error;
+	}
 }
 ?>
-
-<html>
-
-<head>
-    <title><?php
-        echo "Depression Treatment Step 2";
-        ?></title>
-    <link rel="stylesheet" href="../css/global.css" type="text/css">
-    <link rel="stylesheet" href="../css/indexHome.css" type="text/css">
-</head>
-
-<body>
-<?php include('../css/header.php'); ?>
-
-    <div class="navBar">
-        <a href="../welcome.php">Home</a>
-        <a href="../patientList.php">Your Patients</a>
-        <a href=<?php echo "../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
-        <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
-        <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
-        <a href=<?php echo "../bipolar/bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
-        <a href=<?php echo "../bipolar/bipolarMDQ.php?id=".$_GET['id'];?>>MDQ</a>
-        <a href=<?php echo "../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
-        <a id="logoutButton" href = "../php/logout.php?type=0">Sign Out</a>
-    </div>
-	
-<div class="content">
-    <div class="whiteBack">
-        <div class="redBackCol" >
-            <h2 >
-                If Non-response:
-            </h2>
-            <p>
-                Ensure medication adherence.<br>
-                Optimize dose OR switch (alternate SSRI or non-SSRI).
-            </p>
-            <h3>
-                Re-Eval Timeline:
-            </h3>
-            <p>
-                Evaluate Response in 3-4 weeks
-            </p>
-            <h3>
-                <a href=<?php echo "depNR3.php?id=".$_GET['id'];?>>Next Step</a>
-            </h3>
-            <p>
-                Stub: update database for step we are on
-            </p>
-        </div>
-        <div class="redBackCol">
-            <h2 >
-                If Partial Response:
-            </h2>
-            <p>
-                Optimize dose OR <br>augment<br>
-            </p>
-            <h3>
-                Re-Eval Timeline:
-            </h3>
-            <p>
-                Evaluate Response in 3-4 weeks
-            </p>
-            <h3>
-                <a href=<?php echo "depPR3.php?id=".$_GET['id'];?>>Next Step</a>
-            </h3>
-            <p>
-                Stub: update database for step we are on
-            </p>
-        </div>
-        <div class="redBackCol">
-            <h2 >
-                If Full response:
-            </h2>
-            <p>
-                Continue same treatment for at least 4-9 months
-            </p>
-        </div>
-    </div>
-	<div class="divBar">
-	</div>
-    <div class="whiteBack">
-        <?php include '../scheduleApp.php';?>
-        <div class="whiteBackCol">
-            <h3>Prescribe Patient a Medication</h3>
-            <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
-        </div> 
-    </div>
-    <div class="whiteBack">
-	<h3 class="clearBackCol">
-        <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Back</a>
-    </h3>
-	</div>
-</div>
-<div class="footer">
-    <a href="https://github.com/RMertz/the_clinic.git">Repository</a>
-</div>
-</body>
-</html>
-
-
 
