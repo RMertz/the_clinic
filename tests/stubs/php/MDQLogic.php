@@ -18,7 +18,7 @@ class MDQLogic
         if($total>=7) {
             $newAnswers['total'] = true;
         }else{
-            $newAnswers['total'] = false;
+		$newAnswers['total'] = false;
         }
         if($answers[13]==1){
             $newAnswers['q2'] = true;
