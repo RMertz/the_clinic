@@ -1,5 +1,6 @@
 <?php
 include('../php/session.php');
+$activePage = basename($_SERVER['PHP_SELF'], ".php");
 ?>
 <html>
 
@@ -16,14 +17,15 @@ include('../php/session.php');
 <?php include('../css/header.php'); ?>
 
 <div class="navBar">
-    <a href="../welcome.php">Home</a>
-    <a href="../patientList.php">Your Patients</a>
-    <a href=<?php echo "../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
-    <a href=<?php echo "../dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
-    <a href=<?php echo "../dep/depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
-    <a href=<?php echo "../bipolar/bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
-    <a href=<?php echo "../bipolar/bipolarMDQ.php?id=".$_GET['id'];?>>MDQ</a>
-    <a href=<?php echo "medicationHome.php?id=".$_GET['id'];?>>Medication</a>
+
+
+    <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="../welcome.php">Home</a>
+    <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="../patientList.php">Your Patients</a>
+    <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
+    <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
+    <a class="<?= ($activePage == 'bipolarHome') ? 'active':''; ?>" href=<?php echo "bipolar/bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
+    <a class="<?= ($activePage == 'selectAlgo') ? 'active':''; ?>" href=<?php echo "selectAlgo.php?id=".$_GET['id']."&level1=1&level2=0&level3=0&level4=0"?>>Select Algorithm</a>
+    <a class="<?= ($activePage == 'medicationHome') ? 'active':''; ?>"href=<?php echo "medicationHome.php?id=".$_GET['id'];?>>Medication</a>
     <a id="logoutButton" href = "../php/logout.php">Sign Out</a>
 </div>
 
