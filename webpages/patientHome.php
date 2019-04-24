@@ -70,12 +70,16 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
             Current Medication:
         </h3>
 		<?php
+        $num =0;
 		foreach($medication as $val){
             if($val['Name']==""){
-                echo "None";
+                if($num == 0){
+                    echo "None";
+                }
                 break;
             }else{
                 echo $val['Name'].": ".$val['CurrentDosage']."<br>";
+                $num++;
             }
 		}
 		?>
@@ -84,13 +88,16 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
         </h3>
         <?php
             if($patientInfo['LastVisit']==""){
-                echo "First Visit! (Make sure to check this patient in)";
+                echo "First Visit!"."<br>"." (Make sure to check this patient in)";
             }else{echo $patientInfo['LastVisit'];}
         ?>
         <h3>
         Date of Next Visit:
         </h3>
-        <?php echo $patientInfo['NextVisit']; ?>
+        <?php
+        if($patientInfo['NextVisit']<date("Y-m-d")){
+            echo "No visit scheduled";
+        }else{echo $patientInfo['NextVisit'];} ?>
         <br><br/>
 
 
