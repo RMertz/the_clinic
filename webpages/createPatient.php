@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8">
-    <title>Create User</title>
+    <title>Create new Patient</title>
 
     <link rel="stylesheet" href="css/global.css" type="text/css">
     <link rel="stylesheet" href="css/indexHome.css" type="text/css">
@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="redBack">
         <div class="navigationBoxes">
             <div class= "loginBox">
-                <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Create New Doctor Profile</b></div>
+                <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Create New Patient Profile</b></div>
 
                 <div style = "padding:30px; background-color: #dfdce3; ">
 

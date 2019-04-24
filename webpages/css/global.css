@@ -141,10 +141,9 @@ label{
 	background-color: #fc4a1a;
 	padding-top: 1vh;
 	padding-bottom: 1vh;
-	margin-left: 30%;
-	margin-right: 30%;
+	margin-left: 10%;
+	margin-right: 10%;
 	margin-top: 20px;
-	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	overflow: hidden;
@@ -315,6 +314,13 @@ label{
 	border-top: 3px solid #333;
 	border-bottom: 3px solid #333;
 	flex-shrink: 0;
+	flex-basis: 3%;
+}
+
+.complete{
+	padding: 12px 20px;
+	margin: 4px 8px 4px 8px;
+	float: left;
 }
 
 #logoutButton{
@@ -368,6 +374,25 @@ input[type=submit]{
 	font-weight: bold;
 	float: left;
 	margin: 12px;
+}
+
+input[type=submit].checkIn{
+	border-radius: 4px;
+	padding: 12px 28px;
+	font-size: 14px;
+	color: white;
+	background-color: #fc4a1a;
+	border: 3px solid #333;
+	font-size: 1.25em;
+	font-weight: bold;
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.checkIn{
+	float: center;
+	color: gray;
 }
 
 input[type=submit]:hover{

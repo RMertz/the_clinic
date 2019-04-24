@@ -29,7 +29,7 @@ include('../php/session.php');
 <div class="content" style="text-align: center">
     <div class="row">
         <div class="column2">
-            <h2>Prescribe Patent a Medication</h2><br/>
+            <h2>Prescribe Patient a Medication</h2><br/>
             <a href=<?php echo "prescribe.php?id=".$_GET['id'];?>>Prescribe Patent a Medication</a>
         </div>
         <div class="column2">
