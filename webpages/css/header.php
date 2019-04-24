@@ -22,3 +22,4 @@
         </div>
     </div>
 </div>
+<link rel="icon" type="image/png" href="../images/favicon.ico">

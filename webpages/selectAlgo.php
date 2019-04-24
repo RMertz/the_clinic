@@ -3,6 +3,7 @@ include('php/session.php');
 $patients = $db->prepare( "SELECT * FROM `Algorithm`");
 $patients->execute();
 $patientLi = $patients->fetchAll();
+$activePage = basename($_SERVER['PHP_SELF'], ".php");
 ?>
 
 <html>
