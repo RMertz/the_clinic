@@ -39,7 +39,7 @@ include "css/welcomeNav.php" ?>
 			<div class="navBox">
 				<a class="navBoxSm" href="profile.html">PROFILE</a>
 				<br><br>
-				<a href: "profile.html">
+				<a href="index.php">
 				<img ID="Icon" src="images/DoctorIcon.png" alt="DoctorIcon">
 				</a>
 				<br><br>
@@ -65,7 +65,7 @@ include "css/welcomeNav.php" ?>
 			<div class="navBox">
 				<a class="navBoxSm" href="help.html">HELP</a>
 				<br><br>
-				<a href: "help.html">
+				<a href="help.php">
 				<img ID="Icon" src="images/HelpIcon.png" alt="HelpIcon">
 				</a>
 				<br><br>
