@@ -22,14 +22,4 @@
         </div>
     </div>
 </div>
-<link rel="icon" type="image/png" href=<?php
-
-if(getcwd() == "/var/www/html/group1/the_clinic/webpages/bipolar/bipolarM"||getcwd() == "/var/www/html/group1/the_clinic/webpages/bipolar/bipolarD"){
-    echo "../../images/favicon.ico";
-}elseif (getcwd() == "/var/www/html/group1/the_clinic/webpages"){
-
-    echo "images/favicon.ico";
-}else{
-    echo "../images/favicon.ico";
-}
-?>>
+<link rel="icon" type="image/png" href="https://esof423.cs.montana.edu/group1/the_clinic/webpages/images/favicon.ico">
