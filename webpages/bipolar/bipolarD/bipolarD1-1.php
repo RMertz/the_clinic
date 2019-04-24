@@ -30,8 +30,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<?php include('../css/header.php');
-include "/group1/the_clinic/webpages/css/bipolarNav.php";?>
+<?php include('../../css/header.php');
+include "../../css/bipolarNav.php";?>
 
 <div class="row" >
     <h2 style="text-align: center">Bipolar Disorder Currently Depressed</h2>
