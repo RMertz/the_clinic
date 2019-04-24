@@ -47,6 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <!-- Bootstrap css -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.js"></script>
+    <link rel="icon" type="image/png" href="https://esof423.cs.montana.edu/group1/the_clinic/webpages/images/favicon.ico">
 </head>
 
 <!--<link rel="icon" type="image/png" href="../images/favicon.ico">-->

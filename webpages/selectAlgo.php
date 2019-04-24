@@ -12,6 +12,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
     <title>Your Patients</title>
     <link rel="stylesheet" href="css/global.css" type="text/css">
     <link rel="stylesheet" href="css/indexHome.css" type="text/css">
+    <link rel="icon" type="image/png" href="https://esof423.cs.montana.edu/group1/the_clinic/webpages/images/favicon.ico">
 </head>
 
 <body>

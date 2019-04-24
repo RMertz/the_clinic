@@ -22,6 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Bipolar Manic Treatment Step 3";
         ?></title>
     <link rel="stylesheet" href="../../css/global.css" type="text/css">
+    <link rel="icon" type="image/png" href="https://esof423.cs.montana.edu/group1/the_clinic/webpages/images/favicon.ico">
     <link rel="stylesheet" href="../../css/indexHome.css" type="text/css">
 </head>
 
