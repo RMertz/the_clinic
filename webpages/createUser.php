@@ -1,7 +1,7 @@
 <?php
 if((include $_SERVER['DOCUMENT_ROOT']."/group1/the_clinic/webpages/php/Config.php")==TRUE){
 }else{
-    echo "nooo";
+    echo("<script> console.log('Failed include) </script>");
 };
 $error = " ";
 include "php/createUser.php";
