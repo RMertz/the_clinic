@@ -8,25 +8,36 @@ class jsonQuery
     }
 
     public function setJson($json, $name){
-        include 'Config.php';
+        echo("<script> console.log('Here 8') </script>");
+        if(include 'Config.php'){
+
+        }else{
+            echo("<script> console.log('Here 7') </script>");
+            return "Did not include conifig.php";
+        }
         $check = $db->prepare("SELECT `AlgorithmID` FROM `Algorithm` WHERE `name` = :nam");
         $check->bindParam(":nam", $name);
+        echo("<script> console.log('Here 5') </script>");
         try {
             $check->execute();
         }catch (PDOException $po) {
             return "Error: Json not added";
         }
+        echo("<script> console.log('Here 6') </script>");
         if ($check->rowCount() != 0) {
             return "Sorry that name already exists";
         }else {
             $add = $db->prepare("INSERT INTO `Algorithm` (`json`, `name`) VALUES (:json, :nam)");
             $add->bindParam(":json", $json);
             $add->bindParam(":nam", $name);
+            echo("<script> console.log('Here 7') </script>");
             try {
                 $add->execute();
             } catch (PDOException $po) {
+                echo "<script>console.log('Json updated')</script>";
                 return "Error: Json not added";
             }
+            echo "<script>console.log('Json not updated')</script>";
             return "Json Added";
         }
     }

@@ -1,7 +1,7 @@
 <?php
 if((include $_SERVER['DOCUMENT_ROOT']."/group1/the_clinic/webpages/php/Config.php")){
  }else{
-    echo "nooo";
+    echo("<script> console.log('Failed to include config') </script>");
 };
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {

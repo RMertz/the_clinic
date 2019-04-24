@@ -3,6 +3,7 @@ include('php/session.php');
 $patients = $db->prepare( "SELECT * FROM `Algorithm`");
 $patients->execute();
 $patientLi = $patients->fetchAll();
+$activePage = basename($_SERVER['PHP_SELF'], ".php");
 ?>
 
 <html>
@@ -11,6 +12,7 @@ $patientLi = $patients->fetchAll();
     <title>Your Patients</title>
     <link rel="stylesheet" href="css/global.css" type="text/css">
     <link rel="stylesheet" href="css/indexHome.css" type="text/css">
+    <link rel="icon" type="image/png" href="https://esof423.cs.montana.edu/group1/the_clinic/webpages/images/favicon.ico">
 </head>
 
 <body>
@@ -19,11 +21,14 @@ $patientLi = $patients->fetchAll();
 
 
 <div class="navBar">
-    <a href="welcome.php">HOME</a>
-    <a href="patientList.php">YOUR PATIENTS</a>
-    <a href="createPatient.php">NEW PATIENT</a>
-    <a id="logoutButton" href = "php/logout.php?type=0">LOG OUT</a>
-
+    <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="welcome.php">Home</a>
+    <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="patientList.php">Your Patients</a>
+    <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
+    <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
+    <a class="<?= ($activePage == 'bipolarHome') ? 'active':''; ?>" href=<?php echo "bipolar/bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
+    <a class="<?= ($activePage == 'selectAlgo') ? 'active':''; ?>" href=<?php echo "selectAlgo.php?id=".$_GET['id']."&level1=1&level2=0&level3=0&level4=0"?>>Select Algorithm</a>
+    <a href=<?php echo "medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
+    <a ID="logoutButton"href = "php/logout.php">Sign Out</a>
 </div>
 
 <div >
