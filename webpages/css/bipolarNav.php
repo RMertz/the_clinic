@@ -1,10 +1,13 @@
 <?php $activePage = basename($_SERVER['PHP_SELF'], ".php");
+if($activePage == 'depHome'|| $activePage == 'dep2' || $activePage == 'depNR3' || $activePage == 'depPR3'){
+    $yes = true;
+}else{$yes=false;}
 ?>
 <div class="navBar">
     <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href=<?php echo "/group1/the_clinic/webpages/welcome.php"?>>Home</a>
     <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href=<?php echo "/group1/the_clinic/webpages/patientList.php"?>>Your Patients</a>
     <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "/group1/the_clinic/webpages/patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
-    <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "/group1/the_clinic/webpages/dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
+    <a class="<?= ($yes) ? 'active':''; ?>" href=<?php echo "/group1/the_clinic/webpages/dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
     <a class="<?= ($activePage == 'depDiag' || $activePage == 'depPHQAnalysis') ? 'active':''; ?>" href=<?php echo "/group1/the_clinic/webpages/dep/depDiag.php?id=".$_GET['id'];?>>PHQ 9</a>
     <a class="<?= ($activePage == 'bipolarHome') ? 'active':''; ?>" href=<?php echo "/group1/the_clinic/webpages/bipolar/bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
     <a class="<?= ($activePage == 'selectAlgo') ? 'active':''; ?>" href=<?php echo "/group1/the_clinic/webpages/selectAlgo.php?id=".$_GET['id']."&level1=1&level2=0&level3=0&level4=0"?>>Select Algorithm</a>
