@@ -48,18 +48,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <link rel="icon" type="image/png" href="../images/favicon.ico">
 
 <body>
-<?php include('../css/header.php'); ?>
-
-<div class="navBar">
-
-    <a href="../index.html">HOME PAGE</a>
-    <a href="../profile.html">PROFILE</a>
-    <a href="../patientPage.html">PATIENTS</a>
-    <a href="../help.html">HELP</a>
-    <a id="logoutButton"  href="../Login.php">LOGIN</a>
-    <a href="../createUser.php">CREATE USER</a>
-
-</div>
+<?php include('../css/header.php');
+include "../css/createAlgoNav.php"?>
 
 <div class = "content" >
 
