@@ -19,15 +19,43 @@ include "css/basicNav.php" ?>
 
         <div class="navigationBoxes">
             <div class="navBox">
+                <a class="navBoxSm" href="Login.php">PROFILE</a>
+                <br><br>
+                <a href="index.php">
+                    <img ID="Icon" src="images/DoctorIcon.png" alt="DoctorIcon">
+                </a>
+                <br><br>
+                <paragraph>
+                    Manage your profile and preferences here
+                </paragraph>
+            </div>
+
+            <div class="navBox">
+                <a class="navBoxSm" href="Login.php">PATIENTS</a>
+                <br><br>
+                <a href="patientList.php" >
+                    <img ID="Icon" src="images/PatientIcon.png" alt="PatientIcon">
+                </a>
+                <br><br>
+
+                <paragraph>
+                    View, Manage, and Work with Patients
+                </paragraph>
+
+            </div>
+
+            <div class="navBox">
                 <a class="navBoxSm" href="help.php">HELP</a>
                 <br><br>
-                <body>
-                I wanna be, the very best. Like no one every was. To catch them is my real test, to train them is my cause.
-                I wanna be, the very best. Like no one every was. To catch them is my real test, to train them is my cause.
-                I wanna be, the very best. Like no one every was. To catch them is my real test, to train them is my cause.
-                I wanna be, the very best. Like no one every was. To catch them is my real test, to train them is my cause.
-                I wanna be, the very best. Like no one every was. To catch them is my real test, to train them is my cause.
-                </body>
+                <a href="help.php">
+                    <img ID="Icon" src="images/HelpIcon.png" alt="HelpIcon">
+                </a>
+                <br><br>
+                <paragraph>
+                    Find out how to use features of this application
+                    or
+                    contact us about any problems you may be having.
+                </paragraph>
             </div>
         </div>
 
