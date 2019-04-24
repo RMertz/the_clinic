@@ -71,7 +71,11 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
         </h3>
 		<?php
 		foreach($medication as $val){
-			echo $val['Name'].": ".$val['CurrentDosage']."<br>";
+            if($val['Name']==""){
+                break;
+            }else{
+                echo $val['Name'].": ".$val['CurrentDosage']."<br>";
+            }
 		}
 		?>
         <h3>
