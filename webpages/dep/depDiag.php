@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
 <?php include('../css/header.php');
-include "../css/selectedPatientNav.php";?>
+include "../css/bipolarNav.php";?>
 	
         <div class="row">
         <div >
