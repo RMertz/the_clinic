@@ -12,7 +12,6 @@ $medication->bindParam(":pat_ID", $_GET['id']);
 $medication->execute();
 $error='';
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-	echo $patientID;
     $schedule = new scheduleVisit($_GET['id']);
     if($schedule->schedule(date("Y-m-d"),1)){
         $error = "Patient Checked In";
