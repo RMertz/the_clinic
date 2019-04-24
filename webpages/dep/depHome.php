@@ -27,7 +27,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 
 <body>
 <?php include('../css/header.php');
-include "../css/bipolarNav.php";?>
+include "../css/depNav.php";?>
 
     <div class="row">
         <div class="content" style="text-align: center">

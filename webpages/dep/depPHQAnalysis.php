@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 <?php include('../css/header.php');
-include "../css/bipolarNav.php";?>
+include "../css/depNav.php";?>
 
     <div class="content" style="text-align: center">
         <h2>

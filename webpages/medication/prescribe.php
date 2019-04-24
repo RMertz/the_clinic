@@ -16,7 +16,7 @@ $medications->execute();
 
     <body>
         <?php include('../css/header.php');
-        include "../css/medicationNav.php";?>
+        include "../css/selectedPatientNav.php";?>
 
         <div class="content" style="text-align: center">
             <h2>Pick a Medication To Prescribe</h2>
