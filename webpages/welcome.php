@@ -39,7 +39,7 @@ include "css/welcomeNav.php" ?>
 			<div class="navBox">
 				<a class="navBoxSm" href="welcome.php">PROFILE</a>
 				<br><br>
-				<a href="index.php">
+				<a href="welcome.php">
 				<img ID="Icon" src="images/DoctorIcon.png" alt="DoctorIcon">
 				</a>
 				<br><br>
