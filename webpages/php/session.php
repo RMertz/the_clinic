@@ -12,7 +12,7 @@ if(!isset($_SESSION['login_user'])){
     session_unset();
     session_destroy();
 
-    header("location:/group1/the_clinic/webpages/login.php");
+    header("location:/group1/the_clinic/webpages/Login.php");
     die();
 }
 ?>
