@@ -15,7 +15,7 @@ include('../php/session.php');
 
 <body>
 <?php include('../css/header.php');
-include "../css/medicationNav.php";?>
+include "../css/selectedPatientNav.php";?>
 
 
 <div class="content" style="text-align: center">

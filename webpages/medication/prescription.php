@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 <?php include('../css/header.php');
-include "../css/medicationNav.php";?>
+include "../css/selectedPatientNav.php";?>
 
     <div class="row">
         <div class="column2" >
