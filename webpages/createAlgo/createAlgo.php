@@ -54,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 <?php include('../css/header.php');
-include "../css/createAlgoNav.php"?>
+include "../css/welcomeNav.php" ?>
 
 
 <div class = "content" >

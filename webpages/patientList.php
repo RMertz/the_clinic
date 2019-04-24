@@ -22,16 +22,8 @@ $patientLi = $patients->fetchAll();
 
 <body>
 
-<?php include('css/header.php'); ?>
-
-
-<div class="navBar">
-    <a href="welcome.php">HOME</a>
-    <a href="patientList.php">YOUR PATIENTS</a>
-    <a href="createPatient.php">NEW PATIENT</a>
-    <a id="logoutButton" href = "php/logout.php?type=0">LOG OUT</a>
-
-</div>
+<?php include('css/header.php');
+include "css/welcomeNav.php" ?>
 
     <div >
         <h2>
