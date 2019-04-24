@@ -11,7 +11,7 @@
 <body>
 
 <?php include('css/header.php');
-include "css/welcomeNav.php" ?>
+include "css/basicNav.php" ?>
 
 <div class="content">
     <h2>

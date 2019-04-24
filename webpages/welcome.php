@@ -63,7 +63,7 @@ include "css/welcomeNav.php" ?>
 			</div>
 			
 			<div class="navBox">
-				<a class="navBoxSm" href="help.html">HELP</a>
+				<a class="navBoxSm" href="help.php">HELP</a>
 				<br><br>
 				<a href="help.php">
 				<img ID="Icon" src="images/HelpIcon.png" alt="HelpIcon">

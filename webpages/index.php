@@ -10,7 +10,7 @@
 </head>
 
 <?php include('css/header.php');
-include "css/welcomeNav.php" ?>
+include "css/basicNav.php" ?>
 
 
 <div class="content">
@@ -19,15 +19,7 @@ include "css/welcomeNav.php" ?>
 
         <div class="navigationBoxes">
             <div class="navBox">
-                <a class="navBoxSm" href="profile.html">PROFILE</a>
-            </div>
-
-            <div class="navBox">
-                <a class="navBoxSm" href="patientPage.html">PATIENTS</a>
-            </div>
-
-            <div class="navBox">
-                <a class="navBoxSm" href="help.html">HELP</a>
+                <a class="navBoxSm" href="help.php">HELP</a>
                 <br><br>
                 <body>
                 I wanna be, the very best. Like no one every was. To catch them is my real test, to train them is my cause.
