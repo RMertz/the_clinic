@@ -262,6 +262,21 @@ label{
 	width: 100vw;
 }
 
+.medBox{
+	flex-basis: 30%;
+	overflow: auto;
+	background-color: #dfdce3;
+	color: black;
+	height: auto;
+	border: 2px solid black;
+	border-radius: 4px;
+
+}
+
+.success{
+	float: left;
+}
+
 .loginLabel{
 	background-color:#333333; 
 	color:#FFFFFF; 
