@@ -27,8 +27,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php include('../css/header.php');
 include "../css/depNav.php";?>
 
-    <div class="row" >
-        <div class="column3">
+    <div class="whiteBack" >
+        <div class="redBackCol">
             <h2 >
                 If Non-response:
             </h2>
@@ -42,7 +42,7 @@ include "../css/depNav.php";?>
                 Provider Discretion
             </p>
         </div>
-        <div class="column3">
+        <div class="redBackCol">
             <h2 >
                 If Partial Response:
             </h2>
@@ -57,7 +57,7 @@ include "../css/depNav.php";?>
             </p>
 
         </div>
-        <div class="column3">
+        <div class="redBackCol">
             <h2 >
                 If Full response:
             </h2>
@@ -72,12 +72,15 @@ include "../css/depNav.php";?>
                 Provider Discretion
             </p>
         </div>
-        <br/>
-        <h3 style="text-align: center">*Switch to a non-SSRI after two SSRI failures*</h3>
+
     </div>
+	        <br/>
+        <h3 style="text-align: center">*Switch to a non-SSRI after two SSRI failures*</h3>
+		<div class="divBar">
+	</div>
     <div class="row">
         <?php include '../scheduleApp.php';?>
-        <div class="column2">
+        <div class="whiteBackCol">
             <h3>Prescribe Patient a Medication</h3>
             <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
         </div>

@@ -44,8 +44,8 @@ include "../css/bipolarNav.php";?>
                 <?php echo $treatmentOptions['title']?>
             </h2>
             <form action = "" method = "post">
-                <input type = "submit" class= "submit" name ="DepD" value = <?php echo $treatmentOptions['biD'];?>/><br />
-                <input type = "submit" class= "submit" name ="DepM" value = <?php echo $treatmentOptions['biM'];?>/><br />
+                <input type = "submit" class= "pickAlg" name ="DepD" value = <?php echo $treatmentOptions['biD'];?>/><br />
+                <input type = "submit" class= "pickAlg" name ="DepM" value = <?php echo $treatmentOptions['biM'];?>/><br />
             </form>
             <div class="row">
                 <?php include '../scheduleApp.php';?>
@@ -63,4 +63,3 @@ include "../css/bipolarNav.php";?>
 </div>
 
 </html>
-
