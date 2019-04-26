@@ -5,16 +5,25 @@ $medications = $db->prepare("SELECT * FROM MedicationInformation WHERE Medicatio
 $medications->bindParam(":medid", $_GET['medid']);
 $medications->execute();
 $row = $medications->fetch();
+
+$conflicts = $db->prepare("SELECT * FROM `MedicationInformation`
+        LEFT JOIN `Conflicting Medication` ON (`Conflicting Medication`.`MedicationID1`= `MedicationInformation`.`MedicationID`
+		AND `Conflicting Medication`.`MedicationID2` = :medid)
+		OR (`Conflicting Medication`.`MedicationID2` = :medid
+		AND `Conflicting Medication`.`MedicationID1` = :medid)");
+$conflicts->bindParam(":medid", $medid);
+$medications->execute();
+
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $update = new medicationControl();
-	$conflict = $update->checkConflict($_GET['id'],$_GET['medid']);
-	if ($conflict>0){
-		$error = "Error: Medication conflicts with current prescription";
+    $conflict = $update->checkConflict($_GET['id'],$_GET['medid']);
+    if ($conflict>0){
+        $error = "Error: Medication conflicts with current prescription";
     }
     else{
-		$error = $update->setDose($_GET['id'],$_GET['medid'],$_POST['dose']);
-	}
+        $error = $update->setDose($_GET['id'],$_GET['medid'],$_POST['dose']);
+    }
 };
 ?>
 <html xmlns="http://www.w3.org/1999/html">
@@ -38,6 +47,7 @@ include "../css/selectedPatientNav.php";?>
             <p>Name: <?php echo $row['Name']?></p>
             <p> Minimum Dose: <?php echo $row['MinimumDosage']?></p>
             <p>  Maximum Dose: <?php echo $row['MaximumDosage']?></p>
+            <p>Medication That Conflicts for This Medication: <?php echo $conflicts['Name']?></p>
         </div>
         <div class="column2"
             <div class= "loginBox">
@@ -53,5 +63,8 @@ include "../css/selectedPatientNav.php";?>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+</div>
 </body>
 </html>
