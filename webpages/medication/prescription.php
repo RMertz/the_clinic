@@ -49,18 +49,15 @@ include "../css/selectedPatientNav.php";?>
             <p>  Maximum Dose: <?php echo $row['MaximumDosage']?></p>
             <p>Medication That Conflicts for This Medication: <?php echo $conflicts['Name']?></p>
         </div>
-        <div class="column2"
-            <div class= "loginBox">
-                <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Prescribe This Medication</b></div>
-                    <div style = "padding:30px; background-color: #dfdce3; ">
-                        <form action = "" method = "post">
-                            <h3><?php echo $row['Name']?></h3>
-                            <label>Dose :</label><input type = "text" name = "dose" class = "box" required/><br /><br />
-                            <input type = "submit" value = " Submit "/><br />
-                        </form>
-                        <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-                    </div>
-                </div>
+        <div class= "loginBox">
+            <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Prescribe This Medication</b></div>
+            <div style = "padding:30px; background-color: #dfdce3; ">
+                <form action = "" method = "post">
+                    <h3><?php echo $row['Name']?></h3>
+                    <label>Dose :</label><input type = "text" name = "dose" class = "box" required/><br /><br />
+                    <input type = "submit" value = " Submit "/><br />
+                </form>
+                <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
             </div>
         </div>
     </div>
