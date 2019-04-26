@@ -16,7 +16,7 @@ $conflicts = $db->prepare("SELECT * FROM `MedicationInformation`
 		AND `Conflicting Medication`.`MedicationID1` = :medid)");
 $conflicts->bindParam(":medid", $medid);
 $conflicts->execute();
-$row2 = $conflicts->fetchAll();
+$row2 = $conflicts->fetch();
 
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
