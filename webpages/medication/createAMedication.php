@@ -51,7 +51,7 @@ include "../css/selectedPatientNav.php";?>
                     <input type = "submit" value = " Submit "/><br />
                 </form>
 
-                <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+                <div class="success" style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
             </div>
 
         </div>

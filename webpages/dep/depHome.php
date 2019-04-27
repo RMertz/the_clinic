@@ -29,9 +29,10 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <?php include('../css/header.php');
 include "../css/depNav.php";?>
 
-    <div class="row">
+    <div class="whiteBack">
         <div class="content" style="text-align: center">
-            <h2 >
+          <div class="redBackCol">
+		  <h2 >
                 Initial Step:
             </h2>
             <p>
@@ -44,9 +45,12 @@ include "../css/depNav.php";?>
             <p>
                 Stub: update database for step we are on
             </p>
+			</div>
+				<div class="divBar">
+				</div>
             <div class="row">
                 <?php include '../scheduleApp.php';?>
-                <div class="column2">
+                <div class="whiteBackCol">
                     <h3>Prescribe Patient a Medication</h3>
                     <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
                 </div>

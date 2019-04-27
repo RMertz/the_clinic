@@ -44,45 +44,51 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php include('../css/header.php');
 include "../css/depNav.php";?>
 
+
     <div class="content" style="text-align: center">
-        <h2>
-        <?php echo $analysis['diagnosisHeader'].$analysis['diagnosis']?>
-        </h2>
-        <?php echo $analysis['diagnosisInfo']?>
-        <h2>
-            Treatment and Monitoring
-        </h2>
-        <ol class="center">
-            <li><?php echo $analysis['treatmentTF']?></li>
-            <li><?php echo $analysis['suicide']?></li>
-            <li>
-                <table class="center">
-                    <tr>
-                        <th style="width: 33.33%">Severity Score</th>
-                        <th style="width: 33.33%">Tentative Diagnosis</th>
-                        <th style="width: 33.33%">Treatment Recommendation</th>
-                    </tr>
-                    <tr>
-                        <td><?php echo $_GET['total']?></td>
-                        <td><?php echo $analysis['tentativeDiag']?></td>
-                        <td>
-                            <?php echo $analysis['treatmentRec']?>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>Monitoring – a change in the Severity Score of 5 or more is considered
-                    clinically significant in assessing improvement of symptoms.</li>
-        </ol>
+        <div class="whiteBack">
+		<div class="redBackCol">
+			<h2>
+			<?php echo $analysis['diagnosisHeader'].$analysis['diagnosis']?>
+			</h2>
+			<?php echo $analysis['diagnosisInfo']?>
+			<h2>
+				Treatment and Monitoring
+			</h2>
+			<ol class="center">
+				<li><?php echo $analysis['treatmentTF']?></li>
+				<li><?php echo $analysis['suicide']?></li>
+				<li>
+					<table class="center">
+						<tr>
+							<th style="width: 33.33%">Severity Score</th>
+							<th style="width: 33.33%">Tentative Diagnosis</th>
+							<th style="width: 33.33%">Treatment Recommendation</th>
+						</tr>
+						<tr>
+							<td><?php echo $_GET['total']?></td>
+							<td><?php echo $analysis['tentativeDiag']?></td>
+							<td>
+								<?php echo $analysis['treatmentRec']?>
+							</td>
+						</tr>
+					</table>
+				</li>
+				<li>Monitoring – a change in the Severity Score of 5 or more is considered
+						clinically significant in assessing improvement of symptoms.</li>
+			</ol>
+			</div>
+		</div>
+		<form action = "" method = "post">
+            <input type = "submit" class="pickAlg" name="Diagnosis" value = " Approve Diagnosis "/>
+        </form>
+		<div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $diagError; ?></div>
+			<div class="divBar">
+			</div>
         <div class="row">
             <?php include '../scheduleApp.php';?>
-            <div class="column3">
-                <form action = "" method = "post">
-                    <input type = "submit" name="Diagnosis" value = " Approve Diagnosis "/>
-                </form>
-                <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $diagError; ?></div>
-            </div>
-            <div class="column3">
+
+            <div class="whiteBackCol">
                 <h3>Prescribe Patient a Medication</h3>
                 <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
             </div>
