@@ -5,25 +5,10 @@ $medications = $db->prepare("SELECT * FROM MedicationInformation WHERE Medicatio
 $medications->bindParam(":medid", $_GET['medid']);
 $medications->execute();
 $row = $medications->fetch();
-
-$conflicts = $db->prepare("SELECT * FROM `MedicationInformation`
-        LEFT JOIN `Conflicting Medication` ON (`Conflicting Medication`.`MedicationID1`= `MedicationInformation`.`MedicationID`
-		AND `Conflicting Medication`.`MedicationID2` = :medid)
-		OR (`Conflicting Medication`.`MedicationID2` = :medid
-		AND `Conflicting Medication`.`MedicationID1` = :medid)");
-$conflicts->bindParam(":medid", $medid);
-$medications->execute();
-
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $update = new medicationControl();
-    $conflict = $update->checkConflict($_GET['id'],$_GET['medid']);
-    if ($conflict>0){
-        $error = "Error: Medication conflicts with current prescription";
-    }
-    else{
-        $error = $update->setDose($_GET['id'],$_GET['medid'],$_POST['dose']);
-    }
+    $error = $update->setDose($_GET['id'],$_GET['medid'],$_POST['dose']);
 };
 ?>
 <html xmlns="http://www.w3.org/1999/html">
@@ -34,13 +19,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         ?></title>
     <link rel="stylesheet" href="../css/global.css" type="text/css">
     <link rel="stylesheet" href="../css/indexHome.css" type="text/css">
-    <link rel="icon" type="image/png" href="https://esof423.cs.montana.edu/group1/the_clinic/webpages/images/favicon.ico">
 </head>
 
 <body>
 <?php include('../css/header.php');
 include "../css/selectedPatientNav.php";?>
-
+  
     <div class="whiteBack">
         <div class="column2" >
             <h2>Medication Info</h2>
@@ -64,7 +48,6 @@ include "../css/selectedPatientNav.php";?>
             </div>
         </div>
     </div>
-</div>
 </div>
 </body>
 </html>
