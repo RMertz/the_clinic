@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(E_ALL);
 include('../php/session.php');
 include('../php/medicationControl.php');
 $medications = $db->prepare("SELECT * FROM MedicationInformation WHERE MedicationID = :medid");
@@ -15,8 +12,7 @@ $conflicts = $db->prepare("SELECT * FROM `MedicationInformation`
 		OR (`Conflicting Medication`.`MedicationID2` = :medid
 		AND `Conflicting Medication`.`MedicationID1` = :medid)");
 $conflicts->bindParam(":medid", $medid);
-$conflicts->execute();
-$row2 = $conflicts->fetch();
+$medications->execute();
 
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -51,18 +47,19 @@ include "../css/selectedPatientNav.php";?>
             <p>Name: <?php echo $row['Name']?></p>
             <p> Minimum Dose: <?php echo $row['MinimumDosage']?></p>
             <p>  Maximum Dose: <?php echo $row['MaximumDosage']?></p>
-            <p>Medication That Conflicts for This Medication: <?php echo $row2['Name']?></p>
+            <p>Medication That Conflicts for This Medication: <?php echo $conflicts['Name']?></p>
         </div>
-        <div class="column2" >
+        <div class="column2"
             <div class= "loginBox">
-                <div><b>Prescribe This Medication</b></div>
-                <div>
-                    <form action = "" method = "post">
-                        <h3><?php echo $row['Name']?></h3>
-                        <label>Dose :</label><input type = "text" name = "dose" class = "box" required/><br /><br />
-                        <input type = "submit" value = " Submit "/><br />
-                    </form>
-                    <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+                <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Prescribe This Medication</b></div>
+                    <div style = "padding:30px; background-color: #dfdce3; ">
+                        <form action = "" method = "post">
+                            <h3><?php echo $row['Name']?></h3>
+                            <label>Dose :</label><input type = "text" name = "dose" class = "box" required/><br /><br />
+                            <input type = "submit" value = " Submit "/><br />
+                        </form>
+                        <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+                    </div>
                 </div>
             </div>
         </div>
