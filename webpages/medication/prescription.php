@@ -31,7 +31,6 @@ include "../css/selectedPatientNav.php";?>
             <p>Name: <?php echo $row['Name']?></p>
             <p> Minimum Dose: <?php echo $row['MinimumDosage']?></p>
             <p>  Maximum Dose: <?php echo $row['MaximumDosage']?></p>
-            <p>Medication That Conflicts for This Medication: <?php echo $conflicts['Name']?></p>
         </div>
         <div class="column2">
             <div class= "medBox">
