@@ -17,7 +17,7 @@ include "css/basicNav.php" ?>
     <h2>
         Help And Documentation
     </h2>
-    <div style="align-content: center">
+    <div class="center">
         <div class="row">
             <a href="https://github.com/RMertz/the_clinic/issues">Our Github Repo</a>
         </div>
