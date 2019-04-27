@@ -5,14 +5,14 @@ $medications = $db->prepare("SELECT * FROM MedicationInformation WHERE Medicatio
 $medications->bindParam(":medid", $_GET['medid']);
 $medications->execute();
 $row = $medications->fetch();
-
+/*
 $conflicts = $db->prepare("SELECT * FROM `MedicationInformation`
         LEFT JOIN `Conflicting Medication` ON (`Conflicting Medication`.`MedicationID1`= `MedicationInformation`.`MedicationID`
 		AND `Conflicting Medication`.`MedicationID2` = :medid)
 		OR (`Conflicting Medication`.`MedicationID2` = :medid
 		AND `Conflicting Medication`.`MedicationID1` = :medid)");
 $conflicts->bindParam(":medid", $medid);
-$medications->execute();
+$medications->execute();*/
 
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -47,7 +47,7 @@ include "../css/selectedPatientNav.php";?>
             <p>Name: <?php echo $row['Name']?></p>
             <p> Minimum Dose: <?php echo $row['MinimumDosage']?></p>
             <p>  Maximum Dose: <?php echo $row['MaximumDosage']?></p>
-            <p>Medication That Conflicts for This Medication: <?php echo $conflicts['Name']?></p>
+            <p>Medication That Conflicts for This Medication: <?php //echo $conflicts['Name']?></p>
         </div>
         <div class="column2">
             <div class= "loginBox">
