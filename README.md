@@ -15,7 +15,6 @@ Create a New Account.
 
 
 
-Documentation for Developers
 For the latest release version check the release tab on github.
 
 Our app is pending review by Cerner for integration into their login system. Their estimate was that they will get back to us in 4-5 weeks. 
@@ -28,7 +27,7 @@ The software can be found at https://esof423.cs.montana.edu/group1/the_clinic/we
 
 To use the software log in, and navigate to your patients information.
 
-User Manual can be found here: https://drive.google.com/file/d/1ZZdl_fwQhYjKMHsWQD9Vdt4r1YaG-mAE/view?usp=sharing
+User Manual and Developer Doc can be found here: https://drive.google.com/file/d/1ZZdl_fwQhYjKMHsWQD9Vdt4r1YaG-mAE/view?usp=sharing
 
 If you have any problems using the software please email us at antonmertz@gmail.com
 
