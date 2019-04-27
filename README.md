@@ -17,7 +17,7 @@ Create a New Account.
 
 For the latest release version check the release tab on github.
 
-To find instructions on executing tests or test coverage please see our User Manual/Developer Doc.
+To find instructions on executing tests or test coverage please see our Developer Doc.
 
 Our app is pending review by Cerner for integration into their login system. Their estimate was that they will get back to us in 4-5 weeks. (As of 04/20/19) 
 
@@ -29,7 +29,9 @@ The software can be found at https://esof423.cs.montana.edu/group1/the_clinic/we
 
 To use the software log in, and navigate to your patients information.
 
-User Manual and Developer Doc can be found here: https://drive.google.com/file/d/1Zb1etBuM7Lw8xXzmmboCupWKsDgDypPj/view?usp=sharing
+Our User Manual can be found here: https://drive.google.com/file/d/1Zb1etBuM7Lw8xXzmmboCupWKsDgDypPj/view?usp=sharing
+
+Our Developer Doc can be found here: https://drive.google.com/file/d/1Oz6K2knvEcouEZFdY3m5G5k5feDI4lZ8/view?usp=sharing
 
 If you have any problems using the software please email us at antonmertz@gmail.com
 
