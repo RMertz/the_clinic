@@ -17,7 +17,7 @@ Create a New Account.
 
 For the latest release version check the release tab on github.
 
-Our app is pending review by Cerner for integration into their login system. Their estimate was that they will get back to us in 4-5 weeks. (As of 04/26/19) 
+Our app is pending review by Cerner for integration into their login system. Their estimate was that they will get back to us in 4-5 weeks. (As of 04/20/19) 
 
 This project is made for Doctors and psychologists to keep track of their patients treatment progress based on the information provided in DSM V.
 
