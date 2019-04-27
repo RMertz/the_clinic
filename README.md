@@ -1,9 +1,9 @@
 # the_clinic
 
 Documentation for Users
-<<<<<<< HEAD
+
 You can log into the website by creating a new user.
-=======
+
 The login to the website is:
 
 Username:chrismiller
@@ -12,7 +12,7 @@ password:Test123
 or
 
 Create a New Account.
->>>>>>> 2f969556d429ddf4c9d3496b3d11700fae864651
+
 
 
 Documentation for Developers
