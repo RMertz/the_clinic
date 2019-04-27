@@ -28,7 +28,7 @@ include "css/basicNav.php" ?>
             <a href="https://drive.google.com/file/d/1Oz6K2knvEcouEZFdY3m5G5k5feDI4lZ8/view?usp=sharing">Developer Documentation</a>
         </div>
         <div class="row">
-            <p>Our Bug tracking system is the issues tab on github. Feel free to submit one there or email antonmertz@gmail.com</p>
+            <p>Our Bug tracking system is the issues tab on github. <br>Feel free to submit one there or email antonmertz@gmail.com</p>
         </div>
     </div>
 </div>
