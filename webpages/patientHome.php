@@ -5,10 +5,11 @@ $patients = $db->prepare( "SELECT * FROM `PatientInformation` WHERE PatientID = 
 $patients->bindParam(":pat_ID", $_GET['id']);
 $patients->execute();
 $patientInfo = $patients->fetch();
-$medication = $db->prepare( "SELECT `Name` FROM `MedicationInformation` WHERE MedicationID = :med_ID");
-$medication->bindParam(":med_ID", $patientInfo['MedicationID']);
+$medication = $db->prepare("SELECT * FROM `Prescription`
+        LEFT JOIN `MedicationInformation` ON `MedicationInformation`.`MedicationID`=`Prescription`.`MedicationID`
+                AND `Prescription`.`PatientID` = :pat_ID");
+$medication->bindParam(":pat_ID", $_GET['id']);
 $medication->execute();
-$medicationInfo = $medication->fetch();
 $error='';
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $schedule = new scheduleVisit($_GET['id']);
@@ -29,28 +30,20 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
         ?></title>
     <link rel="stylesheet" href="css/global.css" type="text/css">
     <link rel="stylesheet" href="css/indexHome.css" type="text/css">
+    <link rel="icon" type="image/png" href="https://esof423.cs.montana.edu/group1/the_clinic/webpages/images/favicon.ico">
 </head>
 
 <body>
-<?php include('css/header.php'); ?>
+<?php include('css/header.php');
+include "css/selectedPatientNav.php"?>
 
-    <div class="navBar">
-        <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="welcome.php">Home</a>
-        <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="patientList.php">Your Patients</a>
-        <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
-        <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>" href=<?php echo "dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
-        <a class="<?= ($activePage == 'bipolarHome') ? 'active':''; ?>" href=<?php echo "bipolar/bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
-        <a class="<?= ($activePage == 'selectAlgo') ? 'active':''; ?>" href=<?php echo "selectAlgo.php?id=".$_GET['id']."&level1=1&level2=0&level3=0&level4=0"?>>Select Algorithm</a>
-        <a href=<?php echo "medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
-        <a ID="logoutButton"href = "php/logout.php">Sign Out</a>
-    </div>
 
     <div class="content" style="text-align: center">
         <h2>
             Check Patient In:
         </h2>
         <form method="post">
-            <input type = "submit" name="Schedule" value = " Check Patient In "/>
+            <input class="checkIn" type = "submit" name="Schedule" value = " Check Patient In "/>
         </form>
         <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error;?></div>
         <h2 >
@@ -67,19 +60,35 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
         <h3>
             Current Medication:
         </h3>
-        <?php echo $medicationInfo['Name']; ?>
-        <h3>
-            Current Dose:
-        </h3>
-        <?php echo $patientInfo['CurrentDose']; ?>
+		<?php
+        $num =0;
+		foreach($medication as $val){
+            if($val['Name']==""){
+                if($num == 0){
+                    echo "None";
+                }
+                break;
+            }else{
+                echo $val['Name'].": ".$val['CurrentDosage']."<br>";
+                $num++;
+            }
+		}
+		?>
         <h3>
             Date of Last Visit:
         </h3>
-        <?php echo $patientInfo['LastVisit']; ?>
+        <?php
+            if($patientInfo['LastVisit']==""){
+                echo "First Visit!"."<br>"." (Make sure to check this patient in)";
+            }else{echo $patientInfo['LastVisit'];}
+        ?>
         <h3>
         Date of Next Visit:
         </h3>
-        <?php echo $patientInfo['NextVisit']; ?>
+        <?php
+        if($patientInfo['NextVisit']<date("Y-m-d")){
+            echo "No visit scheduled";
+        }else{echo $patientInfo['NextVisit'];} ?>
         <br><br/>
 
 

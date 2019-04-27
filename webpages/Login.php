@@ -1,7 +1,7 @@
 <?php
 if((include $_SERVER['DOCUMENT_ROOT']."/group1/the_clinic/webpages/php/Config.php")){
  }else{
-    echo "nooo";
+    echo("<script> console.log('Failed to include config') </script>");
 };
 $error = " ";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -46,10 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="navBar">
 
-    <a href="index.html">HOME PAGE</a>
-    <a href="profile.html">PROFILE</a>
-    <a href="patientPage.html">PATIENTS</a>
-    <a href="help.html">HELP</a>
+
     <!--<a id="logoutButton" href="Login.php">LOGIN</a>-->
     <a id ="createUserButton"href="createUser.php">CREATE USER</a>
 </div>

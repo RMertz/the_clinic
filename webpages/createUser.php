@@ -1,7 +1,7 @@
 <?php
 if((include $_SERVER['DOCUMENT_ROOT']."/group1/the_clinic/webpages/php/Config.php")==TRUE){
 }else{
-    echo "nooo";
+    echo("<script> console.log('Failed include) </script>");
 };
 $error = " ";
 include "php/createUser.php";
@@ -20,10 +20,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8">
-    <title>Create New Patient</title>
+    <title>Create New User</title>
 
     <link rel="stylesheet" href="css/global.css" type="text/css">
     <link rel="stylesheet" href="css/indexHome.css" type="text/css">
+    <link rel="icon" type="image/png" href="https://esof423.cs.montana.edu/group1/the_clinic/webpages/images/favicon.ico">
 
 </head>
 
@@ -34,12 +35,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="navBar">
 
-    <a href="index.html">HOME PAGE</a>
-    <a href="profile.html">PROFILE</a>
-    <a href="patientPage.html">PATIENTS</a>
-    <a href="help.html">HELP</a>
+
     <a id="logoutButton"  href="Login.php">LOGIN</a>
-    <a href="createUser.php">CREATE USER</a>
+
 
 </div>
 
@@ -48,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="redBack">
         <div class="navigationBoxes">
             <div class= "loginBox">
-                <div class="loginLabel"><b>Create New Patient Profile</b></div>
+                <div class="loginLabel"><b>Create New Doctor Profile</b></div>
 
                 <div >
 
@@ -60,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input class="submitLogin" type = "submit" value = " Submit "/><br />
                     </form>
 
-                    <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+                    <div class="complete" style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
 
                 </div>
 

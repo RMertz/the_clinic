@@ -20,22 +20,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         ?></title>
     <link rel="stylesheet" href="../css/global.css" type="text/css">
     <link rel="stylesheet" href="../css/indexHome.css" type="text/css">
+    <link rel="icon" type="image/png" href="https://esof423.cs.montana.edu/group1/the_clinic/webpages/images/favicon.ico">
 </head>
 
 <body>
-<?php include('../css/header.php'); ?>
-
-    <div class="navBar">
-        <a href="../welcome.php">Home</a>
-        <a href="../patientList.php">Your Patients</a>
-        <a href=<?php echo "../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
-        <a href=<?php echo "depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
-        <a href=<?php echo "depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
-        <a href=<?php echo "../bipolar/bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
-        <a href=<?php echo "../bipolar/bipolarMDQ.php?id=".$_GET['id'];?>>MDQ</a>
-        <a href=<?php echo "../medication/medicationHome.php?id=".$_GET['id'];?>>Medication</a>
-        <a id="logoutButton" href = "../php/logout.php?type=0">Sign Out</a>
-    </div>
+<?php include('../css/header.php');
+include "../css/depNav.php";?>
 	
 <div class="content">
     <div class="whiteBack">
@@ -56,9 +46,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <h3>
                 <a href=<?php echo "depNR3.php?id=".$_GET['id'];?>>Next Step</a>
             </h3>
-            <p>
-                Stub: update database for step we are on
-            </p>
         </div>
         <div class="redBackCol">
             <h2 >
@@ -76,9 +63,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <h3>
                 <a href=<?php echo "depPR3.php?id=".$_GET['id'];?>>Next Step</a>
             </h3>
-            <p>
-                Stub: update database for step we are on
-            </p>
         </div>
         <div class="redBackCol">
             <h2 >

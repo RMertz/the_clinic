@@ -35,21 +35,12 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
         ?></title>
     <link rel="stylesheet" href="../css/global.css" type="text/css">
     <link rel="stylesheet" href="../css/indexHome.css" type="text/css">
+    <link rel="icon" type="image/png" href="https://esof423.cs.montana.edu/group1/the_clinic/webpages/images/favicon.ico">
 </head>
 
 <body>
-<?php include('../css/header.php'); ?>
-
-<div class="navBar">
-    <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="../welcome.php">Home</a>
-    <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="../patientList.php">Your Patients</a>
-    <a class="<?= ($activePage == 'patientHome') ? 'active':''; ?>" href=<?php echo "../patientHome.php?id=".$_GET['id'];?>>Patient Home</a>
-    <a class="<?= ($activePage == 'depHome') ? 'active':''; ?>"href= <?php echo "../dep/depHome.php?id=".$_GET['id'];?>>Depression Treatment</a>
-    <a class="<?= ($activePage == 'depDiag') ? 'active':''; ?>"href= <?php echo "../dep/depDiag.php?id=".$_GET['id'];?>>Depression PHQ</a>
-    <a class="<?= ($activePage == 'bipolarHome') ? 'active':''; ?>" href=<?php echo "bipolarHome.php?id=".$_GET['id'];?>>Bipolar Treatment</a>
-    <a class="<?= ($activePage == 'bipolarMDQ') ? 'active':''; ?>" href=<?php echo "bipolarMDQ.php?id=".$_GET['id'];?>>Bipolar MDQ</a>
-    <a ID="logoutButton"href = "../php/logout.php">Sign Out</a>
-</div>
+<?php include('../css/header.php');
+include "../css/bipolarNav.php";?>
 
 <div class="content" style="text-align: center">
     <h2>

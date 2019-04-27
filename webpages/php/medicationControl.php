@@ -6,19 +6,38 @@ class medicationControl
 
     }
 
+	public function checkConflict($patID,$medID){
+        include 'Config.php';
+		$set = $db->prepare("SELECT `MedicationID` FROM `Prescription` WHERE `PatientID` = :patID");
+		$set->bindParam(":patID", $patID);
+		$set->execute();
+		$medConflict = $db->prepare("SELECT `MedicationID1`, `MedicationID2` From `Conflicting Medication` WHERE `MedicationID1` = :med_ID OR `MedicationID2` = :med_ID");
+		$medConflict->bindParam(":med_ID", $medID);
+		$medConflict->execute();
+		$conflict = array($medConflict->fetch());
+		$numConflicts = 0;
+		foreach ($set as $val){
+			foreach ($conflict as $con){
+				if ($val['MedicationID']==$con['MedicationID1']||$val['MedicationID']==$con['MedicationID2']){
+						$numConflicts = $numConflicts+1;
+				}
+			}
+		}
+		return $numConflicts;
+    }
+
     public function setDose($patID,$medID,$dose){
         include'Config.php';
-        $update = "UPDATE `PatientInformation` SET `MedicationID` =?, `CurrentDose` =? WHERE `PatientID` = ?";
-        $set = $db->prepare($update);
+        $update = $db->prepare("INSERT INTO `Prescription` (`MedicationID`, `CurrentDosage`, `PatientID`) VALUES ('$medID', '$dose', '$patID')");
         try {
-            $set->execute([$medID, $dose,$patID]);
+			$update->execute();
+			return "Success!";
         }catch (PDOException $po) {
             return "Error: Dose not set";
         }
-        return "Success!";
     }
 
-    public function createMedication($name,$minDose,$maxDose){
+    public function createMedication($name,$minDose,$maxDose,$conflicts){
         include'Config.php';
         $check = $db->prepare("SELECT MedicationID FROM `MedicationInformation` WHERE `Name` = :medname and MinimumDosage = :mindose and MaximumDosage = :maxdose");
         $check->bindParam(":medname", $name);
@@ -28,12 +47,28 @@ class medicationControl
         if ($check->rowCount() != 0) {
             return "Sorry that combination already exists";
         } else {
-            $med = $db->prepare("INSERT INTO `MedicationInformation` (`MedicationID`, `MinimumDosage`, `MaximumDosage`, `Diagnosis`, `Conflicting Medication`, `Name`) VALUES (NULL, :mindose, :maxdose, NULL, NULL, :medname)");
+            $med = $db->prepare("INSERT INTO `MedicationInformation` (`MinimumDosage`, `MaximumDosage`, `Name`) VALUES (:mindose, :maxdose, :medname)");
             $med->bindParam(":medname", $name);
             $med->bindParam(":mindose", $minDose);
             $med->bindParam(":maxdose", $maxDose);
+			$newID = 0;
             try{
                 $med->execute();
+				if (sizeof($conflicts)>0){
+					$allMed = $db->prepare("SELECT * FROM `MedicationInformation`");
+					$allMed->execute();
+					foreach($allMed as $val){
+						if ($val['Name'] == $name){
+							$newID = $val['MedicationID'];
+						}
+					}
+					foreach ($conflicts as $var){
+						$newConflicts = $db->prepare("INSERT INTO `Conflicting Medication` (`MedicationID1`, `MedicationID2`) VALUES (:conflict, :newID)");
+						$newConflicts->bindParam(":conflict", $var);
+						$newConflicts->bindParam(":newID", $newID);
+						$newConflicts->execute();
+					}
+				}
             }catch (PDOException $po){
                 return 'Error: Medication not added';
             }

@@ -1,13 +1,21 @@
 <?php
+
+
 $error="";
 include_once("../php/session.php");
 include_once ("../php/createAlgo.php");
-include_once ("../php/jsonQuery.php");
+if(include_once ("../php/jsonQuery.php")){echo("<script> console.log('Here 10') </script>");}else{echo("<script> console.log('Here 9') </script>");}
+echo("<script> console.log('Here 0') </script>");
+$maker = new createAlgo();
+$query = new jsonQuery();
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $maker = new createAlgo();
-    $query = new jsonQuery();
+    echo("<script> console.log('Here 1.1') </script>");
+
+    echo("<script> console.log('Here 1') </script>");
     if($_POST["firstSteps"] == 1){
+        echo("<script> console.log('Here 2') </script>");
         $algo = $maker->createArr1($_POST['directions'],$_POST['re-eval'],$_POST['step1']);
+        echo("<script> console.log('Here 3') </script>");
         $error = $query->setJson(json_encode($algo),$_POST['name']);
     }else if($_POST["firstSteps"] == 2){
         $algo = $maker->createArr2($_POST['directions'],$_POST['re-eval'],$_POST['step1'],$_POST['step2']);
@@ -16,6 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $algo = $maker->createArr3($_POST['directions'],$_POST['re-eval'],$_POST['step1'],$_POST['step2'],$_POST['step3']);
         $error = $query->setJson(json_encode($algo),$_POST['name']);
     }
+    echo("<script> console.log('Here 4') </script>");
     if($error == "Sorry that name already exists"){
 
     }else {
@@ -36,23 +45,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <!-- Bootstrap css -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.js"></script>
+    <link rel="icon" type="image/png" href="https://esof423.cs.montana.edu/group1/the_clinic/webpages/images/favicon.ico">
 </head>
 
-<link rel="icon" type="image/png" href="../images/favicon.ico">
+<!--<link rel="icon" type="image/png" href="../images/favicon.ico">-->
 
 <body>
-<?php include('../css/header.php'); ?>
+<?php include('../css/header.php');
+include "../css/welcomeNav.php" ?>
 
-<div class="navBar">
-
-    <a href="../index.html">HOME PAGE</a>
-    <a href="../profile.html">PROFILE</a>
-    <a href="../patientPage.html">PATIENTS</a>
-    <a href="../help.html">HELP</a>
-    <a id="logoutButton"  href="../Login.php">LOGIN</a>
-    <a href="../createUser.php">CREATE USER</a>
-
-</div>
 
 <div class = "content" >
 

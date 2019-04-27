@@ -18,23 +18,14 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 
     <link rel="stylesheet" href="css/global.css" type="text/css">
     <link rel="stylesheet" href="css/indexHome.css" type="text/css">
-
+    <link rel="icon" type="image/png" href="https://esof423.cs.montana.edu/group1/the_clinic/webpages/images/favicon.ico">
 </head>
 
 <link rel="icon" type="image/png" href="images/favicon.ico">
 
 <body>
-<?php include('css/header.php'); ?>
-
-
-    <div class="navBar">
-        <a class="<?= ($activePage == 'welcome') ? 'active':''; ?>" href="welcome.php">Home</a>
-        <a class="<?= ($activePage == 'patientList') ? 'active':''; ?>" href="patientList.php">Your Patients</a>
-
-        <a class="<?= ($activePage == 'createAlgo') ? 'active':''; ?>" href="createAlgo/createAlgo.php">Create an Algorithm</a>
-        <a id="logoutButton" href = "../php/logout.php">Sign Out</a>
-
-    </div>
+<?php include('css/header.php');
+include "css/welcomeNav.php" ?>
 
 		
 <div class="content">
@@ -46,9 +37,9 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 	
 		<div class="navigationBoxes">
 			<div class="navBox">
-				<a class="navBoxSm" href="profile.html">PROFILE</a>
+				<a class="navBoxSm" href="welcome.php">PROFILE</a>
 				<br><br>
-				<a href: "profile.html">
+				<a href="welcome.php">
 				<img ID="Icon" src="images/DoctorIcon.png" alt="DoctorIcon">
 				</a>
 				<br><br>
@@ -72,9 +63,9 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 			</div>
 			
 			<div class="navBox">
-				<a class="navBoxSm" href="help.html">HELP</a>
+				<a class="navBoxSm" href="help.php">HELP</a>
 				<br><br>
-				<a href: "help.html">
+				<a href="help.php">
 				<img ID="Icon" src="images/HelpIcon.png" alt="HelpIcon">
 				</a>
 				<br><br>
