@@ -46,9 +46,6 @@ include "../css/depNav.php";?>
             <h3>
                 <a href=<?php echo "depNR3.php?id=".$_GET['id'];?>>Next Step</a>
             </h3>
-            <p>
-                Stub: update database for step we are on
-            </p>
         </div>
         <div class="redBackCol">
             <h2 >
@@ -66,9 +63,6 @@ include "../css/depNav.php";?>
             <h3>
                 <a href=<?php echo "depPR3.php?id=".$_GET['id'];?>>Next Step</a>
             </h3>
-            <p>
-                Stub: update database for step we are on
-            </p>
         </div>
         <div class="redBackCol">
             <h2 >
