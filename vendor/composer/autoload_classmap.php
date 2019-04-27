@@ -7,6 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Email' => $baseDir . '/webpages/Email.php',
+    'MDQLogic' => $baseDir . '/webpages/php/MDQLogic.php',
+    'MDQResults' => $baseDir . '/webpages/php/MDQResults.php',
     'PHPUnit\\DbUnit\\AbstractTester' => $vendorDir . '/phpunit/dbunit/src/AbstractTester.php',
     'PHPUnit\\DbUnit\\Constraint\\DataSetIsEqual' => $vendorDir . '/phpunit/dbunit/src/Constraint/DataSetIsEqual.php',
     'PHPUnit\\DbUnit\\Constraint\\TableIsEqual' => $vendorDir . '/phpunit/dbunit/src/Constraint/TableIsEqual.php',
@@ -632,9 +634,16 @@ return array(
     'TheSeer\\Tokenizer\\XMLSerializer' => $vendorDir . '/theseer/tokenizer/src/XMLSerializer.php',
     'addDiagnosis' => $baseDir . '/webpages/php/addDiagnosis.php',
     'bipolarTreatmentHandler' => $baseDir . '/webpages/php/bipolarTreatmentHandler.php',
+    'createAlgo' => $baseDir . '/webpages/php/createAlgo.php',
+    'createSteps' => $baseDir . '/webpages/php/createSteps.php',
     'createUser' => $baseDir . '/webpages/php/createUser.php',
     'depDiagLogic' => $baseDir . '/webpages/php/depDiagLogic.php',
+    'getAlgoName' => $baseDir . '/webpages/php/getAlgoName.php',
+    'jsonQuery' => $baseDir . '/webpages/php/jsonQuery.php',
     'medicationControl' => $baseDir . '/webpages/php/medicationControl.php',
+    'modifyJson' => $baseDir . '/webpages/php/modifyJson.php',
     'pHQAnalysis' => $baseDir . '/webpages/php/pHQAnalysis.php',
     'scheduleVisit' => $baseDir . '/webpages/php/scheduleVisit.php',
+    'showAlgo' => $baseDir . '/webpages/php/showAlgo.php',
+    'updateTreatmentPosition' => $baseDir . '/webpages/php/updateTreatmentPosition.php',
 );

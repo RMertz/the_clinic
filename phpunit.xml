@@ -12,4 +12,12 @@
 			<directory>/home/rostik/Repository/the_clinic/tests</directory>
 		</testsuite>
 	</testsuites>
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<directory suffix=".php">tests/stubs</directory>
+		</whitelist>
+	</filter>
+	<logging>
+		<log type="coverage-clover" target="./clover.xml"/>
+	</logging>
 </phpunit>

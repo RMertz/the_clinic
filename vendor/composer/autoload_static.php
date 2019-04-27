@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit47b6f9a4e3f2cf578051ec84ec104e96
 {
     public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
     );
@@ -22,8 +23,18 @@ class ComposerStaticInit47b6f9a4e3f2cf578051ec84ec104e96
         ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Symfony\\Contracts\\' => 18,
             'Symfony\\Component\\Yaml\\' => 23,
+            'Symfony\\Component\\Process\\' => 26,
+            'Symfony\\Component\\Finder\\' => 25,
+            'Symfony\\Component\\EventDispatcher\\' => 34,
+            'Symfony\\Component\\Console\\' => 26,
+        ),
+        'L' => 
+        array (
+            'LeanPHP\\PhpSpec\\CodeCoverage\\' => 29,
         ),
         'D' => 
         array (
@@ -43,13 +54,41 @@ class ComposerStaticInit47b6f9a4e3f2cf578051ec84ec104e96
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Symfony\\Contracts\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/contracts',
+        ),
         'Symfony\\Component\\Yaml\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
+        ),
+        'Symfony\\Component\\Process\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/process',
+        ),
+        'Symfony\\Component\\Finder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/finder',
+        ),
+        'Symfony\\Component\\EventDispatcher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
+        ),
+        'Symfony\\Component\\Console\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'LeanPHP\\PhpSpec\\CodeCoverage\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/leanphp/phpspec-code-coverage/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -68,11 +107,24 @@ class ComposerStaticInit47b6f9a4e3f2cf578051ec84ec104e96
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
             ),
+            'PhpSpec' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpspec/phpspec/src',
+            ),
+        ),
+        'D' => 
+        array (
+            'Diff' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpspec/php-diff/lib',
+            ),
         ),
     );
 
     public static $classMap = array (
         'Email' => __DIR__ . '/../..' . '/webpages/Email.php',
+        'MDQLogic' => __DIR__ . '/../..' . '/webpages/php/MDQLogic.php',
+        'MDQResults' => __DIR__ . '/../..' . '/webpages/php/MDQResults.php',
         'PHPUnit\\DbUnit\\AbstractTester' => __DIR__ . '/..' . '/phpunit/dbunit/src/AbstractTester.php',
         'PHPUnit\\DbUnit\\Constraint\\DataSetIsEqual' => __DIR__ . '/..' . '/phpunit/dbunit/src/Constraint/DataSetIsEqual.php',
         'PHPUnit\\DbUnit\\Constraint\\TableIsEqual' => __DIR__ . '/..' . '/phpunit/dbunit/src/Constraint/TableIsEqual.php',
@@ -698,11 +750,18 @@ class ComposerStaticInit47b6f9a4e3f2cf578051ec84ec104e96
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
         'addDiagnosis' => __DIR__ . '/../..' . '/webpages/php/addDiagnosis.php',
         'bipolarTreatmentHandler' => __DIR__ . '/../..' . '/webpages/php/bipolarTreatmentHandler.php',
+        'createAlgo' => __DIR__ . '/../..' . '/webpages/php/createAlgo.php',
+        'createSteps' => __DIR__ . '/../..' . '/webpages/php/createSteps.php',
         'createUser' => __DIR__ . '/../..' . '/webpages/php/createUser.php',
         'depDiagLogic' => __DIR__ . '/../..' . '/webpages/php/depDiagLogic.php',
+        'getAlgoName' => __DIR__ . '/../..' . '/webpages/php/getAlgoName.php',
+        'jsonQuery' => __DIR__ . '/../..' . '/webpages/php/jsonQuery.php',
         'medicationControl' => __DIR__ . '/../..' . '/webpages/php/medicationControl.php',
+        'modifyJson' => __DIR__ . '/../..' . '/webpages/php/modifyJson.php',
         'pHQAnalysis' => __DIR__ . '/../..' . '/webpages/php/pHQAnalysis.php',
         'scheduleVisit' => __DIR__ . '/../..' . '/webpages/php/scheduleVisit.php',
+        'showAlgo' => __DIR__ . '/../..' . '/webpages/php/showAlgo.php',
+        'updateTreatmentPosition' => __DIR__ . '/../..' . '/webpages/php/updateTreatmentPosition.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
