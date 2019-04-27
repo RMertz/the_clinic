@@ -79,14 +79,10 @@ include "../css/depNav.php";?>
 		<div class="divBar">
 	</div>
     <div class="row">
-        <div class="column2">
-            <?php include '../scheduleApp.php';?>
-        </div>
-        <div class="column2">
-            <div class="whiteBackCol">
-                <h3>Prescribe Patient a Medication</h3>
-                <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
-            </div>
+        <?php include '../scheduleApp.php';?>
+        <div class="whiteBackCol">
+            <h3>Prescribe Patient a Medication</h3>
+            <a href=<?php echo "../medication/prescribe.php?id=".$_GET['id'];?>>Prescription Page</a>
         </div>
     </div>
     <h3>
