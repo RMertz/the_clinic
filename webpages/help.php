@@ -17,17 +17,19 @@ include "css/basicNav.php" ?>
     <h2>
         Help And Documentation
     </h2>
-    <div class="row">
-        <a href="https://github.com/RMertz/the_clinic/issues">Our Github Repo</a>
-    </div>
-    <div class="row">
-        <a href="https://drive.google.com/file/d/1Zb1etBuM7Lw8xXzmmboCupWKsDgDypPj/view?usp=sharing">User Documentation</a>
-    </div>
-    <div class="row">
-        <a href="https://drive.google.com/file/d/1Oz6K2knvEcouEZFdY3m5G5k5feDI4lZ8/view?usp=sharing">Developer Documentation</a>
-    </div>
-    <div class="row">
-        <p>Our Bug tracking system is the issues tab on github. Feel free to submit one there or email antonmertz@gmail.com</p>
+    <div style="align-content: center">
+        <div class="row">
+            <a href="https://github.com/RMertz/the_clinic/issues">Our Github Repo</a>
+        </div>
+        <div class="row">
+            <a href="https://drive.google.com/file/d/1Zb1etBuM7Lw8xXzmmboCupWKsDgDypPj/view?usp=sharing">User Documentation</a>
+        </div>
+        <div class="row">
+            <a href="https://drive.google.com/file/d/1Oz6K2knvEcouEZFdY3m5G5k5feDI4lZ8/view?usp=sharing">Developer Documentation</a>
+        </div>
+        <div class="row">
+            <p>Our Bug tracking system is the issues tab on github. Feel free to submit one there or email antonmertz@gmail.com</p>
+        </div>
     </div>
 </div>
 
